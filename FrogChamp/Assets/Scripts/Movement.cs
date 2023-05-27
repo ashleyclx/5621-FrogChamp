@@ -6,9 +6,11 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private int speed;
     [SerializeField] private int jumpSpeed;
+    [SerializeField] private float maxHoldDuration;
     [SerializeField] private LayerMask platformLayer;
 
     private float horizontalInput;
+    private float holdDuration;
     private Rigidbody2D body;
     private BoxCollider2D boxCollider;
     
@@ -35,7 +37,15 @@ public class Movement : MonoBehaviour
         else if (horizontalInput < -0.01f && IsGrounded())
             transform.localScale = new Vector3(-1, 1, 1);
 
-        // Player can only jump when grounded
+        // Press down space to start charging jump
+        if (Input.GetKeyDown(KeyCode.Space))
+            holdDuration = 0.0f;
+
+        // While space is held, charge up jump (by increasing delta time)
+        if (Input.GetKey(KeyCode.Space))
+            holdDuration += Time.deltaTime;
+
+        // Let go of space to jump. Player can only jump when grounded
         if (Input.GetKeyUp(KeyCode.Space) && IsGrounded())
             Jump();
 
@@ -47,12 +57,20 @@ public class Movement : MonoBehaviour
     // Jump in a fixed arc based on your directional input
     private void Jump()
     {
+        // calculate factor to see how charged a jump is
+        float holdFactor = holdDuration / maxHoldDuration > 0.65f ? 0.65f : holdDuration / maxHoldDuration;
+        holdFactor += 0.35f;
+        // have a minimum jump strength of 35%
+        // holdFactor = holdFactor < 0.35f ? 0.35f : holdFactor;
+
+        // if left or right is pressed, jump left or right
+        // if no directional input is pressed, jump upwards
         if (horizontalInput > 0.01f) 
-            body.velocity = new Vector2(speed, jumpSpeed);
+            body.velocity = new Vector2(speed, holdFactor * jumpSpeed);
         else if (horizontalInput < -0.01f)
-            body.velocity = new Vector2(-speed, jumpSpeed);
-        else if(horizontalInput == 0.0f) // if no directional input is pressed, jump upwards
-            body.velocity = new Vector2(0, jumpSpeed);
+            body.velocity = new Vector2(-speed, holdFactor * jumpSpeed);
+        else if(horizontalInput == 0.0f)
+            body.velocity = new Vector2(0, holdFactor * jumpSpeed);
     }
 
     // Bounce away from platform when player contacts platform from the sides
