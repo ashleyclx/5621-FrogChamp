@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private int speed;
+    [SerializeField] private int jumpSpeed;
     [SerializeField] private LayerMask platformLayer;
 
     private Rigidbody2D body;
@@ -22,7 +23,8 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
-        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+        if (IsGrounded() && !Input.GetKey(KeyCode.Space))
+            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
         // flip player model when changing directions
         if (horizontalInput > 0.01f)
@@ -30,14 +32,19 @@ public class Movement : MonoBehaviour
         else if (horizontalInput < -0.01f)
             transform.localScale = new Vector3(-1, 1, 1);
 
-        if(Input.GetKey(KeyCode.Space) && IsGrounded())
+        if(Input.GetKeyUp(KeyCode.Space) && IsGrounded())
             Jump();
     }
 
     private void Jump()
     {
-        body.velocity = new Vector2(body.velocity.x, speed);
-        
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        if (horizontalInput > 0.01f) 
+            body.velocity = new Vector2(speed, jumpSpeed);
+        else if (horizontalInput < -0.01f)
+            body.velocity = new Vector2(-speed, jumpSpeed);
+        else if(horizontalInput == 0.0f)
+            body.velocity = new Vector2(0, jumpSpeed);
     }
     private bool IsGrounded()
     {
