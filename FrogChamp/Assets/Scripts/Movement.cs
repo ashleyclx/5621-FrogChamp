@@ -27,9 +27,9 @@ public class Movement : MonoBehaviour
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
         // flip player model when changing directions
-        if (horizontalInput > 0.01f)
+        if (horizontalInput > 0.01f && IsGrounded())
             transform.localScale = Vector3.one;
-        else if (horizontalInput < -0.01f)
+        else if (horizontalInput < -0.01f && IsGrounded())
             transform.localScale = new Vector3(-1, 1, 1);
 
         if(Input.GetKeyUp(KeyCode.Space) && IsGrounded())
