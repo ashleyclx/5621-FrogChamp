@@ -124,6 +124,7 @@ NavMeshSettings:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &52047390
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +193,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!212 &52047393
 SpriteRenderer:
-  m_ObjectHideFlags: 0edgeColliderArray[1]
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -392,6 +393,8 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
 >>>>>>> parent of 578bd80 (Created proof of concept level)
+=======
+>>>>>>> parent of 578bd80 (Created proof of concept level)
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,7 +533,11 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Offset: {x: -0.012518883, y: -0.00824827}
+=======
+  m_Offset: {x: 0.011609197, y: -0.0058045685}
+>>>>>>> parent of 578bd80 (Created proof of concept level)
 =======
   m_Offset: {x: 0.011609197, y: -0.0058045685}
 >>>>>>> parent of 578bd80 (Created proof of concept level)
@@ -545,7 +552,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Size: {x: 1.4058781, y: 0.6739105}
+=======
+  m_Size: {x: 1.383908, y: 0.6865522}
+>>>>>>> parent of 578bd80 (Created proof of concept level)
 =======
   m_Size: {x: 1.383908, y: 0.6865522}
 >>>>>>> parent of 578bd80 (Created proof of concept level)
@@ -632,7 +643,11 @@ Transform:
   m_GameObject: {fileID: 644951370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalPosition: {x: 26.69, y: 0.92, z: 0}
+=======
+  m_LocalPosition: {x: -1.86, y: 0.01, z: 0}
+>>>>>>> parent of 578bd80 (Created proof of concept level)
 =======
   m_LocalPosition: {x: -1.86, y: 0.01, z: 0}
 >>>>>>> parent of 578bd80 (Created proof of concept level)
@@ -642,6 +657,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!68 &644951376
 EdgeCollider2D:
@@ -1795,6 +1811,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> parent of 578bd80 (Created proof of concept level)
 =======
 >>>>>>> parent of 578bd80 (Created proof of concept level)
 --- !u!1 &2117364696

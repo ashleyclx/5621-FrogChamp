@@ -8,12 +8,14 @@ public class Movement : MonoBehaviour
     [SerializeField] private int jumpSpeed;
     [SerializeField] private float maxHoldDuration;
     [SerializeField] private LayerMask platformLayer;
+    [SerializeField] private PhysicsMaterial2D bounceMaterial;
+    [SerializeField] private PhysicsMaterial2D noBounceMaterial;
 
     private float horizontalInput;
     private float holdDuration;
     private Rigidbody2D body;
     // private BoxCollider2D boxCollider;
-    private EdgeCollider2D[] edgeColliderArray;
+    private CapsuleCollider2D capsuleCollider;
     
 
     // Awake is called every time the script is loaded
@@ -21,7 +23,7 @@ public class Movement : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         // boxCollider = GetComponent<BoxCollider2D>();
-        edgeColliderArray = GetComponentsInChildren<EdgeCollider2D>();
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
@@ -41,7 +43,11 @@ public class Movement : MonoBehaviour
 
         // Press down space to start charging jump
         if (Input.GetKeyDown(KeyCode.Space))
+        {
             holdDuration = 0.0f;
+            body.velocity = new Vector2(0.0f, body.velocity.y);
+            body.sharedMaterial = bounceMaterial;
+        }
 
         // While space is held, charge up jump (by increasing delta time)
         if (Input.GetKey(KeyCode.Space))
@@ -51,11 +57,14 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space) && IsGrounded())
             Jump();
 
-        // Player bounces back when he collides into a platform
-        if (ContactWall() && !IsGrounded())
-            Bounce();
+        if (body.velocity.y <= -1)
+            body.sharedMaterial = noBounceMaterial;
 
-        Debug.Log(IsGrounded());
+        // Player bounces back when he collides into a platform
+        /*if (ContactWall() && !IsGrounded())
+            Bounce();*/
+
+        Debug.Log(body.sharedMaterial == bounceMaterial);
     }
 
     // Jump in a fixed arc based on your directional input
@@ -86,24 +95,23 @@ public class Movement : MonoBehaviour
     // Check if player is on the platorm
     private bool IsGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(edgeColliderArray[3].bounds.center, edgeColliderArray[3].bounds.size, 0, Vector2.down, 0.1f, platformLayer);
+        Vector3 boxSize = capsuleCollider.bounds.size;
+        RaycastHit2D raycastHit = Physics2D.BoxCast(capsuleCollider.bounds.center, new Vector3(boxSize.x - 0.1f, boxSize.y, boxSize.z), 0, Vector2.down, 0.1f, platformLayer);
         return raycastHit.collider != null;
 
-        /*RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, platformLayer);
+        /*Vector3 boxSize = boxCollider.bounds.size;
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, new Vector3(boxSize.x - 0.1f, boxSize.y, boxSize.z), 0, Vector2.down, 0.1f, platformLayer);
         return raycastHit.collider != null;*/
     }
 
     // Check if player contacts platform from the sides
     private bool ContactWall()
     {
-        foreach (EdgeCollider2D edgeCollider in edgeColliderArray)
-        {
-            RaycastHit2D raycastHitLeft = Physics2D.BoxCast(edgeCollider.bounds.center, edgeCollider.bounds.size, 0, Vector2.left, 0.1f, platformLayer);
-            RaycastHit2D raycastHitRight = Physics2D.BoxCast(edgeCollider.bounds.center, edgeCollider.bounds.size, 0, Vector2.right, 0.1f, platformLayer);
-            if (raycastHitLeft.collider != null || raycastHitRight.collider != null)
-                return true;
-        }
-        return false;
+        Vector3 boxSize = capsuleCollider.bounds.size;
+        boxSize = new Vector3(boxSize.x, boxSize.y - 0.1f, boxSize.z);
+        RaycastHit2D raycastHitLeft = Physics2D.BoxCast(capsuleCollider.bounds.center, boxSize, 0, Vector2.left, 0.1f, platformLayer);
+        RaycastHit2D raycastHitRight = Physics2D.BoxCast(capsuleCollider.bounds.center, boxSize, 0, Vector2.right, 0.1f, platformLayer);
+        return raycastHitLeft.collider != null || raycastHitRight.collider != null;
 
         /*RaycastHit2D raycastHitLeft = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.left, 0.1f, platformLayer);
         RaycastHit2D raycastHitRight = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.right, 0.1f, platformLayer);
