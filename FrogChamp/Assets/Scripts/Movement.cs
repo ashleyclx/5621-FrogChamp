@@ -42,7 +42,7 @@ public class Movement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
 
         // Press down space to start charging jump
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             holdDuration = 0.0f;
             body.velocity = new Vector2(0.0f, body.velocity.y);
@@ -50,12 +50,16 @@ public class Movement : MonoBehaviour
         }
 
         // While space is held, charge up jump (by increasing delta time)
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && IsGrounded())
             holdDuration += Time.deltaTime;
 
         // Let go of space to jump. Player can only jump when grounded
         if (Input.GetKeyUp(KeyCode.Space) && IsGrounded())
+        {
             Jump();
+            holdDuration = 0.0f;
+        }
+            
 
         if (body.velocity.y <= -1)
             body.sharedMaterial = noBounceMaterial;
