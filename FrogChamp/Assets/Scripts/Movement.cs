@@ -68,7 +68,6 @@ public class Movement : MonoBehaviour
         /*if (ContactWall() && !IsGrounded())
             Bounce();*/
 
-        Debug.Log(body.sharedMaterial == bounceMaterial);
     }
 
     // Jump in a fixed arc based on your directional input
