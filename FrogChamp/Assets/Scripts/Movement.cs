@@ -32,6 +32,8 @@ public class Movement : MonoBehaviour
     // private BoxCollider2D boxCollider;
     private CapsuleCollider2D capsuleCollider;
 
+    private Animator animator;
+
     private void Start()
     {
         grappleTongue.enabled = false;
@@ -45,6 +47,7 @@ public class Movement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         // boxCollider = GetComponent<BoxCollider2D>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -131,6 +134,12 @@ public class Movement : MonoBehaviour
         {
             Vector2 mousePos = m_camera.ScreenToWorldPoint(Input.mousePosition);
         }
+
+        // Set animator parameters
+        if (IsGrounded() && holdDuration == 0.0f)
+            animator.SetBool("walk", horizontalInput != 0);
+        animator.SetBool("grounded", IsGrounded());
+        animator.SetBool("charging", holdDuration > 0.0f);
 
     }
 
