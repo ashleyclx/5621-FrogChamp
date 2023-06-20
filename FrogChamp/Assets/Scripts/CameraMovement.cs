@@ -6,7 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
 
-    private float currX;
+    private float currX = 3.91f;
     private Vector3 velocity = Vector3.zero;
 
     // Update is called once per frame
