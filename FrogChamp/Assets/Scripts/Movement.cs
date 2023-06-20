@@ -119,7 +119,7 @@ public class Movement : MonoBehaviour
         {
             if (grappleTongue.enabled)
             {
-                body.velocity = new Vector2(GetPlayerDirection() * 10.0f, body.velocity.y);
+                body.velocity = new Vector2(GetPlayerDirection() * speed, body.velocity.y);
                 grappleTongue.enabled = false;
                 m_springJoint2D.enabled = false;
                 body.gravityScale = 2.5F;
