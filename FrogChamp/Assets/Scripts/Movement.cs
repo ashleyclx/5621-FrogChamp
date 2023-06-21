@@ -53,6 +53,10 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        // Setting terminal velocity of player
+        if (body.velocity.y < -20)
+            body.velocity = new Vector2(body.velocity.x, -20);
+
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
         // When space is held, player should not be able to move (for charging jump strength)
@@ -125,7 +129,7 @@ public class Movement : MonoBehaviour
                 body.velocity = new Vector2(GetPlayerDirection() * speed, body.velocity.y);
                 grappleTongue.enabled = false;
                 m_springJoint2D.enabled = false;
-                body.gravityScale = 2.5F;
+                body.gravityScale = 4.0F;
             }
         }
 
