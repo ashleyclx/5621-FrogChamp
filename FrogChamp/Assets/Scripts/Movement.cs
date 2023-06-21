@@ -21,6 +21,7 @@ public class Movement : MonoBehaviour
     [Header("Jump references:")]
     [SerializeField] private int speed;
     [SerializeField] private int jumpSpeed;
+    [SerializeField] private float horizontalJumpSpeed;
     [SerializeField] private float maxHoldDuration;
     [SerializeField] private LayerMask platformLayer;
     [SerializeField] private PhysicsMaterial2D bounceMaterial;
@@ -126,7 +127,7 @@ public class Movement : MonoBehaviour
         {
             if (grappleTongue.enabled)
             {
-                body.velocity = new Vector2(GetPlayerDirection() * speed, body.velocity.y);
+                body.velocity = new Vector2(GetPlayerDirection() * horizontalJumpSpeed, body.velocity.y);
                 grappleTongue.enabled = false;
                 m_springJoint2D.enabled = false;
                 body.gravityScale = 4.0F;
