@@ -55,8 +55,8 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         // Setting terminal velocity of player
-        if (body.velocity.y < -20)
-            body.velocity = new Vector2(body.velocity.x, -20);
+        if (body.velocity.y < -18)
+            body.velocity = new Vector2(body.velocity.x, -18);
 
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
