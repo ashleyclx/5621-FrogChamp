@@ -2718,7 +2718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevScreen: {fileID: 2086089456}
-  nextScreen: {fileID: 1575686116}
+  nextScreen: {fileID: 2086089456}
   cam: {fileID: 86944699}
 --- !u!61 &439608633
 BoxCollider2D:
@@ -2820,8 +2820,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2086089456}
   - {fileID: 1575686116}
+  - {fileID: 2086089456}
   m_Father: {fileID: 1997967145}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3049,7 +3049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevScreen: {fileID: 1575686116}
-  nextScreen: {fileID: 0}
+  nextScreen: {fileID: 2086089456}
   cam: {fileID: 86944699}
 --- !u!61 &846745656
 BoxCollider2D:
@@ -3087,7 +3087,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1575686116}
   m_Layer: 0
-  m_Name: Screen 2
+  m_Name: Screen 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3107,7 +3107,7 @@ Transform:
   m_Children:
   - {fileID: 846745653}
   m_Father: {fileID: 690267431}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1669500388
 GameObject:
@@ -3197,7 +3197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2086089456}
   m_Layer: 0
-  m_Name: Screen 1
+  m_Name: Screen 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3217,5 +3217,5 @@ Transform:
   m_Children:
   - {fileID: 439608634}
   m_Father: {fileID: 690267431}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
