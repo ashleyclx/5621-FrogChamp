@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -127,7 +127,4270 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Layer_0004_Lights_0
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 329
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 401cd0bd5bb32da43b0a1f5ea775a7f2
+      internalID: -1352318500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_1
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 329
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f00b4c610a6a234f9b90734ec3451bb
+      internalID: 1021692801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_2
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 329
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e993d705985ab947ae790d083077df5
+      internalID: -1377990850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_3
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 329
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 571b0637b2856da4bbca3afe0e205f6d
+      internalID: -903475595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_4
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 329
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66d1d01e2ebc24e458463b868f47ed55
+      internalID: 564402301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 329
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b9644b0927aaba43ade206113da1a0a
+      internalID: -780060350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_6
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 329
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 543c35580b61bee48a3ed4595996cfb8
+      internalID: -1879440700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_7
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 329
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95705e58cdbadc94bab5dfce5b8b8dba
+      internalID: -111445789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_8
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 329
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48efb28d02ff4a43bbef691dabe6979
+      internalID: 1993883997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 329
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e0e262a2aeb1f4f8ad4f70d580a5d5
+      internalID: 2058185511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_10
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 329
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97e4ac92ad7a54a4cad913490a03cf5e
+      internalID: 517388019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_11
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 329
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b75c4f5ee91d59f4988f52ac42d67530
+      internalID: 1778062960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 313
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 288ea8c997c08ea4f929092860984ba3
+      internalID: 2102375358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_13
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 313
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df4162a757e910649976d618a1f97702
+      internalID: 1217113083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_14
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 313
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4aa1b6fcb765dc45b51c3e20023bf1a
+      internalID: -103675826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_15
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 313
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a33edbac15b6def4b972cd625aff6a0b
+      internalID: -1314900727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_16
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 313
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c770176f8a216c2498462ee37f289ee6
+      internalID: -25119730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_17
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 313
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1821db746ec9b0458ee5409452573e8
+      internalID: 1596822571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_18
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 313
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f2edca0e1f3fb34fb84e6d2930cd57e
+      internalID: -1724947092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_19
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 313
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e83a97cc4080284b9d4810d624df075
+      internalID: 1144662945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_20
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 313
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e532b4258f324194e905ce6f2ff9a870
+      internalID: -604848214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_21
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 313
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6435369f0153a724a880b26045327f14
+      internalID: 936352584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_22
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 313
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 024d4cccf4fa30b42a3e4edba734286e
+      internalID: 238583799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_23
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 313
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea86127e527cd1e4d84a0420eebc246c
+      internalID: 336908924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_24
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 313
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8763442b2d2b4794d9e0fd62c5f5ff4d
+      internalID: 1132762511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_25
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 313
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a9f98abfaab0147be7cebb348a22fd
+      internalID: -1375078974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_26
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d717e446d55f17843bb9c2e848d9593c
+      internalID: 1579013983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_27
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38ffc11ed9448864f81766c28a5230af
+      internalID: 798812913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_28
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e31af7ebd297ff24c95f423de02a18ff
+      internalID: -412859911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_29
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5c17af75e2dff54294b9b0f4cf096cd
+      internalID: -2143749512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_30
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71286032a0a9ab34aa84c959eeb26a87
+      internalID: -687260363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_31
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b84d02dec83f6945af21733c67c35cd
+      internalID: 229133132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_32
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f4bc3f4e24c35945b83ef8d9dee8a76
+      internalID: -103063722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_33
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c8ce3b78247b394c90c840a8341eb5b
+      internalID: 800357874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_34
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66302dcf12a4b18428d8c5d62ea15463
+      internalID: -397636433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_35
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c6fb3bcb629b4342b96b5e9511e2d28
+      internalID: -2028909716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_36
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e1b7f84bd1a39d42857f8402a20d37e
+      internalID: 1734806593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_37
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a5712f46831a474f982264867863f31
+      internalID: 1912020030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_38
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9fef4c5cd3112346ad8258561a2f1f3
+      internalID: 840612146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_39
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67594d39d5a83734fa59b8ac3277f936
+      internalID: -248732053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_40
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 281
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98fcad6950d4db84caa2c47f0630c88b
+      internalID: 691339020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_41
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 281
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1d1abc88a660b045817c6fd41a4f299
+      internalID: 1732250921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_42
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 281
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc376d94baa2b9f43a25dd0b2db55947
+      internalID: 115479543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_43
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 281
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef70a8cfacd28134498e0e745e76e99d
+      internalID: -1936030099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_44
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 281
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc5e3c008ab49264297c6f396f65f360
+      internalID: -1040888923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_45
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 281
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21a5518e977a8db4ba4cc7812eb6e208
+      internalID: 87838798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_46
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 281
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538a003e761a25e43b4bf905885f1357
+      internalID: 1245604353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_47
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 281
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5b5ef361f320f74f9d57dce7ea5c8f0
+      internalID: 1731074566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_48
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 281
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1affe0856e37a5f4d966c666f3ad6017
+      internalID: 1603594389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_49
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 281
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726b658c56543034cb68a0048e60a991
+      internalID: -1336405478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_50
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 281
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c13ce564ae6f0534d847fd1c27e15300
+      internalID: -1083208555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_51
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 281
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2103698ad3b59d641b4dc93f3ed5dd19
+      internalID: 2095454961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_52
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 281
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ec75c0c6c87aad44a4dfbf3c26ea762
+      internalID: -1677664402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_53
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 281
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c18e3fffb109544ba3f7cd66208466
+      internalID: -1494571206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_54
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 265
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849a8d77b0a53a34e880630039d2cf43
+      internalID: -398778714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_55
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 265
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e5f251c588de74795d513712f5b524
+      internalID: 535094077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_56
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 265
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afdd4384d917c4049a38ddbad5f524a8
+      internalID: -738352225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_57
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 265
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83416dcd09161dc46b4e77e3bafdf312
+      internalID: -1789890771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_58
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 265
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55342f24381e8d748abdc988adf7acce
+      internalID: 1030972736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_59
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 265
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 952e6afde7b58b24aaabf238c9d7148f
+      internalID: -999673331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_60
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 265
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac8f37e0a9ea500408a5211172071b88
+      internalID: -1971132097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_61
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 265
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87633de6bd0cf624e83ff1522ec0691d
+      internalID: 1298781879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_62
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 265
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 235d325fe27050940ac981a6ad2d082b
+      internalID: -1203920962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_63
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 265
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 182f1b90beddc5540bdd3387e7b78968
+      internalID: -2102600712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_64
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 265
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 990b26cb223f7fa45937ce3202b454cc
+      internalID: -855220618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_65
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 265
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b0c43126b7138247a83a226782acef7
+      internalID: -1124930008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_66
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 265
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45c1f72b0216104eba7b5e3b30f7038
+      internalID: 1339893556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_67
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 265
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e03071f68c0551343b0ea94fa262dc9d
+      internalID: 34323323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_68
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 249
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34431755e59589e45ac6f40fec34506e
+      internalID: 1783657614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_69
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 249
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0884c9c6fb370bf41b51da080f429702
+      internalID: -1940413718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_70
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 249
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5f69a485aae4c4469290aebb7abf863
+      internalID: -1130710746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_71
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 249
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd38bc20580e81f4dbdbde85aa2a1980
+      internalID: 2004679341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_72
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 249
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3433aa7db0db9dc4f8ccaf71a0fb7f0c
+      internalID: -923183779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_73
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 249
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1111f4b20bf9a9d469e5b9b0f23afb6a
+      internalID: -1345739204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_74
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 249
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1f3de6b63aff0844858fdf3ce58fe4e
+      internalID: 790546871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_75
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 249
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f364ba0014d47e04d90a6d23775a541a
+      internalID: 1214517020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_76
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 249
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2158ffa49e6dfc4fb8f732020109435
+      internalID: -353187646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_77
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 249
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e33b2bc6b1e1b844929b0a41e7d59fc
+      internalID: 594539700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_78
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 249
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d90800e0df231c4195a4ff6ed09c84c
+      internalID: -1271465191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_79
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 249
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 284ba251c878d1b4582483ec07e8e0d1
+      internalID: -1753386961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_80
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 249
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33f5855c417fe234298eacbff220a8aa
+      internalID: -230758114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_81
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 249
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b41fa994aa6844c8bb310b9432720d
+      internalID: -1948129998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_82
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 233
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf590443f17988c4dad07638020e4f92
+      internalID: 972378354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_83
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 233
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a529863e5d210d04196de6a3659b6b55
+      internalID: 1114992724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_84
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 233
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2faa819f7de5904d88e3b69eac6a25f
+      internalID: 729722307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_85
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 233
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b795ad609b463a94d86d4426b1bee9cb
+      internalID: 1963864956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_86
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 233
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8e56c64883842f4abae925b5c7e0a0a
+      internalID: -1389459916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_87
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 233
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 263bd2ddcfd68154db142ad65a94cfee
+      internalID: -707806094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_88
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 233
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd8f2c4a0a793de4e854f2a4d267f756
+      internalID: 381440180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_89
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 233
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cae52038af00b4f41b0cf9971d4995cc
+      internalID: 1468987746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_90
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 233
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d7e98c4c4fd9ba4b85eaa5f08078686
+      internalID: 933248688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_91
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 233
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e5b841baf98daa478302b2c4557b66f
+      internalID: -1790354068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_92
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 233
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9a5dbc27325e94986e7e2bb8304563
+      internalID: -960148928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_93
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 233
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ac9cfedbed04e4a8577a69c494f0d6
+      internalID: -1475795786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_94
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 233
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79c544f7f5add4540b457e3167fdf307
+      internalID: 1658650162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_95
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 233
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 930ab6c0b8d76af45996c67d9d5f1a6b
+      internalID: 73277438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_96
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 217
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 301e09dae7910934a9aece394ee82d81
+      internalID: -1116801801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_97
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 217
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a69a1bcab00c424d8634c1c05fcc18f
+      internalID: 202230275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_98
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 217
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b7295c7c190b8f42932f27802324fa8
+      internalID: 914567996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_99
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 217
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e7240e57c011fb4397452165baff566
+      internalID: 759901484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_100
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 217
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7213dbf625ef2d45a45e9337fdf1786
+      internalID: 1222876819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_101
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 217
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c54e836e7c1f4274baa1e425be0a13ec
+      internalID: 1819006879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_102
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 217
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 476812a917044d848983b16fad949ae3
+      internalID: -1685309009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_103
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 217
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 196478188ecc42f409a36363eebe3f07
+      internalID: 1973148739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_104
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 217
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00897204e852eb04eb11fe67f605c2cc
+      internalID: -952297849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_105
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 217
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e62ef3f8e1d6b2b458bd1135c436dc18
+      internalID: 1068414533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_106
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 217
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0f10231999e7f94c9aa84c2f37ae413
+      internalID: -162184125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_107
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 217
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17653b66b592b9046ab2a03c05a4a28a
+      internalID: 101490104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_108
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 217
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c19a1f688ab3e46bed0f2bf3c43c45
+      internalID: 1900811691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_109
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 217
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 204ff1efd391abd479f0bca736da1cf7
+      internalID: -481354849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_110
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 201
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51ff87a82d4ee7e44be9cfd082b506cf
+      internalID: -567236705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_111
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 201
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb25e498e161a334bbe640115401e957
+      internalID: 264557595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_112
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 201
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3350a25cde077ee46a0ac141f47afd73
+      internalID: -1486216885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_113
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 201
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d3a4b3c283f78c49ba3b45c3d55489e
+      internalID: 606282076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_114
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 201
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f61829de7d04ea4bbcf10c7886c20e0
+      internalID: -842155100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_115
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 201
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfe4b730038f41b43bcffad1b3c5d5d5
+      internalID: 1674241557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_116
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 201
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cbde5caf8186ba41b12de05f8f0924b
+      internalID: -1970275783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_117
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 201
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8302144de26fc71499d2820067280ff4
+      internalID: 1407513677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_118
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 201
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dabcebebee71dd040b489644e0a2dc99
+      internalID: -2143310783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_119
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 201
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a9c99a69012c3941b8cfad0bd7682b9
+      internalID: 111586391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_120
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 201
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89c671a9c1ae79d4ea8f622707659141
+      internalID: -1225752382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_121
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 201
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6bcff6a612509e4691aaa2555902377
+      internalID: 2057170763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_122
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 201
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4557402afb6a53343abca011808af558
+      internalID: 783074020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_123
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 201
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 899dd5bcf4bdeab42ab8201d4a4c17e1
+      internalID: 219653041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_124
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 185
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51bb24fceb4fff84c8348f1e8cd859bd
+      internalID: -1174430229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_125
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 185
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53be890b3f16f134a81c5976a3a39aa8
+      internalID: -1144185046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_126
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 185
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f2643737ed64f144a20e295a0f407f7
+      internalID: -151012633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_127
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 185
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a283352c84000084594d584fb7ea5861
+      internalID: -1222953360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_128
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 185
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c3987e8c8156f4418c3a1442fcb4386
+      internalID: 354111590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_129
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 185
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e7f595b68d573428541b383b5e705d
+      internalID: -517261620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_130
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 185
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 830ae5664a13ee64e989f4e464b2c5f9
+      internalID: 523896812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_131
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 185
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77720526ec82200439debc2bc23e1c9e
+      internalID: 1223704134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_132
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 185
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72ad21c128d054b4aa56b35805b2d34f
+      internalID: 1031361171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_133
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 185
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ddd689d191a4347a5213db146846ca
+      internalID: 535450985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_134
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 185
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9139117ff8c922d4c955e6e66c220c4c
+      internalID: -1431400192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_135
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 185
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a06a54658de93f24285cecc63ada12f2
+      internalID: 1906290291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_136
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 185
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c05adffca8715744ea90be99c565da51
+      internalID: -1076161108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_137
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 185
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b8b02224f6d924a83fdd0acc6c32a0
+      internalID: 1329595268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_138
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 169
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1da26054e265871489aa51d6dd81e7af
+      internalID: -427657698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_139
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 169
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8defe2a89ee6284f81dafc8e614782e
+      internalID: -1060523413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_140
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 169
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e24739d6d05af9641a3f623d780aecd9
+      internalID: 628569633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_141
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 169
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fee1418e66ad6a4994bac464a17b6bf
+      internalID: -2034148376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_142
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 169
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9874e95a89d35946b5e8e95bfdc93c6
+      internalID: 1137562201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_143
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 169
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13a054e17bbccfb4383fa10501239d05
+      internalID: 1891322333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_144
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 169
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8af1f76bd20353049aa3688baef4a0c5
+      internalID: 1288036418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_145
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 169
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edb5fb71e78436446a04ae74cd9bca15
+      internalID: 1975730618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_146
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 169
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 657f27f9ee098ad4b9dcb1a70fabe960
+      internalID: 634840095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_147
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 169
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccdce3a422c16894a907df06b0bf35dc
+      internalID: -481229369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_148
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 169
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9b67cbc166c5c14a8059be1eb7b7b48
+      internalID: 933885763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_149
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 169
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f6dc59609805c24ca5942719f4d375e
+      internalID: 1560911313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_150
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 169
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 006797792cc36bb4f96faa33cfdacbe3
+      internalID: 2144417533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_151
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 169
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7acac9ba8d991ee4a8848789ebff6a33
+      internalID: -593781417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_152
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 153
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d518b78acf8c8a34888cf6b526338232
+      internalID: -650347369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_153
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 153
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f6b6e0c1943c844b9ea8e978de3d64d
+      internalID: -749485789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_154
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 153
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61f5a74e290adbf4cab44cd0efba7ad5
+      internalID: -2110401010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_155
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 153
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dc87bbba01137b4c94d5e53e6952eb1
+      internalID: 1668560610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_156
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 153
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08037c5bf446824a8a477044570062a
+      internalID: 2080373075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_157
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 153
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 929a33fd079749e4abfbe1371c6c0ab5
+      internalID: -1984028258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_158
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 153
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc6a2878411823d41b33bc4fc9367ea4
+      internalID: -926757036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_159
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 153
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b64eaa3c405c58d43a313deab7e0d675
+      internalID: -1615010521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_160
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 153
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d22685a368b65b542b2e8bde55e5306e
+      internalID: -986797656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_161
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 153
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6ea26ea65efb74683712e7e1322c90
+      internalID: 1523593236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_162
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 153
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5574e32a2702abd43a3b363cc5a2cd2e
+      internalID: 1014813256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_163
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 153
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e6cf556af246ce47a64415ab1bb9c65
+      internalID: 914913017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_164
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 153
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5b32229b9c261a4aa852120ab673960
+      internalID: 874553677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_165
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 153
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9b55e10ff7eec842bd110bd02cfd9c9
+      internalID: 1749175455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_166
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 137
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6967f526307f5b142a48faebcb486781
+      internalID: 2000786211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_167
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 137
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fffb961dc79cd04fb11e9627af99766
+      internalID: -129430310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_168
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 137
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 574a9ba9d4dedbe48a68bb6f86439a61
+      internalID: -371475140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_169
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 137
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9fb543b3707ed8479586644a1cf2d57
+      internalID: 208104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_170
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 137
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c6091d15abac64b9d34f33d4425378
+      internalID: 920674641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_171
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 137
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5072350a7e418347ba3601fc3442665
+      internalID: 846631714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_172
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 137
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 033af4e4cb794334ba9998744c512897
+      internalID: 380855247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_173
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 137
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fe91fafd5b48bf4d9966476ddfc3370
+      internalID: -1473688143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_174
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 137
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60b517b05048d0c4c8eb82aef6870c38
+      internalID: 1842551816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_175
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 137
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6191f72c390ac834980e9b05729e78df
+      internalID: -408343673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_176
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 137
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0fc83e99c7aa1649bb6d940c5495cf3
+      internalID: -1634280684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_177
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 137
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a9fd14f4ec6d8946aa0845236bdf1a1
+      internalID: 371007676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_178
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 137
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d68226f2bbcefad42992b16fff26cf04
+      internalID: -1989501625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_179
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 137
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b2b577a0488554086d98ea868dbeb9
+      internalID: -1534109709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_180
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 121
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04928971c63b413489fa4821d5e9cfd5
+      internalID: 254645257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_181
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 121
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41b5821c30a1b3444a54a6236bb3c016
+      internalID: -2036328379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_182
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 121
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d4aa5b5a70cf404d9de83a1f1ced74e
+      internalID: -239172971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_183
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 121
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96c888f0b47bd8a4fbc90048b5dd5a1a
+      internalID: -314588738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_184
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 121
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba9009c1532fea74a8b9f8a7245aa845
+      internalID: -185137990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_185
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 121
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e9a7f3c59790904e8d4d4cf06a0e27f
+      internalID: 1893056967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_186
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 121
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 648223980ebff3f40ac426abe476cc17
+      internalID: 806283248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_187
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 121
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c94f6b1a4df3346bfd9e99d930f399
+      internalID: 2055596266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_188
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 121
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 151cf871ba244c0419d0d193174bc84b
+      internalID: -544165230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_189
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 121
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751faa0796f861240ac2eb665ff21b6f
+      internalID: 2026266887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_190
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 121
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87910123dde38bd4282f365e4947bfdd
+      internalID: -1302670285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_191
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 121
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9447a4ad28eb45e47aea14706625cd9d
+      internalID: 1639590170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_192
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 121
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91a76169091c5b44b918ed63661c2aa0
+      internalID: 1862821540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_193
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 121
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4311b22ea87aa1c448e4442f7c9ff83d
+      internalID: -1755096723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_194
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 105
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de50fbfdfde69f4493f4982cf80fbbc
+      internalID: 1792038671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_195
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 105
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e030ed8713ed0884d922155b46bdac71
+      internalID: 993219434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_196
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 105
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 641cd10b93c056a45ae64d92e4777d5e
+      internalID: 726832088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_197
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 105
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4599d5d873f43e1498288992c05ac426
+      internalID: 1456354634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_198
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 105
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27c5e6519dce7b34cb430324e8639423
+      internalID: -891180735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_199
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 105
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84203ef6632059042baf5bb049cd2986
+      internalID: 1117299120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_200
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 105
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1db7c433ad280445bb915c0002823e5
+      internalID: -779883416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_201
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 105
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c4846fff297444fa8e68022816f754
+      internalID: 810850999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer_0004_Lights_202
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 105
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a02b0f61f63d434fade50dbf94ce10f
+      internalID: -506954349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +4401,210 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Layer_0004_Lights_0: -1352318500
+      Layer_0004_Lights_1: 1021692801
+      Layer_0004_Lights_10: 517388019
+      Layer_0004_Lights_100: 1222876819
+      Layer_0004_Lights_101: 1819006879
+      Layer_0004_Lights_102: -1685309009
+      Layer_0004_Lights_103: 1973148739
+      Layer_0004_Lights_104: -952297849
+      Layer_0004_Lights_105: 1068414533
+      Layer_0004_Lights_106: -162184125
+      Layer_0004_Lights_107: 101490104
+      Layer_0004_Lights_108: 1900811691
+      Layer_0004_Lights_109: -481354849
+      Layer_0004_Lights_11: 1778062960
+      Layer_0004_Lights_110: -567236705
+      Layer_0004_Lights_111: 264557595
+      Layer_0004_Lights_112: -1486216885
+      Layer_0004_Lights_113: 606282076
+      Layer_0004_Lights_114: -842155100
+      Layer_0004_Lights_115: 1674241557
+      Layer_0004_Lights_116: -1970275783
+      Layer_0004_Lights_117: 1407513677
+      Layer_0004_Lights_118: -2143310783
+      Layer_0004_Lights_119: 111586391
+      Layer_0004_Lights_12: 2102375358
+      Layer_0004_Lights_120: -1225752382
+      Layer_0004_Lights_121: 2057170763
+      Layer_0004_Lights_122: 783074020
+      Layer_0004_Lights_123: 219653041
+      Layer_0004_Lights_124: -1174430229
+      Layer_0004_Lights_125: -1144185046
+      Layer_0004_Lights_126: -151012633
+      Layer_0004_Lights_127: -1222953360
+      Layer_0004_Lights_128: 354111590
+      Layer_0004_Lights_129: -517261620
+      Layer_0004_Lights_13: 1217113083
+      Layer_0004_Lights_130: 523896812
+      Layer_0004_Lights_131: 1223704134
+      Layer_0004_Lights_132: 1031361171
+      Layer_0004_Lights_133: 535450985
+      Layer_0004_Lights_134: -1431400192
+      Layer_0004_Lights_135: 1906290291
+      Layer_0004_Lights_136: -1076161108
+      Layer_0004_Lights_137: 1329595268
+      Layer_0004_Lights_138: -427657698
+      Layer_0004_Lights_139: -1060523413
+      Layer_0004_Lights_14: -103675826
+      Layer_0004_Lights_140: 628569633
+      Layer_0004_Lights_141: -2034148376
+      Layer_0004_Lights_142: 1137562201
+      Layer_0004_Lights_143: 1891322333
+      Layer_0004_Lights_144: 1288036418
+      Layer_0004_Lights_145: 1975730618
+      Layer_0004_Lights_146: 634840095
+      Layer_0004_Lights_147: -481229369
+      Layer_0004_Lights_148: 933885763
+      Layer_0004_Lights_149: 1560911313
+      Layer_0004_Lights_15: -1314900727
+      Layer_0004_Lights_150: 2144417533
+      Layer_0004_Lights_151: -593781417
+      Layer_0004_Lights_152: -650347369
+      Layer_0004_Lights_153: -749485789
+      Layer_0004_Lights_154: -2110401010
+      Layer_0004_Lights_155: 1668560610
+      Layer_0004_Lights_156: 2080373075
+      Layer_0004_Lights_157: -1984028258
+      Layer_0004_Lights_158: -926757036
+      Layer_0004_Lights_159: -1615010521
+      Layer_0004_Lights_16: -25119730
+      Layer_0004_Lights_160: -986797656
+      Layer_0004_Lights_161: 1523593236
+      Layer_0004_Lights_162: 1014813256
+      Layer_0004_Lights_163: 914913017
+      Layer_0004_Lights_164: 874553677
+      Layer_0004_Lights_165: 1749175455
+      Layer_0004_Lights_166: 2000786211
+      Layer_0004_Lights_167: -129430310
+      Layer_0004_Lights_168: -371475140
+      Layer_0004_Lights_169: 208104
+      Layer_0004_Lights_17: 1596822571
+      Layer_0004_Lights_170: 920674641
+      Layer_0004_Lights_171: 846631714
+      Layer_0004_Lights_172: 380855247
+      Layer_0004_Lights_173: -1473688143
+      Layer_0004_Lights_174: 1842551816
+      Layer_0004_Lights_175: -408343673
+      Layer_0004_Lights_176: -1634280684
+      Layer_0004_Lights_177: 371007676
+      Layer_0004_Lights_178: -1989501625
+      Layer_0004_Lights_179: -1534109709
+      Layer_0004_Lights_18: -1724947092
+      Layer_0004_Lights_180: 254645257
+      Layer_0004_Lights_181: -2036328379
+      Layer_0004_Lights_182: -239172971
+      Layer_0004_Lights_183: -314588738
+      Layer_0004_Lights_184: -185137990
+      Layer_0004_Lights_185: 1893056967
+      Layer_0004_Lights_186: 806283248
+      Layer_0004_Lights_187: 2055596266
+      Layer_0004_Lights_188: -544165230
+      Layer_0004_Lights_189: 2026266887
+      Layer_0004_Lights_19: 1144662945
+      Layer_0004_Lights_190: -1302670285
+      Layer_0004_Lights_191: 1639590170
+      Layer_0004_Lights_192: 1862821540
+      Layer_0004_Lights_193: -1755096723
+      Layer_0004_Lights_194: 1792038671
+      Layer_0004_Lights_195: 993219434
+      Layer_0004_Lights_196: 726832088
+      Layer_0004_Lights_197: 1456354634
+      Layer_0004_Lights_198: -891180735
+      Layer_0004_Lights_199: 1117299120
+      Layer_0004_Lights_2: -1377990850
+      Layer_0004_Lights_20: -604848214
+      Layer_0004_Lights_200: -779883416
+      Layer_0004_Lights_201: 810850999
+      Layer_0004_Lights_202: -506954349
+      Layer_0004_Lights_21: 936352584
+      Layer_0004_Lights_22: 238583799
+      Layer_0004_Lights_23: 336908924
+      Layer_0004_Lights_24: 1132762511
+      Layer_0004_Lights_25: -1375078974
+      Layer_0004_Lights_26: 1579013983
+      Layer_0004_Lights_27: 798812913
+      Layer_0004_Lights_28: -412859911
+      Layer_0004_Lights_29: -2143749512
+      Layer_0004_Lights_3: -903475595
+      Layer_0004_Lights_30: -687260363
+      Layer_0004_Lights_31: 229133132
+      Layer_0004_Lights_32: -103063722
+      Layer_0004_Lights_33: 800357874
+      Layer_0004_Lights_34: -397636433
+      Layer_0004_Lights_35: -2028909716
+      Layer_0004_Lights_36: 1734806593
+      Layer_0004_Lights_37: 1912020030
+      Layer_0004_Lights_38: 840612146
+      Layer_0004_Lights_39: -248732053
+      Layer_0004_Lights_4: 564402301
+      Layer_0004_Lights_40: 691339020
+      Layer_0004_Lights_41: 1732250921
+      Layer_0004_Lights_42: 115479543
+      Layer_0004_Lights_43: -1936030099
+      Layer_0004_Lights_44: -1040888923
+      Layer_0004_Lights_45: 87838798
+      Layer_0004_Lights_46: 1245604353
+      Layer_0004_Lights_47: 1731074566
+      Layer_0004_Lights_48: 1603594389
+      Layer_0004_Lights_49: -1336405478
+      Layer_0004_Lights_5: -780060350
+      Layer_0004_Lights_50: -1083208555
+      Layer_0004_Lights_51: 2095454961
+      Layer_0004_Lights_52: -1677664402
+      Layer_0004_Lights_53: -1494571206
+      Layer_0004_Lights_54: -398778714
+      Layer_0004_Lights_55: 535094077
+      Layer_0004_Lights_56: -738352225
+      Layer_0004_Lights_57: -1789890771
+      Layer_0004_Lights_58: 1030972736
+      Layer_0004_Lights_59: -999673331
+      Layer_0004_Lights_6: -1879440700
+      Layer_0004_Lights_60: -1971132097
+      Layer_0004_Lights_61: 1298781879
+      Layer_0004_Lights_62: -1203920962
+      Layer_0004_Lights_63: -2102600712
+      Layer_0004_Lights_64: -855220618
+      Layer_0004_Lights_65: -1124930008
+      Layer_0004_Lights_66: 1339893556
+      Layer_0004_Lights_67: 34323323
+      Layer_0004_Lights_68: 1783657614
+      Layer_0004_Lights_69: -1940413718
+      Layer_0004_Lights_7: -111445789
+      Layer_0004_Lights_70: -1130710746
+      Layer_0004_Lights_71: 2004679341
+      Layer_0004_Lights_72: -923183779
+      Layer_0004_Lights_73: -1345739204
+      Layer_0004_Lights_74: 790546871
+      Layer_0004_Lights_75: 1214517020
+      Layer_0004_Lights_76: -353187646
+      Layer_0004_Lights_77: 594539700
+      Layer_0004_Lights_78: -1271465191
+      Layer_0004_Lights_79: -1753386961
+      Layer_0004_Lights_8: 1993883997
+      Layer_0004_Lights_80: -230758114
+      Layer_0004_Lights_81: -1948129998
+      Layer_0004_Lights_82: 972378354
+      Layer_0004_Lights_83: 1114992724
+      Layer_0004_Lights_84: 729722307
+      Layer_0004_Lights_85: 1963864956
+      Layer_0004_Lights_86: -1389459916
+      Layer_0004_Lights_87: -707806094
+      Layer_0004_Lights_88: 381440180
+      Layer_0004_Lights_89: 1468987746
+      Layer_0004_Lights_9: 2058185511
+      Layer_0004_Lights_90: 933248688
+      Layer_0004_Lights_91: -1790354068
+      Layer_0004_Lights_92: -960148928
+      Layer_0004_Lights_93: -1475795786
+      Layer_0004_Lights_94: 1658650162
+      Layer_0004_Lights_95: 73277438
+      Layer_0004_Lights_96: -1116801801
+      Layer_0004_Lights_97: 202230275
+      Layer_0004_Lights_98: 914567996
+      Layer_0004_Lights_99: 759901484
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
