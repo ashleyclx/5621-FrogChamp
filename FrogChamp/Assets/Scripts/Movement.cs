@@ -142,7 +142,7 @@ public class Movement : MonoBehaviour
                 body.velocity = new Vector2(GetPlayerDirection() * horizontalJumpSpeed * 1.5f, body.velocity.y);
                 grappleTongue.enabled = false;
                 m_springJoint2D.enabled = false;
-                body.gravityScale = 4.0F;
+                // body.gravityScale = 4.0F;
             }
         }
 
@@ -168,6 +168,8 @@ public class Movement : MonoBehaviour
     void SetGrapplePoint()
     {
         Vector2 distanceVector = m_camera.ScreenToWorldPoint(Input.mousePosition) - firePoint.position;
+        print(m_camera.ScreenToWorldPoint(Input.mousePosition));
+        Debug.DrawLine(firePoint.position, m_camera.ScreenToWorldPoint(Input.mousePosition));
         if (Physics2D.Raycast(firePoint.position, distanceVector.normalized))
         {
             RaycastHit2D hit = Physics2D.Raycast(firePoint.position, distanceVector.normalized, distanceVector.magnitude);
@@ -185,7 +187,7 @@ public class Movement : MonoBehaviour
 
     public void Grapple()
     {
-        body.gravityScale = 0;
+        // body.gravityScale = 0;
         body.velocity = Vector2.zero;
     }
 
@@ -263,15 +265,16 @@ public class Movement : MonoBehaviour
     }
 
     // Scale player movement when entering/exiting marsh area based on y coordinate.
-    // Marsh y boundary: 197 to 325
+    // Marsh y boundary: 208 to 325
     public void Marsh()
     {
         if (!inMarsh) 
         {
             if (transform.position.y > marshStart && transform.position.y < marshEnd)
             {
-                ScaleMovement(0.5f, 0.5f, 0.5f, 1);
-                body.velocity = new Vector2(body.velocity.x, 0.5f * body.velocity.y);
+                float ratio = 0.65f;
+                ScaleMovement(ratio, ratio, ratio, 1);
+                body.velocity = new Vector2(body.velocity.x, 0.65f * body.velocity.y);
                 inMarsh = true;
             }
         }
@@ -279,7 +282,8 @@ public class Movement : MonoBehaviour
         {
             if (transform.position.y < marshStart || transform.position.y > marshEnd)
             {
-                ScaleMovement(2.0f, 2.0f, 2.0f, 1);
+                float inverse = 1.0f / 0.65f;
+                ScaleMovement(inverse, inverse, inverse, 1);
                 body.velocity = new Vector2(body.velocity.x, 2.0f * body.velocity.y);
                 inMarsh = false;
             }
