@@ -28,9 +28,14 @@ public class Movement : MonoBehaviour
     [SerializeField] private PhysicsMaterial2D noBounceMaterial;
 
     [Header("Area references:")]
+    [SerializeField] private float windSpeed;
     [SerializeField] private float marshStart = 197;
-    [SerializeField] private float marshEnd = 300;
+    [SerializeField] private float marshEnd = 325;
+    [SerializeField] private float desertStart = 197;
+    [SerializeField] private float desertEnd = 300;
     private bool inMarsh = false;
+    private bool inDesert = false;
+    private float windDuration = 0;
 
     private float horizontalInput;
     private float holdDuration;
@@ -82,7 +87,12 @@ public class Movement : MonoBehaviour
 
         // While space is held, charge up jump (by increasing delta time)
         if (Input.GetKey(KeyCode.Space) && IsGrounded())
+        {
             holdDuration += Time.deltaTime;
+            body.velocity = new Vector2(0.0f, body.velocity.y);
+        }
+
+            
 
         // Let go of space to jump. Player can only jump when grounded
         if (Input.GetKeyUp(KeyCode.Space) && IsGrounded())
@@ -150,6 +160,7 @@ public class Movement : MonoBehaviour
 
         // Area updates
         Marsh();
+        UpdateWindDuration();
     }
 
     // Checks if grapple point selected is valid and is in radius range.
@@ -252,7 +263,7 @@ public class Movement : MonoBehaviour
     }
 
     // Scale player movement when entering/exiting marsh area based on y coordinate.
-    // Marsh y boundary: 195 to 300
+    // Marsh y boundary: 197 to 325
     public void Marsh()
     {
         if (!inMarsh) 
@@ -273,5 +284,38 @@ public class Movement : MonoBehaviour
                 inMarsh = false;
             }
         }
+    }
+
+    // Scale player movement when entering/exiting desert area based on y coordinate.
+    // Desert y boundary: 325 to xxx
+    public void Desert()
+    {
+        if (!inDesert)
+        {
+            if (transform.position.y > desertStart && transform.position.y < desertEnd)
+                inDesert = true;
+        }
+        else
+        {
+            if (transform.position.y < desertStart || transform.position.y > desertEnd)
+                inDesert = false;
+            else
+            {
+                if (windDuration <= 5)
+                {
+                    float forceRatio = windDuration / 3.0f * 5;
+                    if (forceRatio > 1)
+                        forceRatio = 1;
+
+                    body.velocity = new Vector2(body.velocity.x + forceRatio, body.velocity.y);
+                }
+            }
+        }
+    }
+
+    private void UpdateWindDuration()
+    {
+        windDuration += Time.deltaTime;
+        windDuration %= 16;
     }
 }
