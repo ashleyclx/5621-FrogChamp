@@ -19,13 +19,18 @@ public class Movement : MonoBehaviour
     public Vector2 grappleDistanceVector;
 
     [Header("Jump references:")]
-    [SerializeField] private int speed;
-    [SerializeField] private int jumpSpeed;
+    [SerializeField] private float speed;
+    [SerializeField] private float jumpSpeed;
     [SerializeField] private float horizontalJumpSpeed;
     [SerializeField] private float maxHoldDuration;
     [SerializeField] private LayerMask platformLayer;
     [SerializeField] private PhysicsMaterial2D bounceMaterial;
     [SerializeField] private PhysicsMaterial2D noBounceMaterial;
+
+    [Header("Area references:")]
+    [SerializeField] private float marshStart = 197;
+    [SerializeField] private float marshEnd = 300;
+    private bool inMarsh = false;
 
     private float horizontalInput;
     private float holdDuration;
@@ -35,11 +40,6 @@ public class Movement : MonoBehaviour
 
     private Animator animator;
 
-    private void Start()
-    {
-        grappleTongue.enabled = false;
-        m_springJoint2D.enabled = false;
-    }
     
 
     // Awake is called every time the script is loaded
@@ -49,6 +49,8 @@ public class Movement : MonoBehaviour
         // boxCollider = GetComponent<BoxCollider2D>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         animator = GetComponent<Animator>();
+        grappleTongue.enabled = false;
+        m_springJoint2D.enabled = false;
     }
 
     // Update is called once per frame
@@ -146,6 +148,8 @@ public class Movement : MonoBehaviour
         animator.SetBool("grounded", IsGrounded());
         animator.SetBool("charging", holdDuration > 0.0f);
 
+        // Area updates
+        Marsh();
     }
 
     // Checks if grapple point selected is valid and is in radius range.
@@ -236,5 +240,38 @@ public class Movement : MonoBehaviour
         /*RaycastHit2D raycastHitLeft = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.left, 0.1f, platformLayer);
         RaycastHit2D raycastHitRight = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.right, 0.1f, platformLayer);
         return raycastHitLeft.collider != null || raycastHitRight.collider != null;*/
+    }
+
+    // Scales gravity of player by a factor
+    public void ScaleMovement(float _gravity, float _speed, float _jumpSpeed, float _horizontalJumpSpeed)
+    {
+        body.gravityScale *= _gravity;
+        speed *= _speed;
+        jumpSpeed *= _jumpSpeed;
+        horizontalJumpSpeed *= _horizontalJumpSpeed;
+    }
+
+    // Scale player movement when entering/exiting marsh area based on y coordinate.
+    // Marsh y boundary: 195 to 300
+    public void Marsh()
+    {
+        if (!inMarsh) 
+        {
+            if (transform.position.y > marshStart && transform.position.y < marshEnd)
+            {
+                ScaleMovement(0.5f, 0.5f, 0.5f, 1);
+                body.velocity = new Vector2(body.velocity.x, 0.5f * body.velocity.y);
+                inMarsh = true;
+            }
+        }
+        else
+        {
+            if (transform.position.y < marshStart || transform.position.y > marshEnd)
+            {
+                ScaleMovement(2.0f, 2.0f, 2.0f, 1);
+                body.velocity = new Vector2(body.velocity.x, 2.0f * body.velocity.y);
+                inMarsh = false;
+            }
+        }
     }
 }

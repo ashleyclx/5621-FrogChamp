@@ -7,8 +7,7 @@ public class GrapplingTongue : MonoBehaviour
     public LineRenderer m_lineRenderer;
 
     [SerializeField] private int precision = 40;
-    //float moveTime = 0;
-    public bool isGrappling = true;
+    [HideInInspector] public bool isGrappling = true;
 
     private void OnEnable()
     {
