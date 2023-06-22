@@ -169,7 +169,6 @@ public class Movement : MonoBehaviour
     {
         Vector2 distanceVector = m_camera.ScreenToWorldPoint(Input.mousePosition) - firePoint.position;
         print(m_camera.ScreenToWorldPoint(Input.mousePosition));
-        Debug.DrawLine(firePoint.position, m_camera.ScreenToWorldPoint(Input.mousePosition));
         if (Physics2D.Raycast(firePoint.position, distanceVector.normalized))
         {
             RaycastHit2D hit = Physics2D.Raycast(firePoint.position, distanceVector.normalized, distanceVector.magnitude);
