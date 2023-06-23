@@ -164,15 +164,18 @@ public class Movement : MonoBehaviour
     // Player cannot grapple when not grounded.
     void SetGrapplePoint()
     {
+
         Vector2 distanceVector = m_camera.ScreenToWorldPoint(Input.mousePosition) - firePoint.position;
         if (Physics2D.Raycast(firePoint.position, distanceVector.normalized))
         {
             RaycastHit2D hit = Physics2D.Raycast(firePoint.position, distanceVector.normalized, distanceVector.magnitude);
             if (hit.transform.gameObject.layer == grappableLayerNumber && IsGrounded())
             {
-                if (Vector2.Distance(hit.point, firePoint.position) <= maxDistance)
+                Vector2 grappleObjectCentre = hit.transform.position - firePoint.position;
+                RaycastHit2D hitCentre = Physics2D.Raycast(firePoint.position, grappleObjectCentre.normalized, grappleObjectCentre.magnitude);
+                if (Vector2.Distance(hitCentre.point, firePoint.position) <= maxDistance)
                 {
-                    grapplePoint = hit.point;
+                    grapplePoint = hitCentre.point;
                     grappleDistanceVector = grapplePoint - (Vector2)firePoint.position;
                     grappleTongue.enabled = true;
                 }
