@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
     [Header("Area references:")]
     [SerializeField] private float windSpeed;
     [SerializeField] private float marshStart = 197;
-    [SerializeField] private float marshEnd = 325;
+    [SerializeField] private float marshEnd = 335;
     [SerializeField] private float desertStart = 197;
     [SerializeField] private float desertEnd = 300;
     private bool inMarsh = false;
@@ -286,7 +286,7 @@ public class Movement : MonoBehaviour
     }
 
     // Scale player movement when entering/exiting desert area based on y coordinate.
-    // Desert y boundary: 325 to xxx
+    // Desert y boundary: 335 to xxx
     public void Desert()
     {
         if (!inDesert)
