@@ -90,9 +90,7 @@ public class Movement : MonoBehaviour
         {
             holdDuration += Time.deltaTime;
             body.velocity = new Vector2(0.0f, body.velocity.y);
-        }
-
-            
+        }    
 
         // Let go of space to jump. Player can only jump when grounded
         if (Input.GetKeyUp(KeyCode.Space) && IsGrounded())
@@ -160,7 +158,6 @@ public class Movement : MonoBehaviour
 
         // Area updates
         Marsh();
-        UpdateWindDuration();
     }
 
     // Checks if grapple point selected is valid and is in radius range.
@@ -168,7 +165,6 @@ public class Movement : MonoBehaviour
     void SetGrapplePoint()
     {
         Vector2 distanceVector = m_camera.ScreenToWorldPoint(Input.mousePosition) - firePoint.position;
-        print(m_camera.ScreenToWorldPoint(Input.mousePosition));
         if (Physics2D.Raycast(firePoint.position, distanceVector.normalized))
         {
             RaycastHit2D hit = Physics2D.Raycast(firePoint.position, distanceVector.normalized, distanceVector.magnitude);
@@ -314,11 +310,5 @@ public class Movement : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void UpdateWindDuration()
-    {
-        windDuration += Time.deltaTime;
-        windDuration %= 16;
     }
 }
