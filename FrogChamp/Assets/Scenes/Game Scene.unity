@@ -1451,7 +1451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86944695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.87, y: 263.63, z: -10}
+  m_LocalPosition: {x: 3.87, y: 3.63, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2884,7 +2884,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: -4.8460183, y: 138.96909}
   m_AutoConfigureDistance: 1
-  m_Distance: 128.19528
+  m_Distance: 140.44955
   m_DampingRatio: 1
   m_Frequency: 1
 --- !u!70 &336248989
@@ -3019,7 +3019,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336248985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.48, y: 267.09, z: 0}
+  m_LocalPosition: {x: -5.21, y: -1.48, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
