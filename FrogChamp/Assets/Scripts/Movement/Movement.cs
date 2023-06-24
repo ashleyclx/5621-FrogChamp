@@ -61,9 +61,10 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        // For Milestone2 testing
+        PlayerTeleport();
+
         horizontalInput = Input.GetAxisRaw("Horizontal");
-
-
 
         // Player Movement
         TerminalVelocity();
@@ -128,6 +129,23 @@ public class Movement : MonoBehaviour
     }
 
     #region Player Movement
+
+    // For Milestone2 testing
+    private void PlayerTeleport()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            transform.position = new Vector2(3.53f, 30f);
+        
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            transform.position = new Vector2(-8f, 103f);
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            transform.position = new Vector2(6f, 225f);
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+            transform.position = new Vector2(5f, 353f);
+    }
+
     // Moves left or right when arrow keys/a or d are pressed based on set speed
     private void Walk()
     {
