@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     [Header("Pause Menu")]
     [SerializeField] GameObject pauseScreen;
 
-    private void Awake()
+    private void Start()
     {
         pauseScreen.SetActive(false);
     }
@@ -61,6 +61,7 @@ public class UIManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        PauseGame(false);
     }
 
     public void Quit()
