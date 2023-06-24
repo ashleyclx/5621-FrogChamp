@@ -61,51 +61,18 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // Setting terminal velocity of player
-        if (body.velocity.y < -18)
-            body.velocity = new Vector2(body.velocity.x, -18);
-
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
-        // When space is held, player should not be able to move (for charging jump strength)
-        if (IsGrounded() && !Input.GetKey(KeyCode.Space))
-            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
-        // flip player model when changing directions on ground
-        if (horizontalInput > 0.01f && IsGrounded())
-            transform.localScale = Vector3.one;
-        else if (horizontalInput < -0.01f && IsGrounded())
-            transform.localScale = new Vector3(-1, 1, 1);
 
-        // Press down space to start charging jump
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
-        {
-            holdDuration = 0.0f;
-            body.velocity = new Vector2(0.0f, body.velocity.y);
-            body.sharedMaterial = bounceMaterial;
-        }
-
-        // While space is held, charge up jump (by increasing delta time)
-        if (Input.GetKey(KeyCode.Space) && IsGrounded())
-        {
-            holdDuration += Time.deltaTime;
-            body.velocity = new Vector2(0.0f, body.velocity.y);
-        }    
-
-        // Let go of space to jump. Player can only jump when grounded
-        if (Input.GetKeyUp(KeyCode.Space) && IsGrounded())
-        {
-            Jump();
-            holdDuration = 0.0f;
-        }
-            
-
-        if (body.velocity.y <= -1)
-            body.sharedMaterial = noBounceMaterial;
-
-        // Player bounces back when he collides into a platform
-        /*if (ContactWall() && !IsGrounded())
-            Bounce();*/
+        // Player Movement
+        TerminalVelocity();
+        Walk();
+        FlipPlayerDirection();
+        Charge();
+        Jump();
+        Bounce();
+        
 
         // Grapple logic
 
@@ -160,6 +127,85 @@ public class Movement : MonoBehaviour
         Marsh();
     }
 
+    #region Player Movement
+    // Moves left or right when arrow keys/a or d are pressed based on set speed
+    private void Walk()
+    {
+        // When space is held, player should not be able to move (for charging jump strength)
+        if (IsGrounded() && !Input.GetKey(KeyCode.Space))
+            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+    }
+
+    // Holding down space to charge up jump
+    private void Charge()
+    {
+        // Press down space to start charging jump
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        {
+            holdDuration = 0.0f;
+            body.velocity = new Vector2(0.0f, body.velocity.y);
+            body.sharedMaterial = bounceMaterial;
+        }
+
+        // While space is held, charge up jump (by increasing delta time)
+        if (Input.GetKey(KeyCode.Space) && IsGrounded())
+        {
+            holdDuration += Time.deltaTime;
+            body.velocity = new Vector2(0.0f, body.velocity.y);
+        }
+    }
+
+    // Jump in a fixed arc based on your directional input
+    private void Jump()
+    {
+        // Let go of space to jump. Player can only jump when grounded
+        if (Input.GetKeyUp(KeyCode.Space) && IsGrounded())
+        {
+            // calculate factor to see how charged a jump is
+            float holdFactor = holdDuration / maxHoldDuration > 0.65f ? 0.65f : holdDuration / maxHoldDuration;
+
+            // have a minimum jump strength of 35%
+            holdFactor += 0.35f;
+
+            // if left or right is pressed, jump left or right
+            // if no directional input is pressed, jump upwards
+            body.velocity = new Vector2(GetPlayerDirection() * speed, holdFactor * jumpSpeed);
+
+            // reset hold duration after jump
+            holdDuration = 0.0f;
+        }
+    }
+
+    // Bounce away from platform when player contacts platform from the sides
+    private void Bounce()
+    {
+        // Changes bounciness based on vertical velocity
+        if (body.velocity.y <= -1)
+            body.sharedMaterial = noBounceMaterial;
+
+        // Player bounces back when he collides into a platform
+        /*if (ContactWall() && !IsGrounded())
+            body.velocity = new Vector2(-body.velocity.x, body.velocity.y);*/
+    }
+
+    // Flip player model when changing directions on ground
+    private void FlipPlayerDirection()
+    {
+        if (horizontalInput > 0.01f && IsGrounded())
+            transform.localScale = Vector3.one;
+        else if (horizontalInput < -0.01f && IsGrounded())
+            transform.localScale = new Vector3(-1, 1, 1);
+    }
+
+    // Setting terminal velocity of player
+    private void TerminalVelocity()
+    {
+        if (body.velocity.y < -18)
+            body.velocity = new Vector2(body.velocity.x, -18);
+    }
+    #endregion
+
+    #region Grapple
     // Checks if grapple point selected is valid and is in radius range.
     // Player cannot grapple when not grounded.
     void SetGrapplePoint()
@@ -197,21 +243,9 @@ public class Movement : MonoBehaviour
             Gizmos.DrawWireSphere(firePoint.position, maxDistance);
         }
     }
+    #endregion
 
-    // Jump in a fixed arc based on your directional input
-    private void Jump()
-    {
-        // calculate factor to see how charged a jump is
-        float holdFactor = holdDuration / maxHoldDuration > 0.65f ? 0.65f : holdDuration / maxHoldDuration;
-        holdFactor += 0.35f;
-        // have a minimum jump strength of 35%
-        // holdFactor = holdFactor < 0.35f ? 0.35f : holdFactor;
-
-        // if left or right is pressed, jump left or right
-        // if no directional input is pressed, jump upwards
-        body.velocity = new Vector2(GetPlayerDirection() * speed, holdFactor * jumpSpeed);
-    }
-
+    #region Checks
     // Returns 1 if player is facing right, -1 if player is facing left, else returns 0.
     private int GetPlayerDirection()
     {
@@ -219,12 +253,6 @@ public class Movement : MonoBehaviour
         else if (horizontalInput < -0.01f) { return -1; }
         else { return 0; }
 
-    }
-
-    // Bounce away from platform when player contacts platform from the sides
-    private void Bounce()
-    {
-        body.velocity = new Vector2(-body.velocity.x, body.velocity.y);
     }
 
     // Check if player is on the platform
@@ -252,7 +280,9 @@ public class Movement : MonoBehaviour
         RaycastHit2D raycastHitRight = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.right, 0.1f, platformLayer);
         return raycastHitLeft.collider != null || raycastHitRight.collider != null;*/
     }
+    #endregion
 
+    #region Terrains
     // Scales gravity of player by a factor
     public void ScaleMovement(float _gravity, float _speed, float _jumpSpeed, float _horizontalJumpSpeed)
     {
@@ -314,4 +344,5 @@ public class Movement : MonoBehaviour
             }
         }
     }
+    #endregion
 }
