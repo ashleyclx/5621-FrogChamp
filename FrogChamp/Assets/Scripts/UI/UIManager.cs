@@ -34,6 +34,24 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    #region Main Menu
+    public void StartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void Quit()
+    {
+        // Quits game for builds
+        Application.Quit();
+
+        #if UNITY_EDITOR
+        // Exits play mode for editor
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+    }
+    #endregion
+
     #region Pause Menu
     public void PauseGame(bool status)
     {
@@ -62,17 +80,6 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         PauseGame(false);
-    }
-
-    public void Quit()
-    {
-        // Quits game for builds
-        Application.Quit();
-
-        #if UNITY_EDITOR
-        // Exits play mode for editor
-        UnityEditor.EditorApplication.isPlaying = false;
-        #endif
     }
     #endregion
 }

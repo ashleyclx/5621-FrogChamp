@@ -6,8 +6,8 @@ public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
 
-    private float currX;
-    private float currY;
+    [SerializeField] private float currX;
+    [SerializeField] private float currY;
     private Vector3 velocity = Vector3.zero;
 
     void Start()
