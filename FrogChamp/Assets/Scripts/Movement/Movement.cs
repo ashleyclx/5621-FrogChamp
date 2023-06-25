@@ -209,10 +209,13 @@ public class Movement : MonoBehaviour
     // Flip player model when changing directions on ground
     private void FlipPlayerDirection()
     {
-        if (horizontalInput > 0.01f && IsGrounded())
-            transform.localScale = Vector3.one;
-        else if (horizontalInput < -0.01f && IsGrounded())
-            transform.localScale = new Vector3(-1, 1, 1);
+        if (Time.timeScale != 0)
+        {
+            if (horizontalInput > 0.01f && IsGrounded())
+                transform.localScale = Vector3.one;
+            else if (horizontalInput < -0.01f && IsGrounded())
+                transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
     // Setting terminal velocity of player
@@ -338,6 +341,7 @@ public class Movement : MonoBehaviour
 
     // Scale player movement when entering/exiting desert area based on y coordinate.
     // Desert y boundary: 335 to xxx
+    // NOT IN USE
     public void Desert()
     {
         if (!inDesert)
