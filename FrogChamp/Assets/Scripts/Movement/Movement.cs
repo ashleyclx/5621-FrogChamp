@@ -31,14 +31,12 @@ public class Movement : MonoBehaviour
     [SerializeField] private float windSpeed;
     [SerializeField] private float marshStart = 197;
     [SerializeField] private float marshEnd = 335;
-    [SerializeField] private float desertStart = 197;
-    [SerializeField] private float desertEnd = 300;
+    [SerializeField] private float iceStart = 410;
+    [SerializeField] private float iceEnd = 600;
     [SerializeField] private LayerMask icyLayer;
     [SerializeField] private float slipperyFactor;
     private bool inMarsh = false;
-    private bool inDesert = false;
     private bool icy = false;
-    private float windDuration = 0;
 
     private float horizontalInput;
     private float holdDuration;
@@ -110,7 +108,7 @@ public class Movement : MonoBehaviour
         {
             if (grappleTongue.enabled)
             {
-                body.velocity = new Vector2(GetPlayerDirection() * horizontalJumpSpeed * 1.5f, body.velocity.y);
+                body.velocity = new Vector2(horizontalInput * horizontalJumpSpeed * 1.5f, body.velocity.y);
                 grappleTongue.enabled = false;
                 m_springJoint2D.enabled = false;
                 // body.gravityScale = 4.0F;
@@ -155,6 +153,7 @@ public class Movement : MonoBehaviour
     // Moves left or right when arrow keys/a or d are pressed based on set speed
     private void Walk()
     {
+        // if on ice, player will slide
         if (icy && !Input.GetKey(KeyCode.Space))
             body.AddForce(new Vector2(slipperyFactor * horizontalInput, 0), ForceMode2D.Force);
 
@@ -171,6 +170,9 @@ public class Movement : MonoBehaviour
         {
             holdDuration = 0.0f;
             body.sharedMaterial = bounceMaterial;
+
+            // player slides while charging if on ice
+            // player stops if not on ice
             if (!icy)
                 body.velocity = new Vector2(0.0f, body.velocity.y);
             
@@ -180,6 +182,8 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             holdDuration += Time.deltaTime;
+
+            // player stops if not on ice
             if (!icy)
                 body.velocity = new Vector2(0.0f, body.velocity.y);
         }
@@ -199,7 +203,7 @@ public class Movement : MonoBehaviour
 
             // if left or right is pressed, jump left or right
             // if no directional input is pressed, jump upwards
-            body.velocity = new Vector2(GetPlayerDirection() * speed, holdFactor * jumpSpeed);
+            body.velocity = new Vector2(horizontalInput * speed, holdFactor * jumpSpeed);
 
             // reset hold duration after jump
             holdDuration = 0.0f;
@@ -213,7 +217,7 @@ public class Movement : MonoBehaviour
         if (body.velocity.y <= -1)
             body.sharedMaterial = noBounceMaterial;
 
-        // Player bounces back when he collides into a platform
+        // Player bounces back when he collides into a platform [NOT IN USE]
         /*if (ContactWall() && !IsGrounded())
             body.velocity = new Vector2(-body.velocity.x, body.velocity.y);*/
     }
@@ -284,15 +288,6 @@ public class Movement : MonoBehaviour
     #endregion
 
     #region Checks
-    // Returns 1 if player is facing right, -1 if player is facing left, else returns 0.
-    private int GetPlayerDirection()
-    {
-        if (horizontalInput > 0.01f) { return 1; }
-        else if (horizontalInput < -0.01f) { return -1; }
-        else { return 0; }
-
-    }
-
     // Check if player is on the platform
     private bool IsGrounded()
     {
@@ -318,19 +313,6 @@ public class Movement : MonoBehaviour
         /*RaycastHit2D raycastHitLeft = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.left, 0.1f, platformLayer);
         RaycastHit2D raycastHitRight = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.right, 0.1f, platformLayer);
         return raycastHitLeft.collider != null || raycastHitRight.collider != null;*/
-    }
-
-    // Check if player is touching icy surface
-    // If touching, caches the horizontal movement speed before contacting icy surface
-    private void Ice()
-    {
-        Vector3 boxSize = capsuleCollider.bounds.size;
-        RaycastHit2D raycastHit = Physics2D.BoxCast(capsuleCollider.bounds.center, new Vector3(boxSize.x - 0.1f, boxSize.y, boxSize.z), 0, Vector2.down, 0.1f, platformLayer);
-        if (transform.position.y > 409.5)
-            icy = true;
-            if (raycastHit.collider != null)
-                icy = false;
-
     }
     #endregion
 
@@ -370,10 +352,23 @@ public class Movement : MonoBehaviour
         }
     }
 
+    // Check if player is on ice
+    // By default if above y = 410 and below y = 600, player is on ice unless we detect a platform layer
+    private void Ice()
+    {
+        Vector3 boxSize = capsuleCollider.bounds.size;
+        RaycastHit2D raycastHit = Physics2D.BoxCast(capsuleCollider.bounds.center, new Vector3(boxSize.x - 0.1f, boxSize.y, boxSize.z), 0, Vector2.down, 0.1f, platformLayer);
+        if (transform.position.y > iceStart && transform.position.y < iceEnd)
+            icy = true;
+        if (raycastHit.collider != null)
+            icy = false;
+
+    }
+
     // Scale player movement when entering/exiting desert area based on y coordinate.
     // Desert y boundary: 335 to xxx
     // NOT IN USE
-    public void Desert()
+    /*public void Desert()
     {
         if (!inDesert)
         {
@@ -396,6 +391,6 @@ public class Movement : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
     #endregion
 }

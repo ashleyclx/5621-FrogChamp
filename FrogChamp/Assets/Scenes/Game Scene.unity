@@ -3293,7 +3293,7 @@ MonoBehaviour:
   icyLayer:
     serializedVersion: 2
     m_Bits: 512
-  slipperyFactor: 0.05
+  slipperyFactor: 3
 --- !u!50 &336248991
 Rigidbody2D:
   serializedVersion: 4
@@ -49852,7 +49852,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 6df1c932c8f1b2b4da47145b24a1ad60, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
