@@ -38,7 +38,6 @@ public class Movement : MonoBehaviour
     private bool inMarsh = false;
     private bool inDesert = false;
     private bool icy = false;
-    private float icyHorizontalSpeed = 0;
     private float windDuration = 0;
 
     private float horizontalInput;
@@ -132,7 +131,7 @@ public class Movement : MonoBehaviour
 
         // Area updates
         Marsh();
-        IcySurface();
+        Ice();
     }
 
     #region Player Movement
@@ -156,8 +155,11 @@ public class Movement : MonoBehaviour
     // Moves left or right when arrow keys/a or d are pressed based on set speed
     private void Walk()
     {
+        if (icy && !Input.GetKey(KeyCode.Space))
+            body.AddForce(new Vector2(slipperyFactor * horizontalInput, 0), ForceMode2D.Force);
+
         // When space is held, player should not be able to move (for charging jump strength)
-        if (!Input.GetKey(KeyCode.Space))
+        else if (!icy && !Input.GetKey(KeyCode.Space))
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
     }
 
@@ -168,15 +170,18 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             holdDuration = 0.0f;
-            body.velocity = new Vector2(0.0f, body.velocity.y);
             body.sharedMaterial = bounceMaterial;
+            if (!icy)
+                body.velocity = new Vector2(0.0f, body.velocity.y);
+            
         }
 
         // While space is held, charge up jump (by increasing delta time)
         if (Input.GetKey(KeyCode.Space))
         {
             holdDuration += Time.deltaTime;
-            body.velocity = new Vector2(0.0f, body.velocity.y);
+            if (!icy)
+                body.velocity = new Vector2(0.0f, body.velocity.y);
         }
     }
 
@@ -230,19 +235,12 @@ public class Movement : MonoBehaviour
     {
         if (body.velocity.y < -18)
             body.velocity = new Vector2(body.velocity.x, -18);
+        if (body.velocity.x > 10)
+            body.velocity = new Vector2(10, body.velocity.y);
+        if (body.velocity.x < -10)
+            body.velocity = new Vector2(-10, body.velocity.y);
     }
 
-    // For Icy surface 
-    private void IcySurface()
-    {
-        // Updates if player is on icy surface or not
-        Ice();
-
-        if (icy)
-        {
-            body.AddForce(new Vector2 (icyHorizontalSpeed * slipperyFactor, body.velocity.y));
-        }
-    }
     #endregion
 
     #region Grapple
@@ -300,7 +298,8 @@ public class Movement : MonoBehaviour
     {
         Vector3 boxSize = capsuleCollider.bounds.size;
         RaycastHit2D raycastHit = Physics2D.BoxCast(capsuleCollider.bounds.center, new Vector3(boxSize.x - 0.1f, boxSize.y, boxSize.z), 0, Vector2.down, 0.1f, platformLayer);
-        return raycastHit.collider != null;
+        RaycastHit2D raycastHitIce = Physics2D.BoxCast(capsuleCollider.bounds.center, new Vector3(boxSize.x - 0.1f, boxSize.y, boxSize.z), 0, Vector2.down, 0.1f, icyLayer);
+        return raycastHit.collider != null || raycastHitIce.collider != null;
 
         /*Vector3 boxSize = boxCollider.bounds.size;
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, new Vector3(boxSize.x - 0.1f, boxSize.y, boxSize.z), 0, Vector2.down, 0.1f, platformLayer);
@@ -326,18 +325,11 @@ public class Movement : MonoBehaviour
     private void Ice()
     {
         Vector3 boxSize = capsuleCollider.bounds.size;
-        RaycastHit2D raycastHit = Physics2D.BoxCast(capsuleCollider.bounds.center, new Vector3(boxSize.x - 0.1f, boxSize.y, boxSize.z), 0, Vector2.down, 0.1f, icyLayer);
-        if (raycastHit.collider != null)
-        {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(capsuleCollider.bounds.center, new Vector3(boxSize.x - 0.1f, boxSize.y, boxSize.z), 0, Vector2.down, 0.1f, platformLayer);
+        if (transform.position.y > 409.5)
             icy = true;
-            icyHorizontalSpeed = body.velocity.x;
-        }
-
-        else
-        {
-            icy = false;
-            icyHorizontalSpeed = 0;
-        }
+            if (raycastHit.collider != null)
+                icy = false;
 
     }
     #endregion
