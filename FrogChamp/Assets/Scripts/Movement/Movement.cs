@@ -33,8 +33,12 @@ public class Movement : MonoBehaviour
     [SerializeField] private float marshEnd = 335;
     [SerializeField] private float desertStart = 197;
     [SerializeField] private float desertEnd = 300;
+    [SerializeField] private LayerMask icyLayer;
+    [SerializeField] private float slipperyFactor;
     private bool inMarsh = false;
     private bool inDesert = false;
+    private bool icy = false;
+    private float icyHorizontalSpeed = 0;
     private float windDuration = 0;
 
     private float horizontalInput;
@@ -68,12 +72,14 @@ public class Movement : MonoBehaviour
 
         // Player Movement
         TerminalVelocity();
-        Walk();
-        FlipPlayerDirection();
-        Charge();
-        Jump();
         Bounce();
-        
+        if (IsGrounded())
+        {
+            Walk();
+            Charge();
+            Jump();
+            FlipPlayerDirection();
+        }
 
         // Grapple logic
 
@@ -126,6 +132,7 @@ public class Movement : MonoBehaviour
 
         // Area updates
         Marsh();
+        IcySurface();
     }
 
     #region Player Movement
@@ -150,7 +157,7 @@ public class Movement : MonoBehaviour
     private void Walk()
     {
         // When space is held, player should not be able to move (for charging jump strength)
-        if (IsGrounded() && !Input.GetKey(KeyCode.Space))
+        if (!Input.GetKey(KeyCode.Space))
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
     }
 
@@ -158,7 +165,7 @@ public class Movement : MonoBehaviour
     private void Charge()
     {
         // Press down space to start charging jump
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             holdDuration = 0.0f;
             body.velocity = new Vector2(0.0f, body.velocity.y);
@@ -166,7 +173,7 @@ public class Movement : MonoBehaviour
         }
 
         // While space is held, charge up jump (by increasing delta time)
-        if (Input.GetKey(KeyCode.Space) && IsGrounded())
+        if (Input.GetKey(KeyCode.Space))
         {
             holdDuration += Time.deltaTime;
             body.velocity = new Vector2(0.0f, body.velocity.y);
@@ -177,7 +184,7 @@ public class Movement : MonoBehaviour
     private void Jump()
     {
         // Let go of space to jump. Player can only jump when grounded
-        if (Input.GetKeyUp(KeyCode.Space) && IsGrounded())
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             // calculate factor to see how charged a jump is
             float holdFactor = holdDuration / maxHoldDuration > 0.65f ? 0.65f : holdDuration / maxHoldDuration;
@@ -211,7 +218,7 @@ public class Movement : MonoBehaviour
     {
         if (Time.timeScale != 0)
         {
-            if (horizontalInput > 0.01f && IsGrounded())
+            if (horizontalInput > 0.01f)
                 transform.localScale = Vector3.one;
             else if (horizontalInput < -0.01f && IsGrounded())
                 transform.localScale = new Vector3(-1, 1, 1);
@@ -223,6 +230,18 @@ public class Movement : MonoBehaviour
     {
         if (body.velocity.y < -18)
             body.velocity = new Vector2(body.velocity.x, -18);
+    }
+
+    // For Icy surface 
+    private void IcySurface()
+    {
+        // Updates if player is on icy surface or not
+        Ice();
+
+        if (icy)
+        {
+            body.AddForce(new Vector2 (icyHorizontalSpeed * slipperyFactor, body.velocity.y));
+        }
     }
     #endregion
 
@@ -300,6 +319,26 @@ public class Movement : MonoBehaviour
         /*RaycastHit2D raycastHitLeft = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.left, 0.1f, platformLayer);
         RaycastHit2D raycastHitRight = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.right, 0.1f, platformLayer);
         return raycastHitLeft.collider != null || raycastHitRight.collider != null;*/
+    }
+
+    // Check if player is touching icy surface
+    // If touching, caches the horizontal movement speed before contacting icy surface
+    private void Ice()
+    {
+        Vector3 boxSize = capsuleCollider.bounds.size;
+        RaycastHit2D raycastHit = Physics2D.BoxCast(capsuleCollider.bounds.center, new Vector3(boxSize.x - 0.1f, boxSize.y, boxSize.z), 0, Vector2.down, 0.1f, icyLayer);
+        if (raycastHit.collider != null)
+        {
+            icy = true;
+            icyHorizontalSpeed = body.velocity.x;
+        }
+
+        else
+        {
+            icy = false;
+            icyHorizontalSpeed = 0;
+        }
+
     }
     #endregion
 
