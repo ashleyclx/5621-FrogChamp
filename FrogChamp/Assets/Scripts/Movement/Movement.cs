@@ -27,6 +27,12 @@ public class Movement : MonoBehaviour
     [SerializeField] private PhysicsMaterial2D bounceMaterial;
     [SerializeField] private PhysicsMaterial2D noBounceMaterial;
 
+    [Header("Sound references:")]
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip landingSound;
+    [SerializeField] private AudioClip bounceSound;
+    [SerializeField] private AudioClip windSound;
+
     [Header("Area references:")]
     [SerializeField] private float windSpeed;
     [SerializeField] private float marshStart = 197;
@@ -37,6 +43,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float slipperyFactor;
     private bool inMarsh = false;
     private bool icy = false;
+    private bool isJumping = false;
 
     private float horizontalInput;
     private float holdDuration;
@@ -77,6 +84,7 @@ public class Movement : MonoBehaviour
             Jump();
             FlipPlayerDirection();
         }
+        Landing();
 
         // Grapple logic
 
@@ -205,6 +213,24 @@ public class Movement : MonoBehaviour
             // if no directional input is pressed, jump upwards
             body.velocity = new Vector2(horizontalInput * speed, holdFactor * jumpSpeed);
 
+            // Plays jump sound
+            SoundManager.instance.PlaySound(jumpSound);
+
+        }
+    }
+
+    // Landing after jump
+    private void Landing()
+    {
+        if (body.velocity.y < -5 && holdDuration > 0)
+            isJumping = true;
+
+        if (isJumping && IsGrounded())
+        {
+            // Plays landing sound
+            SoundManager.instance.PlaySound(landingSound);
+            isJumping = false;
+
             // reset hold duration after jump
             holdDuration = 0.0f;
         }
@@ -220,6 +246,7 @@ public class Movement : MonoBehaviour
         // Player bounces back when he collides into a platform [NOT IN USE]
         /*if (ContactWall() && !IsGrounded())
             body.velocity = new Vector2(-body.velocity.x, body.velocity.y);*/
+        
     }
 
     // Flip player model when changing directions on ground
