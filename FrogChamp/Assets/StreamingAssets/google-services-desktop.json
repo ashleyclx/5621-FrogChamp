@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "762731856313",
+    "firebase_url": "https://frogchamp-game-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "frogchamp-game",
+    "storage_bucket": "frogchamp-game.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762731856313:android:2d98724be7e166fa80b668",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.FrogChamp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762731856313-1kms1mb52ssf1flmpk9vesh0sq2gmtqm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3tUFX4GroPOcDyrIWHdblBIvJUFouu4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762731856313-1kms1mb52ssf1flmpk9vesh0sq2gmtqm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

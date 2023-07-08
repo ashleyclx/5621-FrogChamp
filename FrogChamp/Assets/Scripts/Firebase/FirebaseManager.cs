@@ -64,12 +64,12 @@ public class FirebaseManager : MonoBehaviour
         auth = FirebaseAuth.DefaultInstance;
         DBreference = FirebaseDatabase.DefaultInstance.RootReference;
     }
-    public void ClearLoginFeilds()
+    public void ClearLoginFields()
     {
         emailLoginField.text = "";
         passwordLoginField.text = "";
     }
-    public void ClearRegisterFeilds()
+    public void ClearRegisterFields()
     {
         usernameRegisterField.text = "";
         emailRegisterField.text = "";
@@ -94,8 +94,8 @@ public class FirebaseManager : MonoBehaviour
     {
         auth.SignOut();
         UIManager.instance.LoginScreen();
-        ClearRegisterFeilds();
-        ClearLoginFeilds();
+        ClearRegisterFields();
+        ClearLoginFields();
     }
     //Function for the save button
     public void SaveDataButton()
@@ -156,15 +156,15 @@ public class FirebaseManager : MonoBehaviour
             Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
             warningLoginText.text = "";
             confirmLoginText.text = "Logged In";
-            StartCoroutine(LoadUserData());
+            // StartCoroutine(LoadUserData());
 
             yield return new WaitForSeconds(2);
 
-            usernameField.text = User.DisplayName;
-            UIManager.instance.UserDataScreen(); // Change to user data UI
+            // usernameField.text = User.DisplayName;
+            UIManager.instance.MainMenuScreen(); // Change to user data UI
             confirmLoginText.text = "";
-            ClearLoginFeilds();
-            ClearRegisterFeilds();
+            ClearLoginFields();
+            ClearRegisterFields();
         }
     }
 
@@ -174,14 +174,17 @@ public class FirebaseManager : MonoBehaviour
         {
             //If the username field is blank show a warning
             warningRegisterText.text = "Missing Username";
+            print(1);
         }
         else if (passwordRegisterField.text != passwordRegisterVerifyField.text)
         {
             //If the password does not match show a warning
             warningRegisterText.text = "Password Does Not Match!";
+            print(2);
         }
         else
         {
+            print(3);
             //Call the Firebase auth signin function passing the email and password
             var RegisterTask = auth.CreateUserWithEmailAndPasswordAsync(_email, _password);
             //Wait until the task completes
@@ -237,11 +240,11 @@ public class FirebaseManager : MonoBehaviour
                     else
                     {
                         //Username is now set
-                        //Now return to login screen
-                        UIManager.instance.LoginScreen();
+                        //Now return to start screen
+                        UIManager.instance.StartScreen();
                         warningRegisterText.text = "";
-                        ClearRegisterFeilds();
-                        ClearLoginFeilds();
+                        ClearRegisterFields();
+                        ClearLoginFields();
                     }
                 }
             }

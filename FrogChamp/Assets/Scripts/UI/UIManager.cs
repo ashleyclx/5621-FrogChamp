@@ -12,10 +12,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject pauseScreen;
 
     [Header("Firebase")]
+    public GameObject startUI;
     public GameObject loginUI;
     public GameObject registerUI;
     public GameObject userDataUI;
     public GameObject leaderboardUI;
+    public GameObject mainMenuUI;
 
     private void Awake()
     {
@@ -45,8 +47,8 @@ public class UIManager : MonoBehaviour
                 PauseGame(true);
         }
 
-        // press r to restart
-        if (Input.GetKeyDown(KeyCode.R))
+        // press F5 to restart
+        if (Input.GetKeyDown(KeyCode.F5))
         {
             Restart();
         }
@@ -92,6 +94,7 @@ public class UIManager : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+        mainMenuUI.SetActive(true);
     }
 
     public void Restart()
@@ -104,17 +107,31 @@ public class UIManager : MonoBehaviour
     #region Firebase
     public void ClearScreen() //Turn off all screens
     {
+        startUI.SetActive(false);
         loginUI.SetActive(false);
         registerUI.SetActive(false);
         userDataUI.SetActive(false);
         leaderboardUI.SetActive(false);
+        mainMenuUI.SetActive(false);
     }
 
+    public void MainMenuScreen()
+    {
+        ClearScreen();
+        mainMenuUI.SetActive(true);
+    }
     public void LoginScreen() //Back button
     {
         ClearScreen();
         loginUI.SetActive(true);
     }
+
+    public void StartScreen() // Back button to Start Screen
+    {
+        ClearScreen();
+        startUI.SetActive(true);
+    }
+
     public void RegisterScreen() // Regester button
     {
         ClearScreen();
