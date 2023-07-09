@@ -134,6 +134,8 @@ public class Movement : MonoBehaviour
             animator.SetBool("walk", horizontalInput != 0);
         animator.SetBool("grounded", IsGrounded());
         animator.SetBool("charging", holdDuration > 0.0f);
+        animator.SetBool("grappling", grappleTongue.IsGrappling());
+
 
         // Area updates
         Marsh();

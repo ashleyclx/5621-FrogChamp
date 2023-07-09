@@ -46,4 +46,10 @@ public class GrapplingTongue : MonoBehaviour
         m_lineRenderer.SetPosition(0, movement.firePoint.position);
         m_lineRenderer.SetPosition(1, movement.grapplePoint);
     }
+
+    public bool IsGrappling()
+    {
+        return isGrappling;
+    }
+        
 }
