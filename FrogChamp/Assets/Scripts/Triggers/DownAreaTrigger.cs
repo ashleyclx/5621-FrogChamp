@@ -7,7 +7,7 @@ using UnityEngine;
 public class DownAreaTrigger : MonoBehaviour
 {
     [Header("General References:")]
-    public Movement movement;
+    public Area area;
 
     [Header("Factors:")]
     [SerializeField] private float gravity;
@@ -21,7 +21,7 @@ public class DownAreaTrigger : MonoBehaviour
         {
             if (collision.transform.position.y > transform.position.y)
             {
-                movement.ScaleMovement(gravity, speed, jumpSpeed, horizontalJumpSpeed);
+                area.ScaleMovement(gravity, speed, jumpSpeed, horizontalJumpSpeed);
             }
         }
     }

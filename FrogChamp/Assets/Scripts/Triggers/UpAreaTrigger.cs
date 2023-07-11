@@ -7,7 +7,7 @@ using UnityEngine;
 public class UpAreaTrigger : MonoBehaviour
 {
     [Header("General References:")]
-    public Movement movement;
+    public Area area;
 
     [Header("Factors:")]
     [SerializeField] private float gravity;
@@ -23,7 +23,7 @@ public class UpAreaTrigger : MonoBehaviour
 
             if (collision.transform.position.y < transform.position.y)
             {
-                movement.ScaleMovement(gravity, speed, jumpSpeed, horizontalJumpSpeed);
+                area.ScaleMovement(gravity, speed, jumpSpeed, horizontalJumpSpeed);
                 body.velocity = new Vector2(body.velocity.x, gravity * body.velocity.y);
             }
         }
