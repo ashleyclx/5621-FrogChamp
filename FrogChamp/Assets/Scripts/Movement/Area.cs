@@ -10,11 +10,14 @@ public class Area : MonoBehaviour
 
     [Header("Area Coordinates:")]
     [SerializeField] private float marshStart = 208;
-    [SerializeField] private float marshEnd = 325;
+    [SerializeField] private float marshEnd = 330;
     [SerializeField] private float iceStart = 410;
-    [SerializeField] private float iceEnd = 600;
+    [SerializeField] private float iceEnd = 488;
+    [SerializeField] private float spaceStart = 488;
+    [SerializeField] private float spaceEnd = 650;
 
     private bool inMarsh = false;
+    private bool inSpace = false;
 
     // Scales gravity of player by a factor
     public void ScaleMovement(float _gravity, float _speed, float _jumpSpeed, float _horizontalJumpSpeed)
@@ -29,13 +32,13 @@ public class Area : MonoBehaviour
     // Marsh y boundary: 208 to 325
     public void Marsh()
     {
+        float ratio = 0.65f;
         if (!inMarsh) 
         {
             if (transform.position.y > marshStart && transform.position.y < marshEnd)
             {
-                float ratio = 0.65f;
                 ScaleMovement(ratio, ratio, ratio, 1);
-                movement.body.velocity = new Vector2(movement.body.velocity.x, 0.65f * movement.body.velocity.y);
+                movement.body.velocity = new Vector2(movement.body.velocity.x, ratio * movement.body.velocity.y);
                 inMarsh = true;
             }
         }
@@ -43,9 +46,9 @@ public class Area : MonoBehaviour
         {
             if (transform.position.y < marshStart || transform.position.y > marshEnd)
             {
-                float inverse = 1.0f / 0.65f;
+                float inverse = 1.0f / ratio;
                 ScaleMovement(inverse, inverse, inverse, 1);
-                movement.body.velocity = new Vector2(movement.body.velocity.x, 2.0f * movement.body.velocity.y);
+                movement.body.velocity = new Vector2(movement.body.velocity.x, inverse * movement.body.velocity.y);
                 inMarsh = false;
             }
         }
@@ -60,6 +63,34 @@ public class Area : MonoBehaviour
         if (raycastHit.collider != null)
             checks.ToggleIcyState(false);
 
+    }
+
+    // Scale player movement when entering/exiting space area based on y coordinate.
+    // Space y boundary: 488 to 650
+    public void Space()
+    {
+        float gravityRatio = 0.75f;
+        float speedRatio = 1.05f;
+        if (!inSpace) 
+        {
+            if (transform.position.y > spaceStart && transform.position.y < spaceEnd)
+            {
+                ScaleMovement(gravityRatio, speedRatio, speedRatio, speedRatio);
+                movement.body.velocity = new Vector2(movement.body.velocity.x, speedRatio * movement.body.velocity.y);
+                inSpace = true;
+            }
+        }
+        else
+        {
+            if (transform.position.y < spaceStart || transform.position.y > spaceEnd)
+            {
+                float gravityInverse = 1.0f / gravityRatio;
+                float speedInverse = 1.0f / speedRatio;
+                ScaleMovement(gravityInverse, speedInverse, speedInverse, speedInverse);
+                movement.body.velocity = new Vector2(movement.body.velocity.x, speedInverse * movement.body.velocity.y);
+                inSpace = false;
+            }
+        }
     }
 
     // Scale player movement when entering/exiting desert area based on y coordinate.

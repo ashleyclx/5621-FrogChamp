@@ -39,7 +39,6 @@ public class Movement : MonoBehaviour
         // boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
         // Setting horizontalInput
@@ -68,6 +67,7 @@ public class Movement : MonoBehaviour
         // Area updates
         area.Marsh();
         area.Ice();
+        area.Space();
     }
 
     #region Player Movement
