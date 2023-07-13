@@ -39,6 +39,11 @@ public class Movement : MonoBehaviour
         // boxCollider = GetComponent<BoxCollider2D>();
     }
 
+    private void Start()
+    {
+        TimeManager.instance.BeginTimer();
+    }
+
     private void Update()
     {
         // Setting horizontalInput
