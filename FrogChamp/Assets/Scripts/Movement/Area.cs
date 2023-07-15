@@ -14,7 +14,7 @@ public class Area : MonoBehaviour
     [SerializeField] private float iceStart = 410;
     [SerializeField] private float iceEnd = 488;
     [SerializeField] private float spaceStart = 488;
-    [SerializeField] private float spaceEnd = 650;
+    [SerializeField] private float spaceEnd = 580.5f;
 
     private bool inMarsh = false;
     private bool inSpace = false;
@@ -66,7 +66,7 @@ public class Area : MonoBehaviour
     }
 
     // Scale player movement when entering/exiting space area based on y coordinate.
-    // Space y boundary: 488 to 650
+    // Space y boundary: 488 to 580.5
     public void Space()
     {
         float gravityRatio = 0.75f;
