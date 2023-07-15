@@ -23,8 +23,8 @@ public class TimeManager : MonoBehaviour
 
     private void Start()
     {
-        timeCounter.text = "Time: 00:00.00";
-        timerGoing = false;
+        timeCounter.text = "Time: 00:00:00.00";
+        //timerGoing = false;
     }
 
     public void BeginTimer()
@@ -46,7 +46,7 @@ public class TimeManager : MonoBehaviour
             {
                 elapsedTime += Time.deltaTime;
                 timePlaying = TimeSpan.FromSeconds(elapsedTime);
-                string timePlayingStr = "Time: " + timePlaying.ToString("mm':'ss'.'ff");
+                string timePlayingStr = "Time: " + timePlaying.ToString("hh':'mm':'ss'.'ff");
                 timeCounter.text = timePlayingStr;
 
                 yield return null;
