@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour
     [Header("Pause Menu")]
     [SerializeField] GameObject pauseScreen;
 
+    [Header("Timer")]
+    public GameObject timerUI;
+
     [Header("Firebase")]
     public GameObject startUI;
     public GameObject loginUI;
@@ -57,7 +60,9 @@ public class UIManager : MonoBehaviour
     #region Main Menu
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        ClearScreen();
+        timerUI.SetActive(true);
+        TimeManager.instance.BeginTimer();
     }
 
     public void Quit()
@@ -91,11 +96,10 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void MainMenu()
-    {
-        SceneManager.LoadScene(0);
-        //mainMenuUI.SetActive(true);
-    }
+    //public void MainMenu()
+    //{
+       // mainMenuUI.SetActive(true);
+    //}
 
     public void Restart()
     {
@@ -113,6 +117,7 @@ public class UIManager : MonoBehaviour
         userDataUI.SetActive(false);
         leaderboardUI.SetActive(false);
         mainMenuUI.SetActive(false);
+        pauseScreen.SetActive(false);
     }
 
     public void MainMenuScreen()

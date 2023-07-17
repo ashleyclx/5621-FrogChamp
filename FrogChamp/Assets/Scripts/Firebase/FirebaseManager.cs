@@ -111,10 +111,12 @@ public class FirebaseManager : MonoBehaviour
     // Function to save progress (pause game)
     public void SaveProgress()
     {
+        Vector2 currentPosition = StatsManager.instance.GetPosition();
         // Saves user stats to DB
         StartCoroutine(UpdateJumps(StatsManager.instance.GetJumps()));
         StartCoroutine(UpdateFalls(StatsManager.instance.GetFalls()));
-        StartCoroutine(UpdatePos(StatsManager.instance.GetPosition()));
+        StartCoroutine(UpdateXPos(currentPosition.x));
+        StartCoroutine(UpdateYPos(currentPosition.y));
     }
 
     // Function to update scoreboard (finished game)
@@ -173,7 +175,6 @@ public class FirebaseManager : MonoBehaviour
             warningLoginText.text = "";
             confirmLoginText.text = "Logged In";
             // StartCoroutine(LoadUserData());
-
             yield return new WaitForSeconds(2);
 
             // usernameField.text = User.DisplayName;
@@ -190,17 +191,14 @@ public class FirebaseManager : MonoBehaviour
         {
             //If the username field is blank show a warning
             warningRegisterText.text = "Missing Username";
-            print(1);
         }
         else if (passwordRegisterField.text != passwordRegisterVerifyField.text)
         {
             //If the password does not match show a warning
             warningRegisterText.text = "Password Does Not Match!";
-            print(2);
         }
         else
         {
-            print(3);
             //Call the Firebase auth signin function passing the email and password
             var RegisterTask = auth.CreateUserWithEmailAndPasswordAsync(_email, _password);
             //Wait until the task completes
@@ -389,10 +387,10 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
-    private IEnumerator UpdatePos(Vector2 _pos)
+    private IEnumerator UpdateXPos(float _xpos)
     {
         //Set the currently logged in user pos
-        var DBTask = DBreference.Child("users").Child(User.UserId).Child("pos").SetValueAsync(_pos);
+        var DBTask = DBreference.Child("users").Child(User.UserId).Child("xpos").SetValueAsync(_xpos);
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -402,7 +400,24 @@ public class FirebaseManager : MonoBehaviour
         }
         else
         {
-            // Updated player's last position into database
+            // Updated player's last x position into database
+        }
+    }
+
+    private IEnumerator UpdateYPos(float _ypos)
+    {
+        //Set the currently logged in user pos
+        var DBTask = DBreference.Child("users").Child(User.UserId).Child("ypos").SetValueAsync(_ypos);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            // Updated player's last y position into database
         }
     }
 
