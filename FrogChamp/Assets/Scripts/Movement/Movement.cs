@@ -54,6 +54,7 @@ public class Movement : MonoBehaviour
 
         // Player Movement
         checks.TerminalVelocity();
+        checks.IsFalling();
         Bounce();
         Landing();
         Grapple();
@@ -148,6 +149,9 @@ public class Movement : MonoBehaviour
 
             // Plays jump sound
             soundPlayer.JumpSound();
+
+            // Adds jump count
+            StatsManager.instance.AddJump();
 
         }
     }

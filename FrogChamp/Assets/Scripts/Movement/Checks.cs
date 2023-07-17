@@ -10,6 +10,7 @@ public class Checks : MonoBehaviour
     // Boolean variables
     private bool isJumping = false;
     private bool isIcy = false;
+    private bool isFalling = false;
 
     public bool IsGrounded()
     {
@@ -21,6 +22,28 @@ public class Checks : MonoBehaviour
         /*Vector3 boxSize = boxCollider.bounds.size;
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, new Vector3(boxSize.x - 0.1f, boxSize.y, boxSize.z), 0, Vector2.down, 0.1f, platformLayer);
         return raycastHit.collider != null;*/
+    }
+
+    public void IsFalling()
+    {
+        if (movement.body.velocity.y == -18 && !isFalling) 
+            {
+                MakeFalling();
+                StatsManager.instance.AddFall();
+            }
+
+        if (IsGrounded())
+            Invoke("NotFalling", 0.2f);
+    }
+
+    public void MakeFalling()
+    {
+        isFalling = true;
+    }
+
+    public void NotFalling()
+    {
+        isFalling = false;
     }
 
     public bool IsJumping()
