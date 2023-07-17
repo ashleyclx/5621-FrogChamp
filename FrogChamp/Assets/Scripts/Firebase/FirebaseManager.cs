@@ -107,6 +107,22 @@ public class FirebaseManager : MonoBehaviour
         StartCoroutine(UpdateKills(int.Parse(killsField.text)));
         StartCoroutine(UpdateDeaths(int.Parse(deathsField.text)));
     }
+
+    // Function to save progress (pause game)
+    public void SaveProgress()
+    {
+        // Saves user stats to DB
+        StartCoroutine(UpdateJumps(StatsManager.instance.GetJumps()));
+        StartCoroutine(UpdateFalls(StatsManager.instance.GetFalls()));
+        StartCoroutine(UpdatePos(StatsManager.instance.GetPosition()));
+    }
+
+    // Function to update scoreboard (finished game)
+    public void FinishProgress()
+    {
+        // Saves user best stats to DB
+    }
+
     //Function for the scoreboard button
     public void ScoreboardButton()
     {
@@ -336,6 +352,57 @@ public class FirebaseManager : MonoBehaviour
         else
         {
             //Deaths are now updated
+        }
+    }
+
+    private IEnumerator UpdateJumps(int _jumps)
+    {
+        //Set the currently logged in user jumps
+        var DBTask = DBreference.Child("users").Child(User.UserId).Child("jumps").SetValueAsync(_jumps);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            // Updated number of jumps into database
+        }
+    }
+
+    private IEnumerator UpdateFalls(int _falls)
+    {
+        //Set the currently logged in user falls
+        var DBTask = DBreference.Child("users").Child(User.UserId).Child("falls").SetValueAsync(_falls);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            // Updated number of falls into database
+        }
+    }
+
+    private IEnumerator UpdatePos(Vector2 _pos)
+    {
+        //Set the currently logged in user pos
+        var DBTask = DBreference.Child("users").Child(User.UserId).Child("pos").SetValueAsync(_pos);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            // Updated player's last position into database
         }
     }
 

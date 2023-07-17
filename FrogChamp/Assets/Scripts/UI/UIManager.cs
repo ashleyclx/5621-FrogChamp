@@ -94,7 +94,7 @@ public class UIManager : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
-        mainMenuUI.SetActive(true);
+        //mainMenuUI.SetActive(true);
     }
 
     public void Restart()

@@ -13,6 +13,11 @@ public class StatsManager : MonoBehaviour
         instance = this;
     }
 
+    public Vector2 GetPosition()
+    {
+        return transform.position;
+    }
+
     public void AddJump()
     {
         numJumps += 1;
@@ -21,5 +26,20 @@ public class StatsManager : MonoBehaviour
     public void AddFall()
     {
         numFalls += 1;
+    }
+
+    public int GetJumps()
+    {
+        return numJumps;
+    }
+
+    public int GetFalls()
+    {
+        return numFalls;
+    }
+
+    public int GetBestRecord(int databaseRecord, int currentRecord)
+    {
+        return databaseRecord < currentRecord ? databaseRecord : currentRecord;
     }
 }
