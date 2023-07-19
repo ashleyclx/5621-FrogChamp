@@ -62,6 +62,11 @@ public class UIManager : MonoBehaviour
     {
         ClearScreen();
         timerUI.SetActive(true);
+
+        if (Time.timeScale == 0) 
+        {
+            Time.timeScale = 1;
+        }
         TimeManager.instance.BeginTimer();
     }
 
@@ -101,7 +106,7 @@ public class UIManager : MonoBehaviour
        // mainMenuUI.SetActive(true);
     //}
 
-    public void Restart()
+    public void Restart() //issue
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         PauseGame(false);
@@ -118,6 +123,7 @@ public class UIManager : MonoBehaviour
         leaderboardUI.SetActive(false);
         mainMenuUI.SetActive(false);
         pauseScreen.SetActive(false);
+        timerUI.SetActive(false);
     }
 
     public void MainMenuScreen()
@@ -125,6 +131,7 @@ public class UIManager : MonoBehaviour
         ClearScreen();
         mainMenuUI.SetActive(true);
     }
+
     public void LoginScreen() //Back button
     {
         ClearScreen();

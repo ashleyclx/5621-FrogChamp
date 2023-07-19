@@ -117,6 +117,7 @@ public class FirebaseManager : MonoBehaviour
         StartCoroutine(UpdateFalls(StatsManager.instance.GetFalls()));
         StartCoroutine(UpdateXPos(currentPosition.x));
         StartCoroutine(UpdateYPos(currentPosition.y));
+        StartCoroutine(UpdateCurrTime(TimeManager.instance.GetTime()));
     }
 
     // Function to update scoreboard (finished game)
@@ -129,6 +130,11 @@ public class FirebaseManager : MonoBehaviour
     public void ScoreboardButton()
     {
         StartCoroutine(LoadScoreboardData());
+    }
+
+    public void StartGameButton()
+    {
+        LoadUserData();
     }
 
     private IEnumerator Login(string _email, string _password)
@@ -421,6 +427,23 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
+    private IEnumerator UpdateCurrTime(float _currtime)
+    {
+        //Set the currently logged in user currtime (time before completion)
+        var DBTask = DBreference.Child("users").Child(User.UserId).Child("currtime").SetValueAsync(_currtime);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            // Updates currtime into database
+        }
+    }
+
     private IEnumerator LoadUserData()
     {
         //Get the currently logged in user data
@@ -438,6 +461,8 @@ public class FirebaseManager : MonoBehaviour
             xpField.text = "0";
             killsField.text = "0";
             deathsField.text = "0";
+
+            // Start game
         }
         else
         {
@@ -447,6 +472,20 @@ public class FirebaseManager : MonoBehaviour
             xpField.text = snapshot.Child("xp").Value.ToString();
             killsField.text = snapshot.Child("kills").Value.ToString();
             deathsField.text = snapshot.Child("deaths").Value.ToString();
+
+            Vector2 playerPosition = new Vector2((float)snapshot.Child("xpos").Value, (float)snapshot.Child("ypos").Value);
+            int jumps = (int)snapshot.Child("jumps").Value;
+            int falls = (int)snapshot.Child("falls").Value;
+            float currTime = (float)snapshot.Child("currtime").Value;
+
+            transform.position = playerPosition;
+            StatsManager.instance.SetJumps(jumps);
+            StatsManager.instance.SetFalls(falls);
+            TimeManager.instance.SetTime(currTime);
+
+            // Start game
+
+
         }
     }
 

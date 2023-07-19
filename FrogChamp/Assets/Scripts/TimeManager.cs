@@ -40,6 +40,16 @@ public class TimeManager : MonoBehaviour
         timerGoing = false;
     }
 
+    public void SetTime(float _time)
+    {
+        elapsedTime = _time;
+    }
+
+    public float GetTime()
+    {
+        return (float)timePlaying.TotalSeconds;
+    }
+
     private IEnumerator UpdateTimer()
         {
             while (timerGoing)

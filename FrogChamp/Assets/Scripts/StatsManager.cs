@@ -38,6 +38,16 @@ public class StatsManager : MonoBehaviour
         return numFalls;
     }
 
+    public void SetJumps(int _jumps)
+    {
+        numJumps = _jumps;
+    }
+
+    public void SetFalls(int _falls)
+    {
+        numFalls = _falls;
+    }
+
     public int GetBestRecord(int databaseRecord, int currentRecord)
     {
         return databaseRecord < currentRecord ? databaseRecord : currentRecord;
