@@ -48,6 +48,11 @@ public class StatsManager : MonoBehaviour
         numFalls = _falls;
     }
 
+    public void SetPosition(float _x, float _y)
+    {
+        transform.position = new Vector2(_x, _y);
+    }
+
     public int GetBestRecord(int databaseRecord, int currentRecord)
     {
         return databaseRecord < currentRecord ? databaseRecord : currentRecord;

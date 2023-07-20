@@ -5,6 +5,7 @@ using Firebase.Auth;
 using Firebase.Database;
 using TMPro;
 using System.Linq;
+using System.Threading.Tasks;
 
 public class FirebaseManager : MonoBehaviour
 {
@@ -100,8 +101,8 @@ public class FirebaseManager : MonoBehaviour
     //Function for the save button
     public void SaveDataButton()
     {
-        StartCoroutine(UpdateUsernameAuth(usernameField.text));
-        StartCoroutine(UpdateUsernameDatabase(usernameField.text));
+        //StartCoroutine(UpdateUsernameAuth(usernameField.text));
+        //StartCoroutine(UpdateUsernameDatabase(usernameField.text));
 
         StartCoroutine(UpdateXp(int.Parse(xpField.text)));
         StartCoroutine(UpdateKills(int.Parse(killsField.text)));
@@ -134,13 +135,14 @@ public class FirebaseManager : MonoBehaviour
 
     public void StartGameButton()
     {
-        LoadUserData();
+        StartCoroutine(LoadUserData());
     }
 
     private IEnumerator Login(string _email, string _password)
     {
         //Call the Firebase auth signin function passing the email and password
-        var LoginTask = auth.SignInWithEmailAndPasswordAsync(_email, _password);
+        //var LoginTask = auth.SignInWithEmailAndPasswordAsync(_email, _password);
+        Task<AuthResult> LoginTask = auth.SignInWithEmailAndPasswordAsync(_email, _password);
         //Wait until the task completes
         yield return new WaitUntil(predicate: () => LoginTask.IsCompleted);
 
@@ -176,12 +178,13 @@ public class FirebaseManager : MonoBehaviour
         {
             //User is now logged in
             //Now get the result
-            User = LoginTask.Result.User;
+            // User = LoginTask.Result.User;
+            User = new FirebaseUser(LoginTask.Result.User);
             Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
             warningLoginText.text = "";
             confirmLoginText.text = "Logged In";
             // StartCoroutine(LoadUserData());
-            yield return new WaitForSeconds(2);
+            // yield return new WaitForSeconds(2);
 
             // usernameField.text = User.DisplayName;
             UIManager.instance.MainMenuScreen(); // Change to user data UI
@@ -206,7 +209,8 @@ public class FirebaseManager : MonoBehaviour
         else
         {
             //Call the Firebase auth signin function passing the email and password
-            var RegisterTask = auth.CreateUserWithEmailAndPasswordAsync(_email, _password);
+            // var RegisterTask = auth.CreateUserWithEmailAndPasswordAsync(_email, _password);
+            Task<AuthResult> RegisterTask = auth.CreateUserWithEmailAndPasswordAsync(_email, _password);
             //Wait until the task completes
             yield return new WaitUntil(predicate: () => RegisterTask.IsCompleted);
 
@@ -239,7 +243,8 @@ public class FirebaseManager : MonoBehaviour
             {
                 //User has now been created
                 //Now get the result
-                User = RegisterTask.Result.User;
+                // User = RegisterTask.Result.User;
+                User = new FirebaseUser(RegisterTask.Result.User);
 
                 if (User != null)
                 {
@@ -247,7 +252,8 @@ public class FirebaseManager : MonoBehaviour
                     UserProfile profile = new UserProfile { DisplayName = _username };
 
                     //Call the Firebase auth update user profile function passing the profile with the username
-                    var ProfileTask = User.UpdateUserProfileAsync(profile);
+                    // var ProfileTask = User.UpdateUserProfileAsync(profile);
+                    Task ProfileTask = User.UpdateUserProfileAsync(profile);
                     //Wait until the task completes
                     yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
 
@@ -271,13 +277,15 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
+    // This function is not in use (do not intend to allow username changes)
     private IEnumerator UpdateUsernameAuth(string _username)
     {
         //Create a user profile and set the username
         UserProfile profile = new UserProfile { DisplayName = _username };
 
         //Call the Firebase auth update user profile function passing the profile with the username
-        var ProfileTask = User.UpdateUserProfileAsync(profile);
+        // var ProfileTask = User.UpdateUserProfileAsync(profile);
+        Task ProfileTask = User.UpdateUserProfileAsync(profile);
         //Wait until the task completes
         yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
 
@@ -291,10 +299,12 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
+    // This function is not in use (do not intend to allow username changes)
     private IEnumerator UpdateUsernameDatabase(string _username)
     {
         //Set the currently logged in user username in the database
-        var DBTask = DBreference.Child("users").Child(User.UserId).Child("username").SetValueAsync(_username);
+        // var DBTask = DBreference.Child("users").Child(User.UserId).Child("username").SetValueAsync(_username);
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("username").SetValueAsync(_username);
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -308,6 +318,7 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
+    // Not in use
     private IEnumerator UpdateXp(int _xp)
     {
         //Set the currently logged in user xp
@@ -325,6 +336,7 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
+    // Not in use
     private IEnumerator UpdateKills(int _kills)
     {
         //Set the currently logged in user kills
@@ -342,10 +354,12 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
+    // Not in use
     private IEnumerator UpdateDeaths(int _deaths)
     {
         //Set the currently logged in user deaths
-        var DBTask = DBreference.Child("users").Child(User.UserId).Child("deaths").SetValueAsync(_deaths);
+        // var DBTask = DBreference.Child("users").Child(User.UserId).Child("deaths").SetValueAsync(_deaths);
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("deaths").SetValueAsync(_deaths);
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -362,7 +376,7 @@ public class FirebaseManager : MonoBehaviour
     private IEnumerator UpdateJumps(int _jumps)
     {
         //Set the currently logged in user jumps
-        var DBTask = DBreference.Child("users").Child(User.UserId).Child("jumps").SetValueAsync(_jumps);
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("jumps").SetValueAsync(_jumps);
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -379,7 +393,7 @@ public class FirebaseManager : MonoBehaviour
     private IEnumerator UpdateFalls(int _falls)
     {
         //Set the currently logged in user falls
-        var DBTask = DBreference.Child("users").Child(User.UserId).Child("falls").SetValueAsync(_falls);
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("falls").SetValueAsync(_falls);
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -396,7 +410,7 @@ public class FirebaseManager : MonoBehaviour
     private IEnumerator UpdateXPos(float _xpos)
     {
         //Set the currently logged in user pos
-        var DBTask = DBreference.Child("users").Child(User.UserId).Child("xpos").SetValueAsync(_xpos);
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("xpos").SetValueAsync(_xpos);
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -413,7 +427,7 @@ public class FirebaseManager : MonoBehaviour
     private IEnumerator UpdateYPos(float _ypos)
     {
         //Set the currently logged in user pos
-        var DBTask = DBreference.Child("users").Child(User.UserId).Child("ypos").SetValueAsync(_ypos);
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("ypos").SetValueAsync(_ypos);
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -430,7 +444,7 @@ public class FirebaseManager : MonoBehaviour
     private IEnumerator UpdateCurrTime(float _currtime)
     {
         //Set the currently logged in user currtime (time before completion)
-        var DBTask = DBreference.Child("users").Child(User.UserId).Child("currtime").SetValueAsync(_currtime);
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("currtime").SetValueAsync(_currtime);
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -447,7 +461,8 @@ public class FirebaseManager : MonoBehaviour
     private IEnumerator LoadUserData()
     {
         //Get the currently logged in user data
-        var DBTask = DBreference.Child("users").Child(User.UserId).GetValueAsync();
+        // var DBTask = DBreference.Child("users").Child(User.UserId).GetValueAsync();
+        Task<DataSnapshot> DBTask = DBreference.Child("users").Child(User.UserId).GetValueAsync();
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -458,9 +473,10 @@ public class FirebaseManager : MonoBehaviour
         else if (DBTask.Result.Value == null)
         {
             //No data exists yet
-            xpField.text = "0";
-            killsField.text = "0";
-            deathsField.text = "0";
+            //xpField.text = "0";
+            //killsField.text = "0";
+            //deathsField.text = "0";
+            TimeManager.instance.SetTime(0f);
 
             // Start game
         }
@@ -469,30 +485,30 @@ public class FirebaseManager : MonoBehaviour
             //Data has been retrieved
             DataSnapshot snapshot = DBTask.Result;
 
-            xpField.text = snapshot.Child("xp").Value.ToString();
-            killsField.text = snapshot.Child("kills").Value.ToString();
-            deathsField.text = snapshot.Child("deaths").Value.ToString();
+            //xpField.text = snapshot.Child("xp").Value.ToString();
+            //killsField.text = snapshot.Child("kills").Value.ToString();
+            //deathsField.text = snapshot.Child("deaths").Value.ToString();
 
-            Vector2 playerPosition = new Vector2((float)snapshot.Child("xpos").Value, (float)snapshot.Child("ypos").Value);
-            int jumps = (int)snapshot.Child("jumps").Value;
-            int falls = (int)snapshot.Child("falls").Value;
-            float currTime = (float)snapshot.Child("currtime").Value;
+            // Vector2 playerPosition = new Vector2(float.Parse(snapshot.Child("xpos").Value.ToString()), float.Parse(snapshot.Child("ypos").Value.ToString()));
+            int jumps = int.Parse(snapshot.Child("jumps").Value.ToString());
+            int falls = int.Parse(snapshot.Child("falls").Value.ToString());
+            float currTime = float.Parse(snapshot.Child("currtime").Value.ToString());
 
-            transform.position = playerPosition;
+            //transform.position = new Vector2(float.Parse(snapshot.Child("xpos").Value.ToString()), float.Parse(snapshot.Child("ypos").Value.ToString()));
+            StatsManager.instance.SetPosition(float.Parse(snapshot.Child("xpos").Value.ToString()), float.Parse(snapshot.Child("ypos").Value.ToString()));
             StatsManager.instance.SetJumps(jumps);
             StatsManager.instance.SetFalls(falls);
             TimeManager.instance.SetTime(currTime);
 
             // Start game
-
-
         }
     }
 
     private IEnumerator LoadScoreboardData()
     {
         //Get all the users data ordered by kills amount
-        var DBTask = DBreference.Child("users").OrderByChild("kills").GetValueAsync();
+        // var DBTask = DBreference.Child("users").OrderByChild("kills").GetValueAsync();
+        Task<DataSnapshot> DBTask = DBreference.Child("users").OrderByChild("kills").GetValueAsync();
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 

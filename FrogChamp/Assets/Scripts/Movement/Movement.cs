@@ -75,16 +75,16 @@ public class Movement : MonoBehaviour
     // For Milestone2 testing
     private void PlayerTeleport()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.F1))
             transform.position = new Vector2(3.53f, 30f);
         
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.F2))
             transform.position = new Vector2(-8f, 103f);
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.F3))
             transform.position = new Vector2(6f, 225f);
 
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.F4))
             transform.position = new Vector2(5f, 353f);
     }
 

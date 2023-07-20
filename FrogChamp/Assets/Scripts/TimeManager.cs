@@ -30,7 +30,6 @@ public class TimeManager : MonoBehaviour
     public void BeginTimer()
     {
         timerGoing = true;
-        elapsedTime = 0f;
 
         StartCoroutine(UpdateTimer());
     }
