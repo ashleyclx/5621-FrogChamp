@@ -113,11 +113,15 @@ public class FirebaseManager : MonoBehaviour
     public void SaveProgress()
     {
         Vector2 currentPosition = StatsManager.instance.GetPosition();
+        Vector3 currentCameraPosition = StatsManager.instance.GetCameraPosition();
         // Saves user stats to DB
-        StartCoroutine(UpdateJumps(StatsManager.instance.GetJumps()));
-        StartCoroutine(UpdateFalls(StatsManager.instance.GetFalls()));
+        StartCoroutine(UpdateCurrJumps(StatsManager.instance.GetJumps()));
+        StartCoroutine(UpdateCurrFalls(StatsManager.instance.GetFalls()));
         StartCoroutine(UpdateXPos(currentPosition.x));
         StartCoroutine(UpdateYPos(currentPosition.y));
+        StartCoroutine(UpdateXCamPos(currentCameraPosition.x));
+        StartCoroutine(UpdateYCamPos(currentCameraPosition.y));
+        StartCoroutine(UpdateZCamPos(currentCameraPosition.z));
         StartCoroutine(UpdateCurrTime(TimeManager.instance.GetTime()));
     }
 
@@ -373,10 +377,10 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
-    private IEnumerator UpdateJumps(int _jumps)
+    private IEnumerator UpdateCurrJumps(int _currJumps)
     {
-        //Set the currently logged in user jumps
-        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("jumps").SetValueAsync(_jumps);
+        //Set the currently logged in user curr jumps
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("currJumps").SetValueAsync(_currJumps);
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -386,14 +390,14 @@ public class FirebaseManager : MonoBehaviour
         }
         else
         {
-            // Updated number of jumps into database
+            // Updated number of curr jumps into database
         }
     }
 
-    private IEnumerator UpdateFalls(int _falls)
+    private IEnumerator UpdateCurrFalls(int _currFalls)
     {
-        //Set the currently logged in user falls
-        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("falls").SetValueAsync(_falls);
+        //Set the currently logged in user curr falls
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("currFalls").SetValueAsync(_currFalls);
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -403,7 +407,7 @@ public class FirebaseManager : MonoBehaviour
         }
         else
         {
-            // Updated number of falls into database
+            // Updated number of curr falls into database
         }
     }
 
@@ -438,6 +442,57 @@ public class FirebaseManager : MonoBehaviour
         else
         {
             // Updated player's last y position into database
+        }
+    }
+
+    private IEnumerator UpdateXCamPos(float _xcampos)
+    {
+        //Set the currently logged in camera x pos
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("xcampos").SetValueAsync(_xcampos);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            // Updated camera's last x position into database
+        }
+    }
+
+    private IEnumerator UpdateYCamPos(float _ycampos)
+    {
+        //Set the currently logged in camera y pos
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("ycampos").SetValueAsync(_ycampos);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            // Updated camera's last y position into database
+        }
+    }
+
+    private IEnumerator UpdateZCamPos(float _zcampos)
+    {
+        //Set the currently logged in camera z pos
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("zcampos").SetValueAsync(_zcampos);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            // Updated camera's last z position into database
         }
     }
 
@@ -489,16 +544,11 @@ public class FirebaseManager : MonoBehaviour
             //killsField.text = snapshot.Child("kills").Value.ToString();
             //deathsField.text = snapshot.Child("deaths").Value.ToString();
 
-            // Vector2 playerPosition = new Vector2(float.Parse(snapshot.Child("xpos").Value.ToString()), float.Parse(snapshot.Child("ypos").Value.ToString()));
-            int jumps = int.Parse(snapshot.Child("jumps").Value.ToString());
-            int falls = int.Parse(snapshot.Child("falls").Value.ToString());
-            float currTime = float.Parse(snapshot.Child("currtime").Value.ToString());
-
-            //transform.position = new Vector2(float.Parse(snapshot.Child("xpos").Value.ToString()), float.Parse(snapshot.Child("ypos").Value.ToString()));
             StatsManager.instance.SetPosition(float.Parse(snapshot.Child("xpos").Value.ToString()), float.Parse(snapshot.Child("ypos").Value.ToString()));
-            StatsManager.instance.SetJumps(jumps);
-            StatsManager.instance.SetFalls(falls);
-            TimeManager.instance.SetTime(currTime);
+            StatsManager.instance.SetCameraPosition(float.Parse(snapshot.Child("xcampos").Value.ToString()), float.Parse(snapshot.Child("ycampos").Value.ToString()), float.Parse(snapshot.Child("zcampos").Value.ToString()));
+            StatsManager.instance.SetJumps(int.Parse(snapshot.Child("currJumps").Value.ToString()));
+            StatsManager.instance.SetFalls(int.Parse(snapshot.Child("currFalls").Value.ToString()));
+            TimeManager.instance.SetTime(float.Parse(snapshot.Child("currtime").Value.ToString()));
 
             // Start game
         }

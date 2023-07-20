@@ -18,6 +18,11 @@ public class StatsManager : MonoBehaviour
         return transform.position;
     }
 
+    public Vector3 GetCameraPosition()
+    {
+        return Camera.main.transform.position;
+    }
+
     public void AddJump()
     {
         numJumps += 1;
@@ -51,6 +56,13 @@ public class StatsManager : MonoBehaviour
     public void SetPosition(float _x, float _y)
     {
         transform.position = new Vector2(_x, _y);
+    }
+
+    public void SetCameraPosition(float _x, float _y, float _z)
+    {
+        CameraMovement.instance.SetX(_x);
+        CameraMovement.instance.SetY(_y);
+        CameraMovement.instance.SetZ(_z);
     }
 
     public int GetBestRecord(int databaseRecord, int currentRecord)
