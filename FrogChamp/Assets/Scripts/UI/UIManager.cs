@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     public GameObject startUI;
     public GameObject loginUI;
     public GameObject registerUI;
+    public GameObject statisticsUI;
     public GameObject userDataUI;
     public GameObject leaderboardUI;
     public GameObject mainMenuUI;
@@ -119,6 +120,7 @@ public class UIManager : MonoBehaviour
         startUI.SetActive(false);
         loginUI.SetActive(false);
         registerUI.SetActive(false);
+        statisticsUI.SetActive(false);
         userDataUI.SetActive(false);
         leaderboardUI.SetActive(false);
         mainMenuUI.SetActive(false);
@@ -144,10 +146,16 @@ public class UIManager : MonoBehaviour
         startUI.SetActive(true);
     }
 
-    public void RegisterScreen() // Regester button
+    public void RegisterScreen() // Register button
     {
         ClearScreen();
         registerUI.SetActive(true);
+    }
+
+    public void StatisticsScreen()
+    {
+        ClearScreen();
+        statisticsUI.SetActive(true);
     }
 
     public void UserDataScreen() //Logged in

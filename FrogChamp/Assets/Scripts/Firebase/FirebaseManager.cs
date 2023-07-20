@@ -40,7 +40,13 @@ public class FirebaseManager : MonoBehaviour
     public GameObject scoreElement;
     public Transform scoreboardContent;
 
-    //Completion Data Variables
+
+    // Completion Data Variables
+    [Header("Statistics Data")]
+    public TMP_Text bestTimingPlaceholder;
+    public TMP_Text totalJumpsPlaceholder;
+    public TMP_Text totalFallsPlaceholder;
+
     private float recordedBestTime = 0f;
     private int recordedTotalJumps = 0;
     private int recordedTotalFalls = 0;
@@ -613,6 +619,11 @@ public class FirebaseManager : MonoBehaviour
         else if (DBTask.Result.Value == null)
         {
             //No data exists yet
+
+            bestTimingPlaceholder.text = recordedBestTime.ToString();
+            totalJumpsPlaceholder.text = recordedTotalJumps.ToString();
+            totalFallsPlaceholder.text = recordedTotalFalls.ToString();
+
             //xpField.text = "0";
             //killsField.text = "0";
             //deathsField.text = "0";
@@ -637,9 +648,16 @@ public class FirebaseManager : MonoBehaviour
             TimeManager.instance.SetTime(float.Parse(snapshot.Child("currtime").Value.ToString()));
 
             // Loads completion recorded data
-            recordedBestTime = float.Parse(snapshot.Child("bestTime").Value.ToString());
-            recordedTotalJumps = int.Parse(snapshot.Child("totalJumps").Value.ToString());
-            recordedTotalFalls = int.Parse(snapshot.Child("totalFalls").Value.ToString());
+            if (snapshot.Child("bestTime").Value != null)
+            {
+                recordedBestTime = float.Parse(snapshot.Child("bestTime").Value.ToString());
+                recordedTotalJumps = int.Parse(snapshot.Child("totalJumps").Value.ToString());
+                recordedTotalFalls = int.Parse(snapshot.Child("totalFalls").Value.ToString());
+            }
+            
+            bestTimingPlaceholder.text = recordedBestTime.ToString();
+            totalJumpsPlaceholder.text = recordedTotalJumps.ToString();
+            totalFallsPlaceholder.text = recordedTotalFalls.ToString();
 
             // Start game
         }
