@@ -40,6 +40,11 @@ public class FirebaseManager : MonoBehaviour
     public GameObject scoreElement;
     public Transform scoreboardContent;
 
+    //Completion Data Variables
+    private float recordedBestTime = 0f;
+    private int recordedTotalJumps = 0;
+    private int recordedTotalFalls = 0;
+
     void Awake()
     {
         //Check that all of the necessary dependencies for Firebase are present on the system
@@ -128,7 +133,36 @@ public class FirebaseManager : MonoBehaviour
     // Function to update scoreboard (finished game)
     public void FinishProgress()
     {
-        // Saves user best stats to DB
+        // Updates bestTime to database
+        if (recordedBestTime == 0f)
+            StartCoroutine(UpdateBestTime(TimeManager.instance.GetTime()));
+        else
+        {
+            if (TimeManager.instance.GetTime() < recordedBestTime)
+                StartCoroutine(UpdateBestTime(TimeManager.instance.GetTime()));
+        }
+
+        // Updates cummulative jumps to database
+        if (recordedTotalJumps == 0)
+            StartCoroutine(UpdateTotalJumps(StatsManager.instance.GetJumps()));
+        else
+            StartCoroutine(UpdateTotalJumps(recordedTotalJumps + StatsManager.instance.GetJumps()));
+
+        // Updates cummulative falls to database
+        if (recordedTotalFalls == 0)
+            StartCoroutine(UpdateTotalFalls(StatsManager.instance.GetFalls()));
+        else
+            StartCoroutine(UpdateTotalFalls(recordedTotalFalls + StatsManager.instance.GetFalls()));
+
+        // Resets all curr values to 0
+        StartCoroutine(UpdateCurrJumps(0));
+        StartCoroutine(UpdateCurrFalls(0));
+        StartCoroutine(UpdateXPos(-6f));
+        StartCoroutine(UpdateYPos(-3.5f));
+        StartCoroutine(UpdateXCamPos(4.15f));
+        StartCoroutine(UpdateYCamPos(3f));
+        StartCoroutine(UpdateZCamPos(10f));
+        StartCoroutine(UpdateCurrTime(0f));
     }
 
     //Function for the scoreboard button
@@ -513,6 +547,57 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
+    private IEnumerator UpdateBestTime(float _bestTime)
+    {
+        //Set the currently logged in user best time (time for completion)
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("bestTime").SetValueAsync(_bestTime);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            // Updated best clear time into database
+        }
+    }
+
+    private IEnumerator UpdateTotalJumps(int _totalJumps)
+    {
+        //Set the currently logged in user total jumps
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("totalJumps").SetValueAsync(_totalJumps);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            // Updated number of total jumps into database
+        }
+    }
+
+    private IEnumerator UpdateTotalFalls(int _totalFalls)
+    {
+        //Set the currently logged in user total falls
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("totalFalls").SetValueAsync(_totalFalls);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            // Updated number of total falls into database
+        }
+    }
+
     private IEnumerator LoadUserData()
     {
         //Get the currently logged in user data
@@ -544,11 +629,17 @@ public class FirebaseManager : MonoBehaviour
             //killsField.text = snapshot.Child("kills").Value.ToString();
             //deathsField.text = snapshot.Child("deaths").Value.ToString();
 
+            // Sets data for resume progress
             StatsManager.instance.SetPosition(float.Parse(snapshot.Child("xpos").Value.ToString()), float.Parse(snapshot.Child("ypos").Value.ToString()));
             StatsManager.instance.SetCameraPosition(float.Parse(snapshot.Child("xcampos").Value.ToString()), float.Parse(snapshot.Child("ycampos").Value.ToString()), float.Parse(snapshot.Child("zcampos").Value.ToString()));
             StatsManager.instance.SetJumps(int.Parse(snapshot.Child("currJumps").Value.ToString()));
             StatsManager.instance.SetFalls(int.Parse(snapshot.Child("currFalls").Value.ToString()));
             TimeManager.instance.SetTime(float.Parse(snapshot.Child("currtime").Value.ToString()));
+
+            // Loads completion recorded data
+            recordedBestTime = float.Parse(snapshot.Child("bestTime").Value.ToString());
+            recordedTotalJumps = int.Parse(snapshot.Child("totalJumps").Value.ToString());
+            recordedTotalFalls = int.Parse(snapshot.Child("totalFalls").Value.ToString());
 
             // Start game
         }
