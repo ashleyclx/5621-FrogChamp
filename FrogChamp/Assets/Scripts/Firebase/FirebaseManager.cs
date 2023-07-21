@@ -31,16 +31,6 @@ public class FirebaseManager : MonoBehaviour
     public TMP_InputField passwordRegisterVerifyField;
     public TMP_Text warningRegisterText;
 
-    //User Data variables
-    [Header("UserData")]
-    public TMP_InputField usernameField;
-    public TMP_InputField xpField;
-    public TMP_InputField killsField;
-    public TMP_InputField deathsField;
-    public GameObject scoreElement;
-    public Transform scoreboardContent;
-
-
     // Completion Data Variables
     [Header("Statistics Data")]
     public TMP_Text bestTimingPlaceholder;
@@ -64,13 +54,13 @@ public class FirebaseManager : MonoBehaviour
 
     void Awake()
     {
-        //Check that all of the necessary dependencies for Firebase are present on the system
+        // Checks if all of the necessary dependencies for Firebase are available
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
             dependencyStatus = task.Result;
             if (dependencyStatus == DependencyStatus.Available)
             {
-                //If they are avalible Initialize Firebase
+                // If avalible then Initialize Firebase
                 InitializeFirebase();
             }
             else
@@ -83,7 +73,7 @@ public class FirebaseManager : MonoBehaviour
     private void InitializeFirebase()
     {
         Debug.Log("Setting up Firebase Auth");
-        //Set the authentication instance object
+        // Sets the authentication instance object
         auth = FirebaseAuth.DefaultInstance;
         DBreference = FirebaseDatabase.DefaultInstance.RootReference;
     }
@@ -100,35 +90,25 @@ public class FirebaseManager : MonoBehaviour
         passwordRegisterVerifyField.text = "";
     }
 
-    //Function for the login button
+    // Button for user login
     public void LoginButton()
     {
         //Call the login coroutine passing the email and password
         StartCoroutine(Login(emailLoginField.text, passwordLoginField.text));
     }
-    //Function for the register button
+    // Button to allow new users to register
     public void RegisterButton()
     {
-        //Call the register coroutine passing the email, password, and username
+        // Calls the register function passing the email, password, and username
         StartCoroutine(Register(emailRegisterField.text, passwordRegisterField.text, usernameRegisterField.text));
     }
-    //Function for the sign out button
+    // Button for users to sign out
     public void SignOutButton()
     {
         auth.SignOut();
         UIManager.instance.LoginScreen();
         ClearRegisterFields();
         ClearLoginFields();
-    }
-    //Function for the save button
-    public void SaveDataButton()
-    {
-        //StartCoroutine(UpdateUsernameAuth(usernameField.text));
-        //StartCoroutine(UpdateUsernameDatabase(usernameField.text));
-
-        StartCoroutine(UpdateXp(int.Parse(xpField.text)));
-        StartCoroutine(UpdateKills(int.Parse(killsField.text)));
-        StartCoroutine(UpdateDeaths(int.Parse(deathsField.text)));
     }
 
     // Function to save progress (pause game)
@@ -183,9 +163,18 @@ public class FirebaseManager : MonoBehaviour
         StartCoroutine(UpdateYCamPos(3f));
         StartCoroutine(UpdateZCamPos(10f));
         StartCoroutine(UpdateCurrTime(0f));
+
+        // Go to main menu screen
+        UIManager.instance.MainMenuScreen();
     }
 
-    //Function for the scoreboard button
+    // Button to open user stats screen
+    public void StatisticsButton()
+    {
+        StartCoroutine(LoadStatsData());
+    }
+
+    // Button to open scoreboard screen
     public void ScoreboardButton()
     {
         StartCoroutine(LoadScoreboardData());
@@ -234,18 +223,14 @@ public class FirebaseManager : MonoBehaviour
         }
         else
         {
-            //User is now logged in
-            //Now get the result
-            // User = LoginTask.Result.User;
+            // User is now logged in
             User = new FirebaseUser(LoginTask.Result.User);
             Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
             warningLoginText.text = "";
             confirmLoginText.text = "Logged In";
-            // StartCoroutine(LoadUserData());
-            // yield return new WaitForSeconds(2);
 
-            // usernameField.text = User.DisplayName;
-            UIManager.instance.MainMenuScreen(); // Change to user data UI
+            // Opens the main menu screen after user is logged in
+            UIManager.instance.MainMenuScreen(); 
             confirmLoginText.text = "";
             ClearLoginFields();
             ClearRegisterFields();
@@ -256,20 +241,19 @@ public class FirebaseManager : MonoBehaviour
     {
         if (_username == "")
         {
-            //If the username field is blank show a warning
+            // A warning is displayed if username input field is blank
             warningRegisterText.text = "Missing Username";
         }
         else if (passwordRegisterField.text != passwordRegisterVerifyField.text)
         {
-            //If the password does not match show a warning
+            // A warning is displayed if password and confirm password fields do not match
             warningRegisterText.text = "Password Does Not Match!";
         }
         else
         {
-            //Call the Firebase auth signin function passing the email and password
-            // var RegisterTask = auth.CreateUserWithEmailAndPasswordAsync(_email, _password);
+            // Calls Firebase auth signin function passing the email and password
             Task<AuthResult> RegisterTask = auth.CreateUserWithEmailAndPasswordAsync(_email, _password);
-            //Wait until the task completes
+
             yield return new WaitUntil(predicate: () => RegisterTask.IsCompleted);
 
             if (RegisterTask.Exception != null)
@@ -299,25 +283,22 @@ public class FirebaseManager : MonoBehaviour
             }
             else
             {
-                //User has now been created
-                //Now get the result
-                // User = RegisterTask.Result.User;
+                // User created
                 User = new FirebaseUser(RegisterTask.Result.User);
 
                 if (User != null)
                 {
-                    //Create a user profile and set the username
+                    // Creates a user profile
                     UserProfile profile = new UserProfile { DisplayName = _username };
 
-                    //Call the Firebase auth update user profile function passing the profile with the username
-                    // var ProfileTask = User.UpdateUserProfileAsync(profile);
+                    // Call the Firebase auth update user profile function passing the profile with the username
                     Task ProfileTask = User.UpdateUserProfileAsync(profile);
-                    //Wait until the task completes
+
                     yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
 
                     if (ProfileTask.Exception != null)
                     {
-                        //If there are errors handle them
+                        // Handles errors
                         Debug.LogWarning(message: $"Failed to register task with {ProfileTask.Exception}");
                         warningRegisterText.text = "Username Set Failed!";
                     }
@@ -328,7 +309,7 @@ public class FirebaseManager : MonoBehaviour
                         // Updates username to database
                         StartCoroutine(UpdateUsernameDatabase(_username));
 
-                        // Returns to Start Screen
+                        // Returns to start screen
                         UIManager.instance.StartScreen();
                         warningRegisterText.text = "";
                         ClearRegisterFields();
@@ -342,13 +323,12 @@ public class FirebaseManager : MonoBehaviour
     // This function is not in use (do not intend to allow username changes)
     private IEnumerator UpdateUsernameAuth(string _username)
     {
-        //Create a user profile and set the username
+        // Creates a user profile and set the username
         UserProfile profile = new UserProfile { DisplayName = _username };
 
-        //Call the Firebase auth update user profile function passing the profile with the username
-        // var ProfileTask = User.UpdateUserProfileAsync(profile);
+        // Calls the Firebase auth update user profile function passing the profile with the username
         Task ProfileTask = User.UpdateUserProfileAsync(profile);
-        //Wait until the task completes
+
         yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
 
         if (ProfileTask.Exception != null)
@@ -357,15 +337,14 @@ public class FirebaseManager : MonoBehaviour
         }
         else
         {
-            //Auth username is now updated
+            // Auth username is now updated
         }
     }
 
-    // This function is not in use (do not intend to allow username changes)
+    // Used to update username to database when account is created
     private IEnumerator UpdateUsernameDatabase(string _username)
     {
         //Set the currently logged in user username in the database
-        // var DBTask = DBreference.Child("users").Child(User.UserId).Child("username").SetValueAsync(_username);
         Task DBTask = DBreference.Child("users").Child(User.UserId).Child("username").SetValueAsync(_username);
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
@@ -377,61 +356,6 @@ public class FirebaseManager : MonoBehaviour
         else
         {
             //Database username is now updated
-        }
-    }
-
-    // Not in use
-    private IEnumerator UpdateXp(int _xp)
-    {
-        //Set the currently logged in user xp
-        var DBTask = DBreference.Child("users").Child(User.UserId).Child("xp").SetValueAsync(_xp);
-
-        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
-
-        if (DBTask.Exception != null)
-        {
-            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
-        }
-        else
-        {
-            //Xp is now updated
-        }
-    }
-
-    // Not in use
-    private IEnumerator UpdateKills(int _kills)
-    {
-        //Set the currently logged in user kills
-        var DBTask = DBreference.Child("users").Child(User.UserId).Child("kills").SetValueAsync(_kills);
-
-        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
-
-        if (DBTask.Exception != null)
-        {
-            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
-        }
-        else
-        {
-            //Kills are now updated
-        }
-    }
-
-    // Not in use
-    private IEnumerator UpdateDeaths(int _deaths)
-    {
-        //Set the currently logged in user deaths
-        // var DBTask = DBreference.Child("users").Child(User.UserId).Child("deaths").SetValueAsync(_deaths);
-        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("deaths").SetValueAsync(_deaths);
-
-        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
-
-        if (DBTask.Exception != null)
-        {
-            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
-        }
-        else
-        {
-            //Deaths are now updated
         }
     }
 
@@ -556,7 +480,7 @@ public class FirebaseManager : MonoBehaviour
 
     private IEnumerator UpdateCurrTime(float _currtime)
     {
-        //Set the currently logged in user currtime (time before completion)
+        // Sets the currently logged in user currtime (time before completion)
         Task DBTask = DBreference.Child("users").Child(User.UserId).Child("currtime").SetValueAsync(_currtime);
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
@@ -641,8 +565,7 @@ public class FirebaseManager : MonoBehaviour
 
     private IEnumerator LoadUserData()
     {
-        //Get the currently logged in user data
-        // var DBTask = DBreference.Child("users").Child(User.UserId).GetValueAsync();
+        //Gets the currently logged in user data
         Task<DataSnapshot> DBTask = DBreference.Child("users").Child(User.UserId).GetValueAsync();
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
@@ -651,37 +574,49 @@ public class FirebaseManager : MonoBehaviour
         {
             Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
         }
-        else if (DBTask.Result.Value == null)
-        {
-            //No data exists yet
-
-            bestTimingPlaceholder.text = recordedBestTime.ToString();
-            totalJumpsPlaceholder.text = recordedTotalJumps.ToString();
-            totalFallsPlaceholder.text = recordedTotalFalls.ToString();
-            numClearsPlaceholder.text = recordedNumClears.ToString();
-
-            //xpField.text = "0";
-            //killsField.text = "0";
-            //deathsField.text = "0";
-            TimeManager.instance.SetTime(0f);
-
-            // Start game
-        }
         else
         {
             //Data has been retrieved
             DataSnapshot snapshot = DBTask.Result;
 
-            //xpField.text = snapshot.Child("xp").Value.ToString();
-            //killsField.text = snapshot.Child("kills").Value.ToString();
-            //deathsField.text = snapshot.Child("deaths").Value.ToString();
+            if (snapshot.Child("currtime").Value == null)
+            {
+                //No data exists yet (new game)
+                TimeManager.instance.SetTime(0f);
 
-            // Sets data for resume progress
-            StatsManager.instance.SetPosition(float.Parse(snapshot.Child("xpos").Value.ToString()), float.Parse(snapshot.Child("ypos").Value.ToString()));
-            StatsManager.instance.SetCameraPosition(float.Parse(snapshot.Child("xcampos").Value.ToString()), float.Parse(snapshot.Child("ycampos").Value.ToString()), float.Parse(snapshot.Child("zcampos").Value.ToString()));
-            StatsManager.instance.SetJumps(int.Parse(snapshot.Child("currJumps").Value.ToString()));
-            StatsManager.instance.SetFalls(int.Parse(snapshot.Child("currFalls").Value.ToString()));
-            TimeManager.instance.SetTime(float.Parse(snapshot.Child("currtime").Value.ToString()));
+                // Start game
+                UIManager.instance.StartGame();
+            }
+            else
+            {
+                // Sets data for resume progress
+                StatsManager.instance.SetPosition(float.Parse(snapshot.Child("xpos").Value.ToString()), float.Parse(snapshot.Child("ypos").Value.ToString()));
+                StatsManager.instance.SetCameraPosition(float.Parse(snapshot.Child("xcampos").Value.ToString()), float.Parse(snapshot.Child("ycampos").Value.ToString()), float.Parse(snapshot.Child("zcampos").Value.ToString()));
+                StatsManager.instance.SetJumps(int.Parse(snapshot.Child("currJumps").Value.ToString()));
+                StatsManager.instance.SetFalls(int.Parse(snapshot.Child("currFalls").Value.ToString()));
+                TimeManager.instance.SetTime(float.Parse(snapshot.Child("currtime").Value.ToString()));
+
+                // Start game
+                UIManager.instance.StartGame();
+            }
+        }
+    }
+
+    private IEnumerator LoadStatsData()
+    {
+        // Gets the currently logged in user data
+        Task<DataSnapshot> DBTask = DBreference.Child("users").Child(User.UserId).GetValueAsync();
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else 
+        {
+            //Data has been retrieved
+            DataSnapshot snapshot = DBTask.Result;
 
             // Loads completion recorded data
             if (snapshot.Child("bestTime").Value != null)
@@ -692,21 +627,20 @@ public class FirebaseManager : MonoBehaviour
                 recordedNumClears = int.Parse(snapshot.Child("numClears").Value.ToString());
             }
             
+            // Sets text display for statistics screen
             bestTimingPlaceholder.text = recordedBestTime.ToString();
             totalJumpsPlaceholder.text = recordedTotalJumps.ToString();
             totalFallsPlaceholder.text = recordedTotalFalls.ToString();
             numClearsPlaceholder.text = recordedNumClears.ToString();
 
-            // Start game
+            // Go to statistics screen
+            UIManager.instance.StatisticsScreen();
         }
     }
 
     private IEnumerator LoadScoreboardData()
     {
-        //Get all the users data ordered by kills amount
-        //var DBTask = DBreference.Child("users").OrderByChild("kills").GetValueAsync();
-        //Task<DataSnapshot> DBTask = DBreference.Child("users").OrderByChild("kills").GetValueAsync();
-
+        //Get all the users data ordered by best clear time
         Task<DataSnapshot> DBTask = DBreference.Child("users").OrderByChild("bestTime").GetValueAsync();
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
@@ -720,43 +654,37 @@ public class FirebaseManager : MonoBehaviour
             //Data has been retrieved
             DataSnapshot snapshot = DBTask.Result;
 
-            //Destroy any existing scoreboard elements
-            //foreach (Transform child in scoreboardContent.transform)
-            //{
-                //Destroy(child.gameObject);
-            //}
-
             int count = 0;
 
             //Loop through every users UID
             foreach (DataSnapshot childSnapshot in snapshot.Children)
             {
+                // Sets text display for first place player
                 if (count == 0)
                 {
                     firstUsernamePlaceholder.text = childSnapshot.Child("username").Value.ToString();
                     firstTimePlaceholder.text = childSnapshot.Child("bestTime").Value.ToString().Substring(0,10);
                 }
 
+                // Sets text display for second place player
                 if (count == 1)
                 {
                     secondUsernamePlaceholder.text = childSnapshot.Child("username").Value.ToString();
                     secondTimePlaceholder.text = childSnapshot.Child("bestTime").Value.ToString().Substring(0,10);
                 }
 
+                // Sets text display for third place player
                 if (count == 2)
                 {
                     thirdUsernamePlaceholder.text = childSnapshot.Child("username").Value.ToString();
                     thirdTimePlaceholder.text = childSnapshot.Child("bestTime").Value.ToString().Substring(0,10);
                 }
+
+                if (count == 3)
+                {
+                    break;
+                }
                 count++;
-
-                //int kills = int.Parse(childSnapshot.Child("kills").Value.ToString());
-                //int deaths = int.Parse(childSnapshot.Child("deaths").Value.ToString());
-                //int xp = int.Parse(childSnapshot.Child("xp").Value.ToString());
-
-                //Instantiate new scoreboard elements
-                // GameObject scoreboardElement = Instantiate(scoreElement, scoreboardContent);
-                // scoreboardElement.GetComponent<ScoreElement>().NewScoreElement(username, kills, deaths, xp); commented out to prevent compilation errors
             }
 
             //Go to scoareboard screen

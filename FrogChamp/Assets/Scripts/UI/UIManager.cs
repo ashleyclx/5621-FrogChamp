@@ -19,7 +19,6 @@ public class UIManager : MonoBehaviour
     public GameObject loginUI;
     public GameObject registerUI;
     public GameObject statisticsUI;
-    public GameObject userDataUI; // not in use
     public GameObject scoreboardUI;
     public GameObject mainMenuUI;
 
@@ -102,11 +101,6 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    //public void MainMenu()
-    //{
-       // mainMenuUI.SetActive(true);
-    //}
-
     public void Restart() //issue
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -115,56 +109,57 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #region Firebase
-    public void ClearScreen() //Turn off all screens
+
+    // Turns off all screens
+    public void ClearScreen() 
     {
         startUI.SetActive(false);
         loginUI.SetActive(false);
         registerUI.SetActive(false);
         statisticsUI.SetActive(false);
-        userDataUI.SetActive(false);
         scoreboardUI.SetActive(false);
         mainMenuUI.SetActive(false);
         pauseScreen.SetActive(false);
         timerUI.SetActive(false);
     }
 
+    // Opens up main menu screen
     public void MainMenuScreen()
     {
         ClearScreen();
         mainMenuUI.SetActive(true);
     }
 
-    public void LoginScreen() //Back button
+    // Opens up login screen
+    public void LoginScreen()
     {
         ClearScreen();
         loginUI.SetActive(true);
     }
 
-    public void StartScreen() // Back button to Start Screen
+    // Opens up start screen
+    public void StartScreen()
     {
         ClearScreen();
         startUI.SetActive(true);
     }
 
-    public void RegisterScreen() // Register button
+    // Opens up register screen
+    public void RegisterScreen()
     {
         ClearScreen();
         registerUI.SetActive(true);
     }
 
-    public void StatisticsScreen()
+    // Opens up user's personal stats page
+    public void StatisticsScreen() // Opens up user's personal stats page
     {
         ClearScreen();
         statisticsUI.SetActive(true);
     }
 
-    public void UserDataScreen() //Logged in
-    {
-        ClearScreen();
-        userDataUI.SetActive(true);
-    }
-
-    public void ScoreboardScreen() //Scoreboard button
+    // Opens up public leaderboard screen
+    public void ScoreboardScreen() 
     {
         ClearScreen();
         scoreboardUI.SetActive(true);
