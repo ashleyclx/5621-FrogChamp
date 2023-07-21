@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     public GameObject statisticsUI;
     public GameObject scoreboardUI;
     public GameObject mainMenuUI;
+    public GameObject endUI;
 
     private void Awake()
     {
@@ -96,6 +97,7 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 1;
     }
 
+    //to remove
     public void EndGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -121,6 +123,7 @@ public class UIManager : MonoBehaviour
         mainMenuUI.SetActive(false);
         pauseScreen.SetActive(false);
         timerUI.SetActive(false);
+        endUI.SetActive(false);
     }
 
     // Opens up main menu screen
@@ -163,6 +166,13 @@ public class UIManager : MonoBehaviour
     {
         ClearScreen();
         scoreboardUI.SetActive(true);
+    }
+
+    // Opens up the end game screen
+    public void EndScreen()
+    {
+        ClearScreen();
+        endUI.SetActive(true);
     }
     #endregion
 }
