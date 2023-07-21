@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
 
     [Header("Pause Menu")]
-    [SerializeField] GameObject pauseScreen;
+    public GameObject pauseScreen;
 
     [Header("Timer")]
     public GameObject timerUI;

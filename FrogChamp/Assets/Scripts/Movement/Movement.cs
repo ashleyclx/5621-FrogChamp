@@ -197,7 +197,7 @@ public class Movement : MonoBehaviour
     {
         // Grapple logic
         // When player chooses a grapple point. Checks if grapple point is valid and starts the grapple process.
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && checks.IsGamePlaying())
             grappleTongue.SetGrapplePoint();
         
         // When player is holding down left mouse button (grappling).

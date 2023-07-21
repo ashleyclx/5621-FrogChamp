@@ -188,7 +188,6 @@ public class FirebaseManager : MonoBehaviour
     private IEnumerator Login(string _email, string _password)
     {
         //Call the Firebase auth signin function passing the email and password
-        //var LoginTask = auth.SignInWithEmailAndPasswordAsync(_email, _password);
         Task<AuthResult> LoginTask = auth.SignInWithEmailAndPasswordAsync(_email, _password);
         //Wait until the task completes
         yield return new WaitUntil(predicate: () => LoginTask.IsCompleted);
@@ -662,21 +661,51 @@ public class FirebaseManager : MonoBehaviour
                 // Sets text display for first place player
                 if (count == 0)
                 {
-                    firstUsernamePlaceholder.text = childSnapshot.Child("username").Value.ToString();
+                    // Checks if data is for new player with null bestTime
+                    if (childSnapshot.Child("bestTime").Value == null)
+                        continue;
+
+                    string _displayUsername = childSnapshot.Child("username").Value.ToString();
+
+                    if (_displayUsername.Length > 16)
+                        firstUsernamePlaceholder.text = _displayUsername.Substring(0,16);
+                    else
+                        firstUsernamePlaceholder.text = _displayUsername;
+
                     firstTimePlaceholder.text = childSnapshot.Child("bestTime").Value.ToString().Substring(0,10);
                 }
 
                 // Sets text display for second place player
                 if (count == 1)
                 {
-                    secondUsernamePlaceholder.text = childSnapshot.Child("username").Value.ToString();
+                    // Checks if data is for new player with null bestTime
+                    if (childSnapshot.Child("bestTime").Value == null)
+                        continue;
+
+                    string _displayUsername = childSnapshot.Child("username").Value.ToString();
+
+                    if (_displayUsername.Length > 16)
+                        secondUsernamePlaceholder.text = _displayUsername.Substring(0,16);
+                    else
+                        secondUsernamePlaceholder.text = _displayUsername;
+
                     secondTimePlaceholder.text = childSnapshot.Child("bestTime").Value.ToString().Substring(0,10);
                 }
 
                 // Sets text display for third place player
                 if (count == 2)
                 {
-                    thirdUsernamePlaceholder.text = childSnapshot.Child("username").Value.ToString();
+                    // Checks if data is for new player with null bestTime
+                    if (childSnapshot.Child("bestTime").Value == null)
+                        continue;
+
+                    string _displayUsername = childSnapshot.Child("username").Value.ToString();
+
+                    if (_displayUsername.Length > 16)
+                        thirdUsernamePlaceholder.text = _displayUsername.Substring(0,16);
+                    else
+                        thirdUsernamePlaceholder.text = _displayUsername;
+
                     thirdTimePlaceholder.text = childSnapshot.Child("bestTime").Value.ToString().Substring(0,10);
                 }
 
@@ -684,6 +713,7 @@ public class FirebaseManager : MonoBehaviour
                 {
                     break;
                 }
+
                 count++;
             }
 

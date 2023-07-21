@@ -90,4 +90,11 @@ public class Checks : MonoBehaviour
         if (movement.body.velocity.x < -10)
             movement.body.velocity = new Vector2(-10, movement.body.velocity.y);
     }
+
+    public bool IsGamePlaying()
+    {
+        return (UIManager.instance.startUI.activeInHierarchy && UIManager.instance.loginUI.activeInHierarchy && UIManager.instance.registerUI.activeInHierarchy
+            && UIManager.instance.statisticsUI.activeInHierarchy && UIManager.instance.scoreboardUI.activeInHierarchy && UIManager.instance.mainMenuUI.activeInHierarchy
+            && UIManager.instance.pauseScreen.activeInHierarchy);
+    }
 }
