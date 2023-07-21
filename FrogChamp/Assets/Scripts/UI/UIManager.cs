@@ -19,8 +19,8 @@ public class UIManager : MonoBehaviour
     public GameObject loginUI;
     public GameObject registerUI;
     public GameObject statisticsUI;
-    public GameObject userDataUI;
-    public GameObject leaderboardUI;
+    public GameObject userDataUI; // not in use
+    public GameObject scoreboardUI;
     public GameObject mainMenuUI;
 
     private void Awake()
@@ -122,7 +122,7 @@ public class UIManager : MonoBehaviour
         registerUI.SetActive(false);
         statisticsUI.SetActive(false);
         userDataUI.SetActive(false);
-        leaderboardUI.SetActive(false);
+        scoreboardUI.SetActive(false);
         mainMenuUI.SetActive(false);
         pauseScreen.SetActive(false);
         timerUI.SetActive(false);
@@ -164,10 +164,10 @@ public class UIManager : MonoBehaviour
         userDataUI.SetActive(true);
     }
 
-    public void LeaderboardScreen() //Scoreboard button
+    public void ScoreboardScreen() //Scoreboard button
     {
         ClearScreen();
-        leaderboardUI.SetActive(true);
+        scoreboardUI.SetActive(true);
     }
     #endregion
 }

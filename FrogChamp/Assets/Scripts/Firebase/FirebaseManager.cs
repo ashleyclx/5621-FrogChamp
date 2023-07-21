@@ -46,10 +46,21 @@ public class FirebaseManager : MonoBehaviour
     public TMP_Text bestTimingPlaceholder;
     public TMP_Text totalJumpsPlaceholder;
     public TMP_Text totalFallsPlaceholder;
+    public TMP_Text numClearsPlaceholder;
 
     private float recordedBestTime = 0f;
     private int recordedTotalJumps = 0;
     private int recordedTotalFalls = 0;
+    private int recordedNumClears = 0;
+
+    // Leaderboard Data Variables
+    [Header("Scoreboard Data")]
+    public TMP_Text firstUsernamePlaceholder;
+    public TMP_Text secondUsernamePlaceholder;
+    public TMP_Text thirdUsernamePlaceholder;
+    public TMP_Text firstTimePlaceholder;
+    public TMP_Text secondTimePlaceholder;
+    public TMP_Text thirdTimePlaceholder;
 
     void Awake()
     {
@@ -160,6 +171,9 @@ public class FirebaseManager : MonoBehaviour
         else
             StartCoroutine(UpdateTotalFalls(recordedTotalFalls + StatsManager.instance.GetFalls()));
 
+        // Updates number of clears
+        StartCoroutine(UpdateNumClears(recordedNumClears + 1));
+        
         // Resets all curr values to 0
         StartCoroutine(UpdateCurrJumps(0));
         StartCoroutine(UpdateCurrFalls(0));
@@ -309,8 +323,12 @@ public class FirebaseManager : MonoBehaviour
                     }
                     else
                     {
-                        //Username is now set
-                        //Now return to start screen
+                        // Username is now set
+
+                        // Updates username to database
+                        StartCoroutine(UpdateUsernameDatabase(_username));
+
+                        // Returns to Start Screen
                         UIManager.instance.StartScreen();
                         warningRegisterText.text = "";
                         ClearRegisterFields();
@@ -604,6 +622,23 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
+    private IEnumerator UpdateNumClears(int _numClears)
+    {
+        //Set the currently logged in user number of clears
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("numClears").SetValueAsync(_numClears);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            // Updated number of clears into database
+        }
+    }
+
     private IEnumerator LoadUserData()
     {
         //Get the currently logged in user data
@@ -623,6 +658,7 @@ public class FirebaseManager : MonoBehaviour
             bestTimingPlaceholder.text = recordedBestTime.ToString();
             totalJumpsPlaceholder.text = recordedTotalJumps.ToString();
             totalFallsPlaceholder.text = recordedTotalFalls.ToString();
+            numClearsPlaceholder.text = recordedNumClears.ToString();
 
             //xpField.text = "0";
             //killsField.text = "0";
@@ -653,11 +689,13 @@ public class FirebaseManager : MonoBehaviour
                 recordedBestTime = float.Parse(snapshot.Child("bestTime").Value.ToString());
                 recordedTotalJumps = int.Parse(snapshot.Child("totalJumps").Value.ToString());
                 recordedTotalFalls = int.Parse(snapshot.Child("totalFalls").Value.ToString());
+                recordedNumClears = int.Parse(snapshot.Child("numClears").Value.ToString());
             }
             
             bestTimingPlaceholder.text = recordedBestTime.ToString();
             totalJumpsPlaceholder.text = recordedTotalJumps.ToString();
             totalFallsPlaceholder.text = recordedTotalFalls.ToString();
+            numClearsPlaceholder.text = recordedNumClears.ToString();
 
             // Start game
         }
@@ -666,8 +704,10 @@ public class FirebaseManager : MonoBehaviour
     private IEnumerator LoadScoreboardData()
     {
         //Get all the users data ordered by kills amount
-        // var DBTask = DBreference.Child("users").OrderByChild("kills").GetValueAsync();
-        Task<DataSnapshot> DBTask = DBreference.Child("users").OrderByChild("kills").GetValueAsync();
+        //var DBTask = DBreference.Child("users").OrderByChild("kills").GetValueAsync();
+        //Task<DataSnapshot> DBTask = DBreference.Child("users").OrderByChild("kills").GetValueAsync();
+
+        Task<DataSnapshot> DBTask = DBreference.Child("users").OrderByChild("bestTime").GetValueAsync();
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -681,26 +721,46 @@ public class FirebaseManager : MonoBehaviour
             DataSnapshot snapshot = DBTask.Result;
 
             //Destroy any existing scoreboard elements
-            foreach (Transform child in scoreboardContent.transform)
-            {
-                Destroy(child.gameObject);
-            }
+            //foreach (Transform child in scoreboardContent.transform)
+            //{
+                //Destroy(child.gameObject);
+            //}
+
+            int count = 0;
 
             //Loop through every users UID
-            foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
+            foreach (DataSnapshot childSnapshot in snapshot.Children)
             {
-                string username = childSnapshot.Child("username").Value.ToString();
-                int kills = int.Parse(childSnapshot.Child("kills").Value.ToString());
-                int deaths = int.Parse(childSnapshot.Child("deaths").Value.ToString());
-                int xp = int.Parse(childSnapshot.Child("xp").Value.ToString());
+                if (count == 0)
+                {
+                    firstUsernamePlaceholder.text = childSnapshot.Child("username").Value.ToString();
+                    firstTimePlaceholder.text = childSnapshot.Child("bestTime").Value.ToString().Substring(0,10);
+                }
+
+                if (count == 1)
+                {
+                    secondUsernamePlaceholder.text = childSnapshot.Child("username").Value.ToString();
+                    secondTimePlaceholder.text = childSnapshot.Child("bestTime").Value.ToString().Substring(0,10);
+                }
+
+                if (count == 2)
+                {
+                    thirdUsernamePlaceholder.text = childSnapshot.Child("username").Value.ToString();
+                    thirdTimePlaceholder.text = childSnapshot.Child("bestTime").Value.ToString().Substring(0,10);
+                }
+                count++;
+
+                //int kills = int.Parse(childSnapshot.Child("kills").Value.ToString());
+                //int deaths = int.Parse(childSnapshot.Child("deaths").Value.ToString());
+                //int xp = int.Parse(childSnapshot.Child("xp").Value.ToString());
 
                 //Instantiate new scoreboard elements
-                GameObject scoreboardElement = Instantiate(scoreElement, scoreboardContent);
+                // GameObject scoreboardElement = Instantiate(scoreElement, scoreboardContent);
                 // scoreboardElement.GetComponent<ScoreElement>().NewScoreElement(username, kills, deaths, xp); commented out to prevent compilation errors
             }
 
             //Go to scoareboard screen
-            UIManager.instance.LeaderboardScreen();
+            UIManager.instance.ScoreboardScreen();
         }
     }
 }
