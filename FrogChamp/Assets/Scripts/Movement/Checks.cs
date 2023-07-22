@@ -105,4 +105,10 @@ public class Checks : MonoBehaviour
             && !UIManager.instance.pauseScreen.activeInHierarchy && !UIManager.instance.endUI.activeInHierarchy && !UIManager.instance.achievement1UI.activeInHierarchy 
             && !UIManager.instance.achievement2UI.activeInHierarchy);
     }
+
+    public bool IsGamePlaying2()
+    {
+        return (!UIManager.instance.statisticsUI.activeInHierarchy && !UIManager.instance.scoreboardUI.activeInHierarchy && !UIManager.instance.mainMenuUI.activeInHierarchy
+            && !UIManager.instance.endUI.activeInHierarchy && !UIManager.instance.achievement1UI.activeInHierarchy && !UIManager.instance.achievement2UI.activeInHierarchy);
+    }
 }
