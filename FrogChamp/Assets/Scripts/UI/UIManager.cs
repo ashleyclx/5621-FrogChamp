@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         // press esc to pause
-        if (Input.GetKeyDown(KeyCode.Escape) && Checks.instance.IsGamePlaying())
+        if (Input.GetKeyDown(KeyCode.Escape) && Checks.instance.IsGamePlaying2())
         {
             // if pause screen inactive, pause
             // if pause screen already active, unpause
