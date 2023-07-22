@@ -95,6 +95,6 @@ public class Checks : MonoBehaviour
     {
         return (!UIManager.instance.startUI.activeInHierarchy && !UIManager.instance.loginUI.activeInHierarchy && !UIManager.instance.registerUI.activeInHierarchy
             && !UIManager.instance.statisticsUI.activeInHierarchy && !UIManager.instance.scoreboardUI.activeInHierarchy && !UIManager.instance.mainMenuUI.activeInHierarchy
-            && !UIManager.instance.pauseScreen.activeInHierarchy && !UIManager.instance.endUI.activeInHierarchy);
+            && !UIManager.instance.pauseScreen.activeInHierarchy && !UIManager.instance.endUI.activeInHierarchy && !UIManager.instance.achievement1UI.activeInHierarchy);
     }
 }

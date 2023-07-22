@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Firebase;
 using Firebase.Auth;
@@ -52,6 +53,15 @@ public class FirebaseManager : MonoBehaviour
     public TMP_Text secondTimePlaceholder;
     public TMP_Text thirdTimePlaceholder;
 
+    // Achievement Data Variables
+    [Header("Achievement Data")]
+    public TMP_Text _1CT;
+    public TMP_Text _2CT;
+    public TMP_Text _3CT;
+    public TMP_Text _4CT;
+
+    private List<string> achievementText = new List<string>();
+
     void Awake()
     {
         // Checks if all of the necessary dependencies for Firebase are available
@@ -77,11 +87,13 @@ public class FirebaseManager : MonoBehaviour
         auth = FirebaseAuth.DefaultInstance;
         DBreference = FirebaseDatabase.DefaultInstance.RootReference;
     }
+
     public void ClearLoginFields()
     {
         emailLoginField.text = "";
         passwordLoginField.text = "";
     }
+    
     public void ClearRegisterFields()
     {
         usernameRegisterField.text = "";
@@ -127,6 +139,7 @@ public class FirebaseManager : MonoBehaviour
     public void AchievementButton()
     {
         StartCoroutine(LoadAchievementData());
+        UIManager.instance.Achievement1Screen();
     }
 
     // Button to start game
@@ -196,7 +209,7 @@ public class FirebaseManager : MonoBehaviour
     public void SaveAchievement()
     {
         StartCoroutine(LoadAchievementData());
-        StartCoroutine(UpdateAchievementStatus(AchievementManager.instance.GetAchievementStatus(AchievementManager.achievements)));
+        StartCoroutine(UpdateAchievementStatus(AchievementManager.instance.GetAchievementStatus(AchievementManager.achievementsList)));
     }
 
     private IEnumerator Login(string _email, string _password)
@@ -693,11 +706,19 @@ public class FirebaseManager : MonoBehaviour
 
             string[] achievementBoolArray = achievementStatus.Split(' ');
             AchievementManager.savedAchievement = achievementBoolArray;
-            
+
             foreach (var achievementBool in achievementBoolArray)
             {
-                print(achievementBool);
+                if (achievementBool == "true")
+                    achievementText.Add("completed");
+                else
+                    achievementText.Add("not completed");
             }
+
+            _1CT.text = achievementText[0];
+            _2CT.text = achievementText[1];
+            //_3CT.text = achievementText[2];
+            //_4CT.text = achievementText[3];
         }
     }
 

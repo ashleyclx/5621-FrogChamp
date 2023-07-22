@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     public GameObject registerUI;
     public GameObject statisticsUI;
     public GameObject scoreboardUI;
+    public GameObject achievement1UI;
     public GameObject mainMenuUI;
     public GameObject endUI;
 
@@ -120,6 +121,7 @@ public class UIManager : MonoBehaviour
         registerUI.SetActive(false);
         statisticsUI.SetActive(false);
         scoreboardUI.SetActive(false);
+        achievement1UI.SetActive(false);
         mainMenuUI.SetActive(false);
         pauseScreen.SetActive(false);
         timerUI.SetActive(false);
@@ -166,6 +168,13 @@ public class UIManager : MonoBehaviour
     {
         ClearScreen();
         scoreboardUI.SetActive(true);
+    }
+
+    // Opens up achievement 1 screen
+    public void Achievement1Screen()
+    {
+        ClearScreen();
+        achievement1UI.SetActive(true);
     }
 
     // Opens up the end game screen
