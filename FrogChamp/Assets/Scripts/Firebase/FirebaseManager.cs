@@ -111,6 +111,30 @@ public class FirebaseManager : MonoBehaviour
         ClearLoginFields();
     }
 
+    // Button to open user stats screen
+    public void StatisticsButton()
+    {
+        StartCoroutine(LoadStatsData());
+    }
+
+    // Button to open scoreboard screen
+    public void ScoreboardButton()
+    {
+        StartCoroutine(LoadScoreboardData());
+    }
+
+    // Button to open achievement screen
+    public void AchievementButton()
+    {
+        StartCoroutine(LoadAchievementData());
+    }
+
+    // Button to start game
+    public void StartGameButton()
+    {
+        StartCoroutine(LoadUserData());
+    }
+
     // Function to save progress (pause game)
     public void SaveProgress()
     {
@@ -168,21 +192,11 @@ public class FirebaseManager : MonoBehaviour
         UIManager.instance.MainMenuScreen();
     }
 
-    // Button to open user stats screen
-    public void StatisticsButton()
+    // Function to save user's achievement status into DB
+    public void SaveAchievement()
     {
-        StartCoroutine(LoadStatsData());
-    }
-
-    // Button to open scoreboard screen
-    public void ScoreboardButton()
-    {
-        StartCoroutine(LoadScoreboardData());
-    }
-
-    public void StartGameButton()
-    {
-        StartCoroutine(LoadUserData());
+        StartCoroutine(LoadAchievementData());
+        StartCoroutine(UpdateAchievementStatus(AchievementManager.instance.GetAchievementStatus(AchievementManager.achievements)));
     }
 
     private IEnumerator Login(string _email, string _password)
@@ -562,6 +576,23 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
+    private IEnumerator UpdateAchievementStatus(string _achievementStatus)
+    {
+        //Set the currently logged in user achievementStatus (boolean in string with delimiter " ")
+        Task DBTask = DBreference.Child("users").Child(User.UserId).Child("achievementStatus").SetValueAsync(_achievementStatus);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            // Updated user achievementStatus into database
+        }
+    }
+
     private IEnumerator LoadUserData()
     {
         //Gets the currently logged in user data
@@ -634,6 +665,39 @@ public class FirebaseManager : MonoBehaviour
 
             // Go to statistics screen
             UIManager.instance.StatisticsScreen();
+        }
+    }
+
+    private IEnumerator LoadAchievementData()
+    {
+        // Gets the currently logged in user data
+        Task<DataSnapshot> DBTask = DBreference.Child("users").Child(User.UserId).GetValueAsync();
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else 
+        {
+            string achievementStatus = "false false";
+            //Data has been retrieved
+            DataSnapshot snapshot = DBTask.Result;
+
+            // Checks if user has achievement data stored (will not have data if new user)
+            if (snapshot.Child("achievementStatus").Value != null)
+            {
+                achievementStatus = snapshot.Child("achievementStatus").Value.ToString();
+            }
+
+            string[] achievementBoolArray = achievementStatus.Split(' ');
+            AchievementManager.savedAchievement = achievementBoolArray;
+            
+            foreach (var achievementBool in achievementBoolArray)
+            {
+                print(achievementBool);
+            }
         }
     }
 
