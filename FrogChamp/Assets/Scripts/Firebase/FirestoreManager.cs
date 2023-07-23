@@ -200,6 +200,7 @@ public class FirestoreManager : MonoBehaviour
     {
         Vector2 currentPosition = StatsManager.instance.GetPosition();
         Vector3 currentCameraPosition = StatsManager.instance.GetCameraPosition();
+ 
         // Saves user stats to DB
         yield return StartCoroutine(UpdateCurrJumps(StatsManager.instance.GetJumps()));
         yield return StartCoroutine(UpdateCurrFalls(StatsManager.instance.GetFalls()));

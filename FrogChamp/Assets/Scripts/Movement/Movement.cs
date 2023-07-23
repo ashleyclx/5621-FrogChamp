@@ -86,6 +86,9 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F4))
             transform.position = new Vector2(5f, 353f);
+
+        if (Input.GetKeyDown(KeyCode.F6))
+            transform.position = new Vector2(-4f, 643f);
     }
 
     // Moves left or right when arrow keys/a or d are pressed based on set speed
