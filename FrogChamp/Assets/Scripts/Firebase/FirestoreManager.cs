@@ -62,6 +62,24 @@ public class FirestoreManager : MonoBehaviour
     public TMP_Text _3CT;
     public TMP_Text _4CT;
 
+    // Default DBStats
+    DBStats defaultDBStats = new DBStats{
+        achievementStatus = "false false",
+        bestTime = 0f,
+        currFalls = 0,
+        currJumps = 0,
+        currtime = 0f,
+        numClears = 0,
+        totalFalls = 0,
+        totalJumps = 0,
+        username = "default",
+        xcampos = 4.15f,
+        ycampos = 3f,
+        zcampos = 10f,
+        xpos = -6f,
+        ypos = -3.5f
+    };
+
     void Awake()
     {
         // Checks if all of the necessary dependencies for Firebase are available
@@ -373,12 +391,13 @@ public class FirestoreManager : MonoBehaviour
     // Used to update username to database when account is created
     private IEnumerator UpdateUsernameDatabase(string _username)
     {
-        DBStats dbstats = new DBStats
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
         {
-            achievementStatus =
-        }
-        //Set the currently logged in user username in the database
-        Task DBTask = DBreference.Collection("users").Document(User.UserId).Document("username").SetAsync(_username);
+            DBStats dbstats = task.Result.ConvertTo<DBStats>();
+            dbstats.username = _username;
+
+            DBreference.Collection("users").Document(User.UserId).SetAsync(dbstats);
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -395,7 +414,13 @@ public class FirestoreManager : MonoBehaviour
     private IEnumerator UpdateCurrJumps(int _currJumps)
     {
         //Set the currently logged in user curr jumps
-        Task DBTask = DBreference.Collection("users").Collection(User.UserId).Document("currJumps").SetAsync(_currJumps);
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            DBStats dbstats = task.Result.ConvertTo<DBStats>();
+            dbstats.currJumps = _currJumps;
+
+            DBreference.Collection("users").Document(User.UserId).SetAsync(dbstats);
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -412,7 +437,13 @@ public class FirestoreManager : MonoBehaviour
     private IEnumerator UpdateCurrFalls(int _currFalls)
     {
         //Set the currently logged in user curr falls
-        Task DBTask = DBreference.Collection("users").Collection(User.UserId).Document("currFalls").SetAsync(_currFalls);
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            DBStats dbstats = task.Result.ConvertTo<DBStats>();
+            dbstats.currFalls = _currFalls;
+
+            DBreference.Collection("users").Document(User.UserId).SetAsync(dbstats);
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -429,7 +460,13 @@ public class FirestoreManager : MonoBehaviour
     private IEnumerator UpdateXPos(float _xpos)
     {
         //Set the currently logged in user pos
-        Task DBTask = DBreference.Collection("users").Collection(User.UserId).Document("xpos").SetAsync(_xpos);
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            DBStats dbstats = task.Result.ConvertTo<DBStats>();
+            dbstats.xpos = _xpos;
+
+            DBreference.Collection("users").Document(User.UserId).SetAsync(dbstats);
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -446,7 +483,13 @@ public class FirestoreManager : MonoBehaviour
     private IEnumerator UpdateYPos(float _ypos)
     {
         //Set the currently logged in user pos
-        Task DBTask = DBreference.Collection("users").Collection(User.UserId).Document("ypos").SetAsync(_ypos);
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            DBStats dbstats = task.Result.ConvertTo<DBStats>();
+            dbstats.ypos = _ypos;
+
+            DBreference.Collection("users").Document(User.UserId).SetAsync(dbstats);
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -463,7 +506,13 @@ public class FirestoreManager : MonoBehaviour
     private IEnumerator UpdateXCamPos(float _xcampos)
     {
         //Set the currently logged in camera x pos
-        Task DBTask = DBreference.Collection("users").Collection(User.UserId).Document("xcampos").SetAsync(_xcampos);
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            DBStats dbstats = task.Result.ConvertTo<DBStats>();
+            dbstats.xcampos = _xcampos;
+
+            DBreference.Collection("users").Document(User.UserId).SetAsync(dbstats);
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -480,7 +529,13 @@ public class FirestoreManager : MonoBehaviour
     private IEnumerator UpdateYCamPos(float _ycampos)
     {
         //Set the currently logged in camera y pos
-        Task DBTask = DBreference.Collection("users").Collection(User.UserId).Document("ycampos").SetAsync(_ycampos);
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            DBStats dbstats = task.Result.ConvertTo<DBStats>();
+            dbstats.ycampos = _ycampos;
+
+            DBreference.Collection("users").Document(User.UserId).SetAsync(dbstats);
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -497,7 +552,13 @@ public class FirestoreManager : MonoBehaviour
     private IEnumerator UpdateZCamPos(float _zcampos)
     {
         //Set the currently logged in camera z pos
-        Task DBTask = DBreference.Collection("users").Collection(User.UserId).Document("zcampos").SetAsync(_zcampos);
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            DBStats dbstats = task.Result.ConvertTo<DBStats>();
+            dbstats.zcampos = _zcampos;
+
+            DBreference.Collection("users").Document(User.UserId).SetAsync(dbstats);
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -514,7 +575,13 @@ public class FirestoreManager : MonoBehaviour
     private IEnumerator UpdateCurrTime(float _currtime)
     {
         // Sets the currently logged in user currtime (time before completion)
-        Task DBTask = DBreference.Collection("users").Collection(User.UserId).Document("currtime").SetAsync(_currtime);
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            DBStats dbstats = task.Result.ConvertTo<DBStats>();
+            dbstats.currtime = _currtime;
+
+            DBreference.Collection("users").Document(User.UserId).SetAsync(dbstats);
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -531,7 +598,13 @@ public class FirestoreManager : MonoBehaviour
     private IEnumerator UpdateBestTime(float _bestTime)
     {
         //Set the currently logged in user best time (time for completion)
-        Task DBTask = DBreference.Collection("users").Collection(User.UserId).Document("bestTime").SetAsync(_bestTime);
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            DBStats dbstats = task.Result.ConvertTo<DBStats>();
+            dbstats.bestTime = _bestTime;
+
+            DBreference.Collection("users").Document(User.UserId).SetAsync(dbstats);
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -548,7 +621,13 @@ public class FirestoreManager : MonoBehaviour
     private IEnumerator UpdateTotalJumps(int _totalJumps)
     {
         //Set the currently logged in user total jumps
-        Task DBTask = DBreference.Collection("users").Collection(User.UserId).Document("totalJumps").SetAsync(_totalJumps);
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            DBStats dbstats = task.Result.ConvertTo<DBStats>();
+            dbstats.totalJumps = _totalJumps;
+
+            DBreference.Collection("users").Document(User.UserId).SetAsync(dbstats);
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -565,7 +644,13 @@ public class FirestoreManager : MonoBehaviour
     private IEnumerator UpdateTotalFalls(int _totalFalls)
     {
         //Set the currently logged in user total falls
-        Task DBTask = DBreference.Collection("users").Collection(User.UserId).Document("totalFalls").SetAsync(_totalFalls);
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            DBStats dbstats = task.Result.ConvertTo<DBStats>();
+            dbstats.totalFalls = _totalFalls;
+
+            DBreference.Collection("users").Document(User.UserId).SetAsync(dbstats);
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -582,7 +667,13 @@ public class FirestoreManager : MonoBehaviour
     private IEnumerator UpdateNumClears(int _numClears)
     {
         //Set the currently logged in user number of clears
-        Task DBTask = DBreference.Collection("users").Collection(User.UserId).Document("numClears").SetAsync(_numClears);
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            DBStats dbstats = task.Result.ConvertTo<DBStats>();
+            dbstats.numClears = _numClears;
+
+            DBreference.Collection("users").Document(User.UserId).SetAsync(dbstats);
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -599,7 +690,13 @@ public class FirestoreManager : MonoBehaviour
     private IEnumerator UpdateAchievementStatus(string _achievementStatus)
     {
         //Set the currently logged in user achievementStatus (boolean in string with delimiter " ")
-        Task DBTask = DBreference.Collection("users").Collection(User.UserId).Document("achievementStatus").SetAsync(_achievementStatus);
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            DBStats dbstats = task.Result.ConvertTo<DBStats>();
+            dbstats.achievementStatus = _achievementStatus;
+
+            DBreference.Collection("users").Document(User.UserId).SetAsync(dbstats);
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -615,8 +712,11 @@ public class FirestoreManager : MonoBehaviour
 
     private IEnumerator LoadUserData()
     {
-        //Gets the currently logged in user data
-        Task<DocumentSnapshot> DBTask = DBreference.Collection("users").Collection(User.UserId).GetSnapshotAsync();
+        DBStats dbstats = defaultDBStats;
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            dbstats = task.Result.ConvertTo<DBStats>();
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -625,11 +725,8 @@ public class FirestoreManager : MonoBehaviour
             Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
         }
         else
-        {
-            //Data has been retrieved
-            DocumentSnapshot snapshot = DBTask.Result;
-
-            if (snapshot.Document("currtime").Value == null)
+        {  
+            if (dbstats.currtime == 0f)
             {
                 //No data exists yet (new game)
                 TimeManager.instance.SetTime(0f);
@@ -639,23 +736,77 @@ public class FirestoreManager : MonoBehaviour
             }
             else
             {
-                // Sets data for resume progress
-                StatsManager.instance.SetPosition(float.Parse(snapshot.Document("xpos").Value.ToString()), float.Parse(snapshot.Document("ypos").Value.ToString()));
-                StatsManager.instance.SetCameraPosition(float.Parse(snapshot.Document("xcampos").Value.ToString()), float.Parse(snapshot.Document("ycampos").Value.ToString()), float.Parse(snapshot.Document("zcampos").Value.ToString()));
-                StatsManager.instance.SetJumps(int.Parse(snapshot.Document("currJumps").Value.ToString()));
-                StatsManager.instance.SetFalls(int.Parse(snapshot.Document("currFalls").Value.ToString()));
-                TimeManager.instance.SetTime(float.Parse(snapshot.Document("currtime").Value.ToString()));
+                //Data has been retrieved
+                if (dbstats.currtime == 0f)
+                {
+                    //No data exists yet (new game)
+                    TimeManager.instance.SetTime(0f);
 
-                // Start game
-                UIManager.instance.StartGame();
+                    // Start game
+                    UIManager.instance.StartGame();
+                }
+                else
+                {
+                    //Sets data for resume progress
+                    StatsManager.instance.SetPosition(dbstats.xpos, dbstats.ypos);
+                    StatsManager.instance.SetCameraPosition(dbstats.xcampos, dbstats.ycampos, dbstats.zcampos);
+                    StatsManager.instance.SetJumps(dbstats.currJumps);
+                    StatsManager.instance.SetFalls(dbstats.currFalls);
+                    TimeManager.instance.SetTime(dbstats.currtime);
+
+                    // Start game
+                    UIManager.instance.StartGame();
+                }
             }
         }
     }
+    // {
+        //Gets the currently logged in user data
+    //     Task<DocumentSnapshot> DBTask = DBreference.Collection("users").Collection(User.UserId).GetSnapshotAsync();
+
+    //     yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+    //     if (DBTask.Exception != null)
+    //     {
+    //         Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+    //     }
+    //     else
+    //     {
+    //         //Data has been retrieved
+    //         DocumentSnapshot snapshot = DBTask.Result;
+
+    //         if (snapshot.Document("currtime").Value == null)
+    //         {
+    //             //No data exists yet (new game)
+    //             TimeManager.instance.SetTime(0f);
+
+    //             // Start game
+    //             UIManager.instance.StartGame();
+    //         }
+    //         else
+    //         {
+    //             // Sets data for resume progress
+    //             StatsManager.instance.SetPosition(float.Parse(snapshot.Document("xpos").Value.ToString()), float.Parse(snapshot.Document("ypos").Value.ToString()));
+    //             StatsManager.instance.SetCameraPosition(float.Parse(snapshot.Document("xcampos").Value.ToString()), float.Parse(snapshot.Document("ycampos").Value.ToString()), float.Parse(snapshot.Document("zcampos").Value.ToString()));
+    //             StatsManager.instance.SetJumps(int.Parse(snapshot.Document("currJumps").Value.ToString()));
+    //             StatsManager.instance.SetFalls(int.Parse(snapshot.Document("currFalls").Value.ToString()));
+    //             TimeManager.instance.SetTime(float.Parse(snapshot.Document("currtime").Value.ToString()));
+
+    //             // Start game
+    //             UIManager.instance.StartGame();
+    //         }
+    //     }
+    // }
 
     private IEnumerator LoadStatsData()
     {
         // Gets the currently logged in user data
-        Task<DocumentSnapshot> DBTask = DBreference.Collection("users").Collection(User.UserId).GetSnapshotAsync();
+        DBStats dbstats = defaultDBStats;
+
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            dbstats = task.Result.ConvertTo<DBStats>();
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -666,15 +817,14 @@ public class FirestoreManager : MonoBehaviour
         else 
         {
             //Data has been retrieved
-            DocumentSnapshot snapshot = DBTask.Result;
 
             // Loads completion recorded data
-            if (snapshot.Document("bestTime").Value != null)
+            if (dbstats.bestTime != 0f)
             {
-                recordedBestTime = float.Parse(snapshot.Document("bestTime").Value.ToString());
-                recordedTotalJumps = int.Parse(snapshot.Document("totalJumps").Value.ToString());
-                recordedTotalFalls = int.Parse(snapshot.Document("totalFalls").Value.ToString());
-                recordedNumClears = int.Parse(snapshot.Document("numClears").Value.ToString());
+                recordedBestTime = dbstats.bestTime;
+                recordedTotalJumps = dbstats.totalJumps;
+                recordedTotalFalls = dbstats.totalFalls;
+                recordedNumClears = dbstats.numClears;
             }
             
             // Sets text display for statistics screen
@@ -691,7 +841,12 @@ public class FirestoreManager : MonoBehaviour
     private IEnumerator LoadAchievementData()
     {
         // Gets the currently logged in user data
-        Task<DocumentSnapshot> DBTask = DBreference.Collection("users").Collection(User.UserId).GetSnapshotAsync();
+        DBStats dbstats = defaultDBStats;
+
+        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            dbstats = task.Result.ConvertTo<DBStats>();
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -703,12 +858,11 @@ public class FirestoreManager : MonoBehaviour
         {
             string achievementStatus = "false false";
             //Data has been retrieved
-            DocumentSnapshot snapshot = DBTask.Result;
 
             // Checks if user has achievement data stored (will not have data if new user)
-            if (snapshot.Document("achievementStatus").Value != null)
+            if (dbstats.achievementStatus != "")
             {
-                achievementStatus = snapshot.Document("achievementStatus").Value.ToString();
+                achievementStatus = dbstats.achievementStatus;
             }
 
             string[] achievementBoolArray = achievementStatus.Split(' ');
@@ -718,8 +872,14 @@ public class FirestoreManager : MonoBehaviour
 
     private IEnumerator LoadScoreboardData()
     {
+        List<DocumentSnapshot> docList = new List<DocumentSnapshot>();
+
         //Get all the users data ordered by best clear time
-        Task<DocumentSnapshot> DBTask = DBreference.Collection("users").OrderBy("bestTime").GetSnapshotAsync();
+        Task DBTask = DBreference.Collection("users").OrderBy("bestTime").GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            foreach (DocumentSnapshot doc in task.Result)
+            docList.Add(doc);
+        });
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -730,62 +890,61 @@ public class FirestoreManager : MonoBehaviour
         else
         {
             //Data has been retrieved
-            DocumentSnapshot snapshot = DBTask.Result;
 
             int count = 0;
 
             //Loop through every users UID
-            foreach (DocumentSnapshot childSnapshot in snapshot.Collection)
+            foreach (DocumentSnapshot doc in docList)
             {
                 // Sets text display for first place player
                 if (count == 0)
                 {
                     // Checks if data is for new player with null bestTime
-                    if (childSnapshot.Document("bestTime").Value == null)
+                    if (doc.GetValue<float>("bestTime") == 0f)
                         continue;
 
-                    string _displayUsername = childSnapshot.Document("username").Value.ToString();
+                    string _displayUsername = doc.GetValue<string>("username");
 
                     if (_displayUsername.Length > 16)
                         firstUsernamePlaceholder.text = _displayUsername.Substring(0,16);
                     else
                         firstUsernamePlaceholder.text = _displayUsername;
 
-                    firstTimePlaceholder.text = childSnapshot.Document("bestTime").Value.ToString().Substring(0,10);
+                    firstTimePlaceholder.text = doc.GetValue<float>("bestTime").ToString().Substring(0,10);
                 }
 
                 // Sets text display for second place player
                 if (count == 1)
                 {
                     // Checks if data is for new player with null bestTime
-                    if (childSnapshot.Document("bestTime").Value == null)
+                    if (doc.GetValue<float>("bestTime") == 0f)
                         continue;
 
-                    string _displayUsername = childSnapshot.Document("username").Value.ToString();
+                    string _displayUsername = doc.GetValue<string>("username");
 
                     if (_displayUsername.Length > 16)
                         secondUsernamePlaceholder.text = _displayUsername.Substring(0,16);
                     else
                         secondUsernamePlaceholder.text = _displayUsername;
 
-                    secondTimePlaceholder.text = childSnapshot.Document("bestTime").Value.ToString().Substring(0,10);
+                    secondTimePlaceholder.text = doc.GetValue<float>("bestTime").ToString().Substring(0,10);
                 }
 
                 // Sets text display for third place player
                 if (count == 2)
                 {
                     // Checks if data is for new player with null bestTime
-                    if (childSnapshot.Document("bestTime").Value == null)
+                    if (doc.GetValue<float>("bestTime") == 0f)
                         continue;
 
-                    string _displayUsername = childSnapshot.Document("username").Value.ToString();
+                    string _displayUsername = doc.GetValue<string>("username");
 
                     if (_displayUsername.Length > 16)
                         thirdUsernamePlaceholder.text = _displayUsername.Substring(0,16);
                     else
                         thirdUsernamePlaceholder.text = _displayUsername;
 
-                    thirdTimePlaceholder.text = childSnapshot.Document("bestTime").Value.ToString().Substring(0,10);
+                    thirdTimePlaceholder.text = doc.GetValue<float>("bestTime").ToString().Substring(0,10);
                 }
 
                 if (count == 3)
