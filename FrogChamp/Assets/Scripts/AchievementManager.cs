@@ -45,6 +45,8 @@ public class AchievementManager : MonoBehaviour
         achievementsList = new List<Achievement>();
         achievementsList.Add(new Achievement("Leap Of Faith", "Made your first jump.", (object o) => StatsManager.instance.GetJumps() == 1));
         achievementsList.Add(new Achievement("Finisher", "Completed the Game Once", (object o) => UIManager.instance.endUI.activeInHierarchy));
+        achievementsList.Add(new Achievement("Never Gonna Give You Up", "Fall 50 times", (object o) => StatsManager.instance.GetFalls() == 50));
+        achievementsList.Add(new Achievement("Stuck In The Well", "Played for 12 hours in one run", (object o) => TimeManager.instance.GetTime() == 43200f));
     }
 
     private void Update()

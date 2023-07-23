@@ -62,9 +62,11 @@ public class FirestoreManager : MonoBehaviour
     public TMP_Text _3CT;
     public TMP_Text _4CT;
 
+    private string collectionName = "users";
+
     // Default DBStats
     DBStats defaultDBStats = new DBStats{
-        achievementStatus = "false false",
+        achievementStatus = "false false false false",
         bestTime = 0f,
         currFalls = 0,
         currJumps = 0,
@@ -146,81 +148,110 @@ public class FirestoreManager : MonoBehaviour
     // Button to open user stats screen
     public void StatisticsButton()
     {
-        StartCoroutine(LoadStatsData());
+        StartCoroutine(StatisticsButton2());
+    }
+
+    public IEnumerator StatisticsButton2()
+    {
+        yield return StartCoroutine(LoadStatsData());
     }
 
     // Button to open scoreboard screen
     public void ScoreboardButton()
     {
-        StartCoroutine(LoadScoreboardData());
+        StartCoroutine(ScoreboardButton2());
+    }
+
+    public IEnumerator ScoreboardButton2()
+    {
+        yield return StartCoroutine(LoadScoreboardData());
     }
 
     // Button to open achievement screen
     public void AchievementButton()
     {
-        StartCoroutine(DisplayAchievement());
+        StartCoroutine(AchievementButton2());
+    }
+
+    public IEnumerator AchievementButton2()
+    {
+        yield return StartCoroutine(DisplayAchievement());
         UIManager.instance.Achievement1Screen();
     }
 
     // Button to start game
     public void StartGameButton()
     {
-        StartCoroutine(LoadUserData());
+        StartCoroutine(StartGameButton2());
     }
-//here
+
+    public IEnumerator StartGameButton2()
+    {
+        yield return StartCoroutine(LoadUserData());
+    }
 
     // Function to save progress (pause game)
     public void SaveProgress()
     {
+        StartCoroutine(SaveProgress2());
+    }
+
+    public IEnumerator SaveProgress2()
+    {
         Vector2 currentPosition = StatsManager.instance.GetPosition();
         Vector3 currentCameraPosition = StatsManager.instance.GetCameraPosition();
         // Saves user stats to DB
-        StartCoroutine(UpdateCurrJumps(StatsManager.instance.GetJumps()));
-        StartCoroutine(UpdateCurrFalls(StatsManager.instance.GetFalls()));
-        StartCoroutine(UpdateXPos(currentPosition.x));
-        StartCoroutine(UpdateYPos(currentPosition.y));
-        StartCoroutine(UpdateXCamPos(currentCameraPosition.x));
-        StartCoroutine(UpdateYCamPos(currentCameraPosition.y));
-        StartCoroutine(UpdateZCamPos(currentCameraPosition.z));
-        StartCoroutine(UpdateCurrTime(TimeManager.instance.GetTime()));
+        yield return StartCoroutine(UpdateCurrJumps(StatsManager.instance.GetJumps()));
+        yield return StartCoroutine(UpdateCurrFalls(StatsManager.instance.GetFalls()));
+        yield return StartCoroutine(UpdateXPos(currentPosition.x));
+        yield return StartCoroutine(UpdateYPos(currentPosition.y));
+        yield return StartCoroutine(UpdateXCamPos(currentCameraPosition.x));
+        yield return StartCoroutine(UpdateYCamPos(currentCameraPosition.y));
+        yield return StartCoroutine(UpdateZCamPos(currentCameraPosition.z));
+        yield return StartCoroutine(UpdateCurrTime(TimeManager.instance.GetTime()));
     }
 
     // Function to update scoreboard (finished game)
     public void FinishProgress()
     {
+        StartCoroutine(FinishProgress2());
+    }
+    
+    public IEnumerator FinishProgress2()
+    {
         // Updates bestTime to database
         if (recordedBestTime == 0f)
-            StartCoroutine(UpdateBestTime(TimeManager.instance.GetTime()));
+            yield return StartCoroutine(UpdateBestTime(TimeManager.instance.GetTime()));
         else
         {
             if (TimeManager.instance.GetTime() < recordedBestTime)
-                StartCoroutine(UpdateBestTime(TimeManager.instance.GetTime()));
+                yield return StartCoroutine(UpdateBestTime(TimeManager.instance.GetTime()));
         }
 
         // Updates cummulative jumps to database
         if (recordedTotalJumps == 0)
-            StartCoroutine(UpdateTotalJumps(StatsManager.instance.GetJumps()));
+            yield return StartCoroutine(UpdateTotalJumps(StatsManager.instance.GetJumps()));
         else
-            StartCoroutine(UpdateTotalJumps(recordedTotalJumps + StatsManager.instance.GetJumps()));
+            yield return StartCoroutine(UpdateTotalJumps(recordedTotalJumps + StatsManager.instance.GetJumps()));
 
         // Updates cummulative falls to database
         if (recordedTotalFalls == 0)
-            StartCoroutine(UpdateTotalFalls(StatsManager.instance.GetFalls()));
+            yield return StartCoroutine(UpdateTotalFalls(StatsManager.instance.GetFalls()));
         else
-            StartCoroutine(UpdateTotalFalls(recordedTotalFalls + StatsManager.instance.GetFalls()));
+            yield return StartCoroutine(UpdateTotalFalls(recordedTotalFalls + StatsManager.instance.GetFalls()));
 
         // Updates number of clears
-        StartCoroutine(UpdateNumClears(recordedNumClears + 1));
+        yield return StartCoroutine(UpdateNumClears(recordedNumClears + 1));
         
         // Resets all curr values to 0
-        StartCoroutine(UpdateCurrJumps(0));
-        StartCoroutine(UpdateCurrFalls(0));
-        StartCoroutine(UpdateXPos(-6f));
-        StartCoroutine(UpdateYPos(-3.5f));
-        StartCoroutine(UpdateXCamPos(4.15f));
-        StartCoroutine(UpdateYCamPos(3f));
-        StartCoroutine(UpdateZCamPos(10f));
-        StartCoroutine(UpdateCurrTime(0f));
+        yield return StartCoroutine(UpdateCurrJumps(0));
+        yield return StartCoroutine(UpdateCurrFalls(0));
+        yield return StartCoroutine(UpdateXPos(-6f));
+        yield return StartCoroutine(UpdateYPos(-3.5f));
+        yield return StartCoroutine(UpdateXCamPos(4.15f));
+        yield return StartCoroutine(UpdateYCamPos(3f));
+        yield return StartCoroutine(UpdateZCamPos(10f));
+        yield return StartCoroutine(UpdateCurrTime(0f));
 
         // Go to main menu screen
         UIManager.instance.MainMenuScreen();
@@ -229,8 +260,13 @@ public class FirestoreManager : MonoBehaviour
     // Function to save user's achievement status into DB
     public void SaveAchievement()
     {
-        StartCoroutine(LoadAchievementData());
-        StartCoroutine(UpdateAchievementStatus(AchievementManager.instance.GetAchievementStatus()));
+        StartCoroutine(SaveAchievement2());
+    }
+
+    public IEnumerator SaveAchievement2()
+    {
+        yield return StartCoroutine(LoadAchievementData());
+        yield return StartCoroutine(UpdateAchievementStatus(AchievementManager.instance.GetAchievementStatus()));
     }
 
     // Function to display user's achievement status on achievement screen
@@ -250,8 +286,8 @@ public class FirestoreManager : MonoBehaviour
 
         _1CT.text = achievementText[0];
         _2CT.text = achievementText[1];
-        //_3CT.text = achievementText[2];
-        //_4CT.text = achievementText[3];
+        _3CT.text = achievementText[2];
+        _4CT.text = achievementText[3];
     }
 
     private IEnumerator Login(string _email, string _password)
@@ -375,7 +411,7 @@ public class FirestoreManager : MonoBehaviour
                         // Username is now set
 
                         // Updates username to database
-                        StartCoroutine(UpdateUsernameDatabase(_username));
+                        UpdateUsernameDatabase(_username);
 
                         // Returns to start screen
                         UIManager.instance.StartScreen();
@@ -389,27 +425,50 @@ public class FirestoreManager : MonoBehaviour
     }
 
     // Used to update username to database when account is created
-    private IEnumerator UpdateUsernameDatabase(string _username)
+    private void UpdateUsernameDatabase(string _username)
     {
-        Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
-        {
-            DBStats dbstats = task.Result.ConvertTo<DBStats>();
-            dbstats.username = _username;
+        DBStats dbstats = new DBStats{
+        achievementStatus = "false false false false",
+        bestTime = 0f,
+        currFalls = 0,
+        currJumps = 0,
+        currtime = 0f,
+        numClears = 0,
+        totalFalls = 0,
+        totalJumps = 0,
+        username = "default",
+        xcampos = 4.15f,
+        ycampos = 3f,
+        zcampos = 10f,
+        xpos = -6f,
+        ypos = -3.5f
+        };
 
-            DBreference.Collection("users").Document(User.UserId).SetAsync(dbstats);
-        });
+        dbstats.username = _username;
+        DBreference.Document(collectionName + "/"+ User.UserId).SetAsync(dbstats);
 
-        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
-
-        if (DBTask.Exception != null)
-        {
-            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
-        }
-        else
-        {
-            //Database username is now updated
-        }
     }
+    // private IEnumerator UpdateUsernameDatabase(string _username)
+    // {
+    //     Task DBTask = DBreference.Collection("users").Document(User.UserId).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+    //     {
+    //         DBStats dbstats = task.Result.ConvertTo<DBStats>();
+    //         dbstats.username = _username;
+
+    //         DBreference.Document(collectionName + "/"+ User.UserId).SetAsync(dbstats);
+    //     });
+
+    //     yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+    //     if (DBTask.Exception != null)
+    //     {
+    //         Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+    //     }
+    //     else
+    //     {
+    //         //Database username is now updated
+    //     }
+    // }
 
     private IEnumerator UpdateCurrJumps(int _currJumps)
     {
@@ -856,7 +915,7 @@ public class FirestoreManager : MonoBehaviour
         }
         else 
         {
-            string achievementStatus = "false false";
+            string achievementStatus = "false false false false";
             //Data has been retrieved
 
             // Checks if user has achievement data stored (will not have data if new user)
@@ -910,7 +969,12 @@ public class FirestoreManager : MonoBehaviour
                     else
                         firstUsernamePlaceholder.text = _displayUsername;
 
-                    firstTimePlaceholder.text = doc.GetValue<float>("bestTime").ToString().Substring(0,10);
+                    string _displayTime = doc.GetValue<float>("bestTime").ToString();
+
+                    if (_displayTime.Length > 10)
+                        firstTimePlaceholder.text = _displayTime.Substring(0,10);
+                    else
+                        firstTimePlaceholder.text = _displayTime;
                 }
 
                 // Sets text display for second place player
@@ -927,7 +991,12 @@ public class FirestoreManager : MonoBehaviour
                     else
                         secondUsernamePlaceholder.text = _displayUsername;
 
-                    secondTimePlaceholder.text = doc.GetValue<float>("bestTime").ToString().Substring(0,10);
+                    string _displayTime = doc.GetValue<float>("bestTime").ToString();
+
+                    if (_displayTime.Length > 10)
+                        secondTimePlaceholder.text = _displayTime.Substring(0,10);
+                    else
+                        secondTimePlaceholder.text = _displayTime;
                 }
 
                 // Sets text display for third place player
@@ -944,7 +1013,12 @@ public class FirestoreManager : MonoBehaviour
                     else
                         thirdUsernamePlaceholder.text = _displayUsername;
 
-                    thirdTimePlaceholder.text = doc.GetValue<float>("bestTime").ToString().Substring(0,10);
+                    string _displayTime = doc.GetValue<float>("bestTime").ToString();
+
+                    if (_displayTime.Length > 10)
+                        thirdTimePlaceholder.text = _displayTime.Substring(0,10);
+                    else
+                        thirdTimePlaceholder.text = _displayTime;
                 }
 
                 if (count == 3)
