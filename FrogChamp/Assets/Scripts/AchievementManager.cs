@@ -6,7 +6,7 @@ using UnityEngine;
 public class AchievementManager : MonoBehaviour
 {
     public static AchievementManager instance;
-    public static List<Achievement> achievementsList;
+    private static List<Achievement> achievementsList;
     public static string[] savedAchievement;
 
     private void Awake()
@@ -63,7 +63,7 @@ public class AchievementManager : MonoBehaviour
         }
     }
 
-    public string GetAchievementStatus(List<Achievement> _achievements)
+    public string GetAchievementStatus()
     {
         string res = "";
         int count = 0;

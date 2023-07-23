@@ -60,8 +60,6 @@ public class FirebaseManager : MonoBehaviour
     public TMP_Text _3CT;
     public TMP_Text _4CT;
 
-    private List<string> achievementText = new List<string>();
-
     void Awake()
     {
         // Checks if all of the necessary dependencies for Firebase are available
@@ -138,7 +136,7 @@ public class FirebaseManager : MonoBehaviour
     // Button to open achievement screen
     public void AchievementButton()
     {
-        StartCoroutine(LoadAchievementData());
+        StartCoroutine(DisplayAchievement());
         UIManager.instance.Achievement1Screen();
     }
 
@@ -209,7 +207,28 @@ public class FirebaseManager : MonoBehaviour
     public void SaveAchievement()
     {
         StartCoroutine(LoadAchievementData());
-        StartCoroutine(UpdateAchievementStatus(AchievementManager.instance.GetAchievementStatus(AchievementManager.achievementsList)));
+        StartCoroutine(UpdateAchievementStatus(AchievementManager.instance.GetAchievementStatus()));
+    }
+
+    // Function to display user's achievement status on achievement screen
+    private IEnumerator DisplayAchievement()
+    {
+        List<string> achievementText = new List<string>();
+
+        yield return StartCoroutine(LoadAchievementData());
+        
+        foreach (var achievementBool in AchievementManager.savedAchievement)
+        {
+            if (achievementBool == "true")
+                achievementText.Add("completed");
+            else
+                achievementText.Add("not completed");
+        }
+
+        _1CT.text = achievementText[0];
+        _2CT.text = achievementText[1];
+        //_3CT.text = achievementText[2];
+        //_4CT.text = achievementText[3];
     }
 
     private IEnumerator Login(string _email, string _password)
@@ -706,19 +725,6 @@ public class FirebaseManager : MonoBehaviour
 
             string[] achievementBoolArray = achievementStatus.Split(' ');
             AchievementManager.savedAchievement = achievementBoolArray;
-
-            foreach (var achievementBool in achievementBoolArray)
-            {
-                if (achievementBool == "true")
-                    achievementText.Add("completed");
-                else
-                    achievementText.Add("not completed");
-            }
-
-            _1CT.text = achievementText[0];
-            _2CT.text = achievementText[1];
-            //_3CT.text = achievementText[2];
-            //_4CT.text = achievementText[3];
         }
     }
 
