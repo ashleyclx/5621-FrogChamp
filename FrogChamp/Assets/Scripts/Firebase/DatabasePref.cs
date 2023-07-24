@@ -19,12 +19,42 @@ public class DatabasePref : MonoBehaviour
     public TMP_Text _3CT;
     public TMP_Text _4CT;
 
-    private string defaultAchievement = "false false";
+    //Scoreboard Data
+    [Header("Scoreboard Data")]
+    public TMP_Text firstTimePlaceholder;
+    public TMP_Text secondTimePlaceholder;
+    public TMP_Text thirdTimePlaceholder;
+
+    private string defaultAchievement = "false false false false";
+
+    private void Start()
+    {
+        if (PlayerPrefs.GetFloat("currTime") == 0f && PlayerPrefs.GetInt("numClears") == 0)
+        {
+            UpdateXCamPos(4.15f);
+            UpdateYCamPos(3f);
+            UpdateZCamPos(10f);
+        }
+    }
 
     // Button to open user stats screen
     public void StatisticsButton()
     {
         LoadStatsData();
+    }
+
+    // Button to open user scoreboard screen
+    public void ScoreboardButton()
+    {
+        LoadScoreboardData();
+        UIManager.instance.ScoreboardScreen();
+    }
+
+    // Button to return to main menu screen from scoreboard screen
+    public void ScoreboardBackButton()
+    {
+        UIManager.instance.MainMenuScreen();
+        ClearScoreboardFields();
     }
 
     // Button to open achievement screen
@@ -38,6 +68,16 @@ public class DatabasePref : MonoBehaviour
     public void StartGameButton()
     {
         LoadUserData();
+        UIManager.instance.StartGame();
+    }
+
+    // Button to return to main menu screen from end screen
+    public void EndMainMenuButton()
+    {
+        SaveAchievement();
+        UpdateScoreboard(TimeManager.instance.GetTime());
+        FinishProgress();
+        UIManager.instance.MainMenuScreen();
     }
 
     // Function to save progress (pause game)
@@ -50,7 +90,7 @@ public class DatabasePref : MonoBehaviour
         UpdateCurrFalls(StatsManager.instance.GetFalls());
         UpdateXPos(currentPosition.x);
         UpdateYPos(currentPosition.y);
-        UpdateXCamPos(currentCameraPosition.x);
+        UpdateXCamPos(4.15f);
         UpdateYCamPos(currentCameraPosition.y);
         UpdateZCamPos(currentCameraPosition.z);
         UpdateCurrTime(TimeManager.instance.GetTime());
@@ -69,25 +109,19 @@ public class DatabasePref : MonoBehaviour
         }
 
         // Updates cummulative jumps to database
-        if (PlayerPrefs.GetInt("totalJumps") == 0)
-            UpdateTotalJumps(StatsManager.instance.GetJumps());
-        else
-            UpdateTotalJumps(PlayerPrefs.GetInt("totalJumps") + StatsManager.instance.GetJumps());
+        UpdateTotalJumps(PlayerPrefs.GetInt("totalJumps", 0) + StatsManager.instance.GetJumps());
 
         // Updates cummulative falls to database
-        if (PlayerPrefs.GetInt("totalFalls")== 0)
-            UpdateTotalFalls(StatsManager.instance.GetFalls());
-        else
-            UpdateTotalFalls(PlayerPrefs.GetInt("totalFalls") + StatsManager.instance.GetFalls());
+        UpdateTotalFalls(PlayerPrefs.GetInt("totalFalls", 0) + StatsManager.instance.GetFalls());
 
         // Updates number of clears
-        UpdateNumClears(PlayerPrefs.GetInt("numClears") + 1);
+        UpdateNumClears(PlayerPrefs.GetInt("numClears", 0) + 1);
         
         // Resets all curr values to 0
         UpdateCurrJumps(0);
         UpdateCurrFalls(0);
-        UpdateXPos(-6f);
-        UpdateYPos(-3.5f);
+        UpdateXPos(-6.86f);
+        UpdateYPos(-3.69f);
         UpdateXCamPos(4.15f);
         UpdateYCamPos(3f);
         UpdateZCamPos(10f);
@@ -121,8 +155,8 @@ public class DatabasePref : MonoBehaviour
 
         _1CT.text = achievementText[0];
         _2CT.text = achievementText[1];
-        //_3CT.text = achievementText[2];
-        //_4CT.text = achievementText[3];
+        _3CT.text = achievementText[2];
+        _4CT.text = achievementText[3];
     }
 
     private void UpdateUsername(string _username)
@@ -195,28 +229,63 @@ public class DatabasePref : MonoBehaviour
         PlayerPrefs.SetString("achievementStatus", _achievementStatus);
     }
 
+    private void ClearScoreboardFields()
+    {
+        firstTimePlaceholder.text = "";
+        secondTimePlaceholder.text = "";
+        thirdTimePlaceholder.text = "";
+    }
+
+    private void UpdateScoreboard(float _runTime)
+    {
+        List<float> topTimings = new List<float>();
+        string[] prefsName = {"firstBestTime", "secondBestTime", "thirdBestTime"};
+        topTimings.Add(PlayerPrefs.GetFloat("firstBestTime", 0f));
+        topTimings.Add(PlayerPrefs.GetFloat("secondBestTime", 0f));
+        topTimings.Add(PlayerPrefs.GetFloat("thirdBestTime", 0f));
+        topTimings.Add(_runTime);
+        topTimings.RemoveAll(item => item == 0);
+        topTimings.Sort();
+
+        for (int i = 0; i < topTimings.Count; i++)
+        {
+            if (i == 3)
+                break;
+                
+            PlayerPrefs.SetFloat(prefsName[i], topTimings[i]);
+        }
+    }
+
+    private void LoadScoreboardData()
+    {
+        List<float> topTimings = new List<float>();
+        List<TMP_Text> textPlaceholders = new List<TMP_Text> {firstTimePlaceholder, secondTimePlaceholder, thirdTimePlaceholder};
+        topTimings.Add(PlayerPrefs.GetFloat("firstBestTime", 0f));
+        topTimings.Add(PlayerPrefs.GetFloat("secondBestTime", 0f));
+        topTimings.Add(PlayerPrefs.GetFloat("thirdBestTime", 0f));
+        topTimings.RemoveAll(item => item == 0);
+        topTimings.Sort();
+
+        for (int i = 0; i < topTimings.Count; i++)
+        {
+            textPlaceholders[i].text = topTimings[i].ToString();
+        }
+    }
+
     private void LoadUserData()
     {
         if (PlayerPrefs.GetFloat("currTime", 0) == 0f)
         {
             //No data exists yet (new game)
             TimeManager.instance.SetTime(0f);
-
-            // Start game
-            UIManager.instance.StartGame();
         }
-        else
-        {
-            // Sets data for resume progress
-            StatsManager.instance.SetPosition(PlayerPrefs.GetFloat("xpos"), PlayerPrefs.GetFloat("ypos"));
-            StatsManager.instance.SetCameraPosition(PlayerPrefs.GetFloat("xcampos"), PlayerPrefs.GetFloat("ycampos"), PlayerPrefs.GetFloat("zcampos"));
-            StatsManager.instance.SetJumps(PlayerPrefs.GetInt("currJumps"));
-            StatsManager.instance.SetFalls(PlayerPrefs.GetInt("currFalls"));
-            TimeManager.instance.SetTime(PlayerPrefs.GetFloat("currTime"));
 
-            // Start game
-            UIManager.instance.StartGame();
-        }
+        // Sets data for resume progress
+        StatsManager.instance.SetPosition(PlayerPrefs.GetFloat("xpos"), PlayerPrefs.GetFloat("ypos"));
+        StatsManager.instance.SetCameraPosition(PlayerPrefs.GetFloat("xcampos"), PlayerPrefs.GetFloat("ycampos"), PlayerPrefs.GetFloat("zcampos"));
+        StatsManager.instance.SetJumps(PlayerPrefs.GetInt("currJumps"));
+        StatsManager.instance.SetFalls(PlayerPrefs.GetInt("currFalls"));
+        TimeManager.instance.SetTime(PlayerPrefs.GetFloat("currTime"));
     }
 
     private void LoadStatsData()
@@ -236,10 +305,5 @@ public class DatabasePref : MonoBehaviour
         string achievementStatus = PlayerPrefs.GetString("achievementStatus", defaultAchievement);
         string[] achievementBoolArray = achievementStatus.Split(' ');
         AchievementManager.savedAchievement = achievementBoolArray;
-    }
-
-    private void LoadScoreboardData()
-    {
-        // No need this function as no longer can implement scoreboard.
     }
 }

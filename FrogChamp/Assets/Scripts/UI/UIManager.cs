@@ -15,9 +15,6 @@ public class UIManager : MonoBehaviour
     public GameObject timerUI;
 
     [Header("Firebase")]
-    public GameObject startUI;
-    public GameObject loginUI;
-    public GameObject registerUI;
     public GameObject statisticsUI;
     public GameObject scoreboardUI;
     public GameObject achievement1UI;
@@ -110,9 +107,6 @@ public class UIManager : MonoBehaviour
     // Turns off all screens
     public void ClearScreen() 
     {
-        startUI.SetActive(false);
-        loginUI.SetActive(false);
-        registerUI.SetActive(false);
         statisticsUI.SetActive(false);
         scoreboardUI.SetActive(false);
         achievement1UI.SetActive(false);
@@ -127,27 +121,6 @@ public class UIManager : MonoBehaviour
     {
         ClearScreen();
         mainMenuUI.SetActive(true);
-    }
-
-    // Opens up login screen
-    public void LoginScreen()
-    {
-        ClearScreen();
-        loginUI.SetActive(true);
-    }
-
-    // Opens up start screen
-    public void StartScreen()
-    {
-        ClearScreen();
-        startUI.SetActive(true);
-    }
-
-    // Opens up register screen
-    public void RegisterScreen()
-    {
-        ClearScreen();
-        registerUI.SetActive(true);
     }
 
     // Opens up user's personal stats page
