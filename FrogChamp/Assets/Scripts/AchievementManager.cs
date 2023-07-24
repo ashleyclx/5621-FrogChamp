@@ -45,8 +45,12 @@ public class AchievementManager : MonoBehaviour
         achievementsList = new List<Achievement>();
         achievementsList.Add(new Achievement("Leap Of Faith", "Made your first jump.", (object o) => StatsManager.instance.GetJumps() == 1));
         achievementsList.Add(new Achievement("Finisher", "Completed the Game Once", (object o) => PlayerPrefs.GetInt("numClears") == 1));
-        achievementsList.Add(new Achievement("Never Gonna Give You Up", "Fell 50 tmes", (object o) => PlayerPrefs.GetInt("currFalls") == 50));
+        achievementsList.Add(new Achievement("Frog Veteran", "Completed the Game 10 Times", (object o) => PlayerPrefs.GetInt("numClears") == 10));
+        achievementsList.Add(new Achievement("Frog God", "Completed the Game 50 Times", (object o) => PlayerPrefs.GetInt("numClears") == 50));
+        achievementsList.Add(new Achievement("Never Gonna Give You Up", "Fell 50 times", (object o) => PlayerPrefs.GetInt("currFalls") == 50));
         achievementsList.Add(new Achievement("Stuck In The Well", "Played for more than 12 hours", (object o) => TimeManager.instance.GetTime() == 43200f));
+        achievementsList.Add(new Achievement("Need for Speed", "Complete the Game in 30 mins", (object o) => PlayerPrefs.GetFloat("bestTime") < 1800f));
+        achievementsList.Add(new Achievement("Sonic the HedgeFrog", "Complete the Game in 10 mins", (object o) => PlayerPrefs.GetInt("currFalls") < 600f));
     }
 
     private void Update()

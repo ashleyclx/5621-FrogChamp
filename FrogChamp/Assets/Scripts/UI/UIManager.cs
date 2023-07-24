@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     public GameObject statisticsUI;
     public GameObject scoreboardUI;
     public GameObject achievement1UI;
+    public GameObject achievement2UI;
     public GameObject mainMenuUI;
     public GameObject endUI;
 
@@ -39,7 +40,7 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         // press esc to pause
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && Checks.instance.IsGamePlaying())
         {
             // if pause screen inactive, pause
             // if pause screen already active, unpause
@@ -110,6 +111,7 @@ public class UIManager : MonoBehaviour
         statisticsUI.SetActive(false);
         scoreboardUI.SetActive(false);
         achievement1UI.SetActive(false);
+        achievement2UI.SetActive(false);
         mainMenuUI.SetActive(false);
         pauseScreen.SetActive(false);
         timerUI.SetActive(false);
@@ -142,6 +144,13 @@ public class UIManager : MonoBehaviour
     {
         ClearScreen();
         achievement1UI.SetActive(true);
+    }
+
+    // Opens up achievement 2 screen
+    public void Achievement2Screen()
+    {
+        ClearScreen();
+        achievement2UI.SetActive(true);
     }
 
     // Opens up the end game screen

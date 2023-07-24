@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class Checks : MonoBehaviour
 {
+    public static Checks instance;
+
     [Header("Script References:")]
     public Movement movement;
+
 
     // Boolean variables
     private bool isJumping = false;
     private bool isIcy = false;
     private bool isFalling = false;
+    
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public bool IsGrounded()
     {
@@ -94,6 +102,7 @@ public class Checks : MonoBehaviour
     public bool IsGamePlaying()
     {
         return (!UIManager.instance.statisticsUI.activeInHierarchy && !UIManager.instance.scoreboardUI.activeInHierarchy && !UIManager.instance.mainMenuUI.activeInHierarchy
-            && !UIManager.instance.pauseScreen.activeInHierarchy && !UIManager.instance.endUI.activeInHierarchy && !UIManager.instance.achievement1UI.activeInHierarchy);
+            && !UIManager.instance.pauseScreen.activeInHierarchy && !UIManager.instance.endUI.activeInHierarchy && !UIManager.instance.achievement1UI.activeInHierarchy 
+            && !UIManager.instance.achievement2UI.activeInHierarchy);
     }
 }

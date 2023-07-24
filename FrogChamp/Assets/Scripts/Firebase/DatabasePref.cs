@@ -18,6 +18,10 @@ public class DatabasePref : MonoBehaviour
     public TMP_Text _2CT;
     public TMP_Text _3CT;
     public TMP_Text _4CT;
+    public TMP_Text _5CT;
+    public TMP_Text _6CT;
+    public TMP_Text _7CT;
+    public TMP_Text _8CT;
 
     //Scoreboard Data
     [Header("Scoreboard Data")]
@@ -25,7 +29,7 @@ public class DatabasePref : MonoBehaviour
     public TMP_Text secondTimePlaceholder;
     public TMP_Text thirdTimePlaceholder;
 
-    private string defaultAchievement = "false false false false";
+    private string defaultAchievement = "false false false false false false false false";
 
     private void Start()
     {
@@ -157,6 +161,10 @@ public class DatabasePref : MonoBehaviour
         _2CT.text = achievementText[1];
         _3CT.text = achievementText[2];
         _4CT.text = achievementText[3];
+        _5CT.text = achievementText[4];
+        _6CT.text = achievementText[5];
+        _7CT.text = achievementText[6];
+        _8CT.text = achievementText[7];
     }
 
     private void UpdateUsername(string _username)
@@ -251,7 +259,7 @@ public class DatabasePref : MonoBehaviour
         {
             if (i == 3)
                 break;
-                
+
             PlayerPrefs.SetFloat(prefsName[i], topTimings[i]);
         }
     }
