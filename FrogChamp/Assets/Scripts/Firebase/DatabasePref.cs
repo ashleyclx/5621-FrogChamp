@@ -289,8 +289,8 @@ public class DatabasePref : MonoBehaviour
         }
 
         // Sets data for resume progress
-        StatsManager.instance.SetPosition(PlayerPrefs.GetFloat("xpos"), PlayerPrefs.GetFloat("ypos"));
-        StatsManager.instance.SetCameraPosition(PlayerPrefs.GetFloat("xcampos"), PlayerPrefs.GetFloat("ycampos"), PlayerPrefs.GetFloat("zcampos"));
+        StatsManager.instance.SetPosition(PlayerPrefs.GetFloat("xpos", -6.86f), PlayerPrefs.GetFloat("ypos", -3.69f));
+        StatsManager.instance.SetCameraPosition(PlayerPrefs.GetFloat("xcampos", 4.15f), PlayerPrefs.GetFloat("ycampos", 3f), PlayerPrefs.GetFloat("zcampos", 10f));
         StatsManager.instance.SetJumps(PlayerPrefs.GetInt("currJumps"));
         StatsManager.instance.SetFalls(PlayerPrefs.GetInt("currFalls"));
         TimeManager.instance.SetTime(PlayerPrefs.GetFloat("currTime"));
