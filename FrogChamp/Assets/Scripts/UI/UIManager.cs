@@ -51,12 +51,6 @@ public class UIManager : MonoBehaviour
             else
                 PauseGame(true);
         }
-
-        // press F5 to restart
-        if (Input.GetKeyDown(KeyCode.F5))
-        {
-            Restart();
-        }
     }
 
     #region Main Menu
