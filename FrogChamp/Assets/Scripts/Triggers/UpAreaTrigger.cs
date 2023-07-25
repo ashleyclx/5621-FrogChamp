@@ -23,7 +23,7 @@ public class UpAreaTrigger : MonoBehaviour
 
             if (collision.transform.position.y < transform.position.y)
             {
-                area.ScaleMovement(gravity, speed, jumpSpeed, horizontalJumpSpeed);
+                area.movement.ScaleMovement(gravity, speed, jumpSpeed, horizontalJumpSpeed);
                 body.velocity = new Vector2(body.velocity.x, gravity * body.velocity.y);
             }
         }

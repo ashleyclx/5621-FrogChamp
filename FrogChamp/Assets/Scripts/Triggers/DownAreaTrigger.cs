@@ -21,7 +21,7 @@ public class DownAreaTrigger : MonoBehaviour
         {
             if (collision.transform.position.y > transform.position.y)
             {
-                area.ScaleMovement(gravity, speed, jumpSpeed, horizontalJumpSpeed);
+                area.movement.ScaleMovement(gravity, speed, jumpSpeed, horizontalJumpSpeed);
             }
         }
     }
