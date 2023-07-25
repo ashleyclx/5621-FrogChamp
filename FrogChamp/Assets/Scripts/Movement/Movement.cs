@@ -217,6 +217,16 @@ public class Movement : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.Mouse0))
             grappleTongue.ReleaseGrapple();
     }
+
+
+    // Scales gravity of player by a factor
+    public void ScaleMovement(float _gravity, float _speed, float _jumpSpeed, float _horizontalJumpSpeed)
+    {
+        movement.body.gravityScale *= _gravity;
+        movement.speed *= _speed;
+        movement.jumpSpeed *= _jumpSpeed;
+        movement.horizontalJumpSpeed *= _horizontalJumpSpeed;
+    }
     #endregion
 
     #region Grapple
