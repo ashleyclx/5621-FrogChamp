@@ -222,10 +222,10 @@ public class Movement : MonoBehaviour
     // Scales gravity of player by a factor
     public void ScaleMovement(float _gravity, float _speed, float _jumpSpeed, float _horizontalJumpSpeed)
     {
-        movement.body.gravityScale *= _gravity;
-        movement.speed *= _speed;
-        movement.jumpSpeed *= _jumpSpeed;
-        movement.horizontalJumpSpeed *= _horizontalJumpSpeed;
+        body.gravityScale *= _gravity;
+        speed *= _speed;
+        jumpSpeed *= _jumpSpeed;
+        horizontalJumpSpeed *= _horizontalJumpSpeed;
     }
     #endregion
 
