@@ -19,14 +19,7 @@ public class Area : MonoBehaviour
     private bool inMarsh = false;
     private bool inSpace = false;
 
-    // Scales gravity of player by a factor
-    public void ScaleMovement(float _gravity, float _speed, float _jumpSpeed, float _horizontalJumpSpeed)
-    {
-        movement.body.gravityScale *= _gravity;
-        movement.speed *= _speed;
-        movement.jumpSpeed *= _jumpSpeed;
-        movement.horizontalJumpSpeed *= _horizontalJumpSpeed;
-    }
+
 
     // Scale player movement when entering/exiting marsh area based on y coordinate.
     // Marsh y boundary: 208 to 325
@@ -37,7 +30,7 @@ public class Area : MonoBehaviour
         {
             if (transform.position.y > marshStart && transform.position.y < marshEnd)
             {
-                ScaleMovement(ratio, ratio, ratio, 1);
+                movement.ScaleMovement(ratio, ratio, ratio, 1);
                 movement.body.velocity = new Vector2(movement.body.velocity.x, ratio * movement.body.velocity.y);
                 inMarsh = true;
             }
@@ -47,7 +40,7 @@ public class Area : MonoBehaviour
             if (transform.position.y < marshStart || transform.position.y > marshEnd)
             {
                 float inverse = 1.0f / ratio;
-                ScaleMovement(inverse, inverse, inverse, 1);
+                movement.ScaleMovement(inverse, inverse, inverse, 1);
                 movement.body.velocity = new Vector2(movement.body.velocity.x, inverse * movement.body.velocity.y);
                 inMarsh = false;
             }
@@ -75,7 +68,7 @@ public class Area : MonoBehaviour
         {
             if (transform.position.y > spaceStart && transform.position.y < spaceEnd)
             {
-                ScaleMovement(gravityRatio, speedRatio, speedRatio, speedRatio);
+                movement.ScaleMovement(gravityRatio, speedRatio, speedRatio, speedRatio);
                 movement.body.velocity = new Vector2(movement.body.velocity.x, speedRatio * movement.body.velocity.y);
                 inSpace = true;
             }
@@ -86,7 +79,7 @@ public class Area : MonoBehaviour
             {
                 float gravityInverse = 1.0f / gravityRatio;
                 float speedInverse = 1.0f / speedRatio;
-                ScaleMovement(gravityInverse, speedInverse, speedInverse, speedInverse);
+                movement.ScaleMovement(gravityInverse, speedInverse, speedInverse, speedInverse);
                 movement.body.velocity = new Vector2(movement.body.velocity.x, speedInverse * movement.body.velocity.y);
                 inSpace = false;
             }
